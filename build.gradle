@@ -17,6 +17,9 @@ configurations {
 	compileOnly {
 		extendsFrom annotationProcessor
 	}
+	provided {
+		// This configuration is typically used for dependencies that are provided by the runtime environment
+	}
 }
 
 repositories {
@@ -26,6 +29,10 @@ repositories {
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web-services'
 	implementation 'org.springframework.ws:spring-ws-core:3.1.1'
+    // Add these 2 dependencies for XJCTask
+    provided 'com.sun.xml.bind:jaxb-impl:2.3.3'
+    provided 'com.sun.xml.bind:jaxb-xjc:2.3.3'
+
 
 	// JAXB and JAX-WS dependencies
 	implementation 'javax.xml.bind:jaxb-api:2.3.1'
@@ -40,53 +47,50 @@ dependencies {
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 }
 
-// WSDL Code Generation Using wsimport
-task generateJaxb {
-	doLast {
-		// Define paths for input WSDL and XSD files and output directory
-		def wsdlFile = file("${projectDir}/src/main/resources/wsdl")
-		def xsdDir = file("${projectDir}/src/main/resources/xsd")
-		def generatedSrcDir = file("${buildDir}/generated-sources")
 
-		// Ensure the output directory exists
-		if (!generatedSrcDir.exists()) {
-			generatedSrcDir.mkdirs()
-		}
 
-		// Define paths for wsimport and xjc tasks
-		def wsimportPath = "${System.getenv('JAVA_HOME')}/bin/wsimport"
-		def xjcPath = "${System.getenv('JAVA_HOME')}/bin/xjc"
+//def generatedSrcDir = file("${buildDir}/generated-src")
+def generatedSrcDir = file("${buildDir}/generated-sources")
 
-		// JAXB generation using wsimport
-		exec {
-			commandLine wsimportPath, '-keep', '-d', generatedSrcDir, '-p', 'com.soap.generated', "-extension", "${wsdlFile}/*.wsdl"
-		}
 
-		// XSD generation using xjc
-		exec {
-			commandLine xjcPath, '-d', generatedSrcDir, '-p', 'com.soap.generated', "${xsdDir}/*.xsd"
-//			commandLine xjcPath, '-d', generatedSrcDir, '-p', 'com.soap.generated', "${xsdDir}"
-		}
-	}
+task jaxb {
+    doLast {
+        generatedSrcDir.mkdirs()
+        ant.taskdef(name: 'xjc', classname: 'com.sun.tools.xjc.XJCTask', classpath: configurations.provided.asPath)
+
+        ant.xjc(destdir: generatedSrcDir) {
+            schema(dir: 'src/main/resources/xsd', includes: '**/*.xsd')
+        }
+
+        ant.xjc(destdir: generatedSrcDir) { // Use xjc again for WSDL
+            schema(dir: 'src/main/resources/wsdl', includes: '**/*.wsdl')
+            arg(value: "-wsdl")
+        }
+    }
 }
 
 // Create the source set for the generated Java files
 task generateSources {
-	dependsOn generateJaxb
+    dependsOn jaxb
 }
 
-sourceSets.main.java.srcDirs += file("${buildDir}/generated-sources")
+// Add the generated source directory to the main source set
+//sourceSets.main.java.srcDirs += generateSources.ext.generatedSrcDir
+sourceSets.main.java.srcDirs += generatedSrcDir
+
 
 // Make sure the generated sources are compiled before other Java sources
 compileJava.dependsOn generateSources
 
-
-// Ensure that JAXB classes are generated before compiling Java
 tasks.named('compileJava') {
-	dependsOn 'generateJaxb'
-	source += file("${buildDir}/generated-sources")
+    dependsOn 'jaxb'
+    // Change this
+    // source += generateSources.ext.generatedSrcDir
+    // To this
+    source += fileTree(generatedSrcDir)
 }
 
+
 tasks.named('test') {
-	useJUnitPlatform()
+    useJUnitPlatform()
 }
