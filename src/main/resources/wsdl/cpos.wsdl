@@ -1,0 +1,220 @@
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                  xmlns:tns="http://www.zillione.com/lk/services/"
+                  xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl"
+                  targetNamespace="http://www.zillione.com/lk/services/">
+    <wsdl:types>
+        <xsd:schema targetNamespace="http://www.zillione.com/lk/services/Imports">
+            <xsd:import schemaLocation="../schema/DMSService0.xsd" namespace="http://www.zillione.com/lk/services/"/>
+            <xsd:import schemaLocation="../schema/DMSService1.xsd" namespace="http://schemas.microsoft.com/2003/10/Serialization/"/>
+            <xsd:import schemaLocation="../schema/DMSService2.xsd" namespace="http://schemas.datacontract.org/2004/07/Zbs.Dcpos.DataContract.Dms"/>
+            <xsd:import schemaLocation="../schema/DMSService3.xsd" namespace="http://schemas.datacontract.org/2004/07/Zbs.Dcpos.DataContract.Warehouse"/>
+        </xsd:schema>
+    </wsdl:types>
+    <wsdl:message name="IDmsServices_CreateMaterialCategory_InputMessage">
+        <wsdl:part name="parameters" element="tns:CreateMaterialCategory"/>
+    </wsdl:message>
+    <wsdl:message name="IDmsServices_CreateMaterialCategory_OutputMessage">
+        <wsdl:part name="parameters" element="tns:CreateMaterialCategoryResponse"/>
+    </wsdl:message>
+    <wsdl:message name="IDmsServices_GenMaterials_InputMessage">
+        <wsdl:part name="parameters" element="tns:GenMaterials"/>
+    </wsdl:message>
+    <wsdl:message name="IDmsServices_GenMaterials_OutputMessage">
+        <wsdl:part name="parameters" element="tns:GenMaterialsResponse"/>
+    </wsdl:message>
+    <wsdl:message name="IDmsServices_AddUpdateSalesPerson_InputMessage">
+        <wsdl:part name="parameters" element="tns:AddUpdateSalesPerson"/>
+    </wsdl:message>
+    <wsdl:message name="IDmsServices_AddUpdateSalesPerson_OutputMessage">
+        <wsdl:part name="parameters" element="tns:AddUpdateSalesPersonResponse"/>
+    </wsdl:message>
+    <wsdl:message name="IDmsServices_OutletDetails_InputMessage">
+        <wsdl:part name="parameters" element="tns:OutletDetails"/>
+    </wsdl:message>
+    <wsdl:message name="IDmsServices_OutletDetails_OutputMessage">
+        <wsdl:part name="parameters" element="tns:OutletDetailsResponse"/>
+    </wsdl:message>
+    <wsdl:message name="IDmsServices_ReserveMat_InputMessage">
+        <wsdl:part name="parameters" element="tns:ReserveMat"/>
+    </wsdl:message>
+    <wsdl:message name="IDmsServices_ReserveMat_OutputMessage">
+        <wsdl:part name="parameters" element="tns:ReserveMatResponse"/>
+    </wsdl:message>
+    <wsdl:message name="IDmsServices_ConfirmRes_InputMessage">
+        <wsdl:part name="parameters" element="tns:ConfirmRes"/>
+    </wsdl:message>
+    <wsdl:message name="IDmsServices_ConfirmRes_OutputMessage">
+        <wsdl:part name="parameters" element="tns:ConfirmResResponse"/>
+    </wsdl:message>
+    <wsdl:message name="IDmsServices_CancelReservation_InputMessage">
+        <wsdl:part name="parameters" element="tns:CancelReservation"/>
+    </wsdl:message>
+    <wsdl:message name="IDmsServices_CancelReservation_OutputMessage">
+        <wsdl:part name="parameters" element="tns:CancelReservationResponse"/>
+    </wsdl:message>
+    <wsdl:message name="IDmsServices_StockMovement_InputMessage">
+        <wsdl:part name="parameters" element="tns:StockMovement"/>
+    </wsdl:message>
+    <wsdl:message name="IDmsServices_StockMovement_OutputMessage">
+        <wsdl:part name="parameters" element="tns:StockMovementResponse"/>
+    </wsdl:message>
+    <wsdl:message name="IDmsServices_ValidateMaterialItem_InputMessage">
+        <wsdl:part name="parameters" element="tns:ValidateMaterialItem"/>
+    </wsdl:message>
+    <wsdl:message name="IDmsServices_ValidateMaterialItem_OutputMessage">
+        <wsdl:part name="parameters" element="tns:ValidateMaterialItemResponse"/>
+    </wsdl:message>
+    <wsdl:message name="IDmsServices_ValidateMaterial_InputMessage">
+        <wsdl:part name="parameters" element="tns:ValidateMaterial"/>
+    </wsdl:message>
+    <wsdl:message name="IDmsServices_ValidateMaterial_OutputMessage">
+        <wsdl:part name="parameters" element="tns:ValidateMaterialResponse"/>
+    </wsdl:message>
+    <wsdl:message name="IDmsServices_GetSerialsByBundleSerial_InputMessage">
+        <wsdl:part name="parameters" element="tns:GetSerialsByBundleSerial"/>
+    </wsdl:message>
+    <wsdl:message name="IDmsServices_GetSerialsByBundleSerial_OutputMessage">
+        <wsdl:part name="parameters" element="tns:GetSerialsByBundleSerialResponse"/>
+    </wsdl:message>
+    <wsdl:message name="IDmsServices_TransInventory_InputMessage">
+        <wsdl:part name="parameters" element="tns:TransInventory"/>
+    </wsdl:message>
+    <wsdl:message name="IDmsServices_TransInventory_OutputMessage">
+        <wsdl:part name="parameters" element="tns:TransInventoryResponse"/>
+    </wsdl:message>
+    <wsdl:message name="IDmsServices_AcceptTransfer_InputMessage">
+        <wsdl:part name="parameters" element="tns:AcceptTransfer"/>
+    </wsdl:message>
+    <wsdl:message name="IDmsServices_AcceptTransfer_OutputMessage">
+        <wsdl:part name="parameters" element="tns:AcceptTransferResponse"/>
+    </wsdl:message>
+    <wsdl:message name="IDmsServices_DoItemTransfer_InputMessage">
+        <wsdl:part name="parameters" element="tns:DoItemTransfer"/>
+    </wsdl:message>
+    <wsdl:message name="IDmsServices_DoItemTransfer_OutputMessage">
+        <wsdl:part name="parameters" element="tns:DoItemTransferResponse"/>
+    </wsdl:message>
+    <wsdl:message name="IDmsServices_ValidateMaterialSerials_InputMessage">
+        <wsdl:part name="parameters" element="tns:ValidateMaterialSerials"/>
+    </wsdl:message>
+    <wsdl:message name="IDmsServices_ValidateMaterialSerials_OutputMessage">
+        <wsdl:part name="parameters" element="tns:ValidateMaterialSerialsResponse"/>
+    </wsdl:message>
+    <wsdl:message name="IDmsServices_SapValidateSerial_InputMessage">
+        <wsdl:part name="parameters" element="tns:SapValidateSerial"/>
+    </wsdl:message>
+    <wsdl:message name="IDmsServices_SapValidateSerial_OutputMessage">
+        <wsdl:part name="parameters" element="tns:SapValidateSerialResponse"/>
+    </wsdl:message>
+    <wsdl:message name="IDmsServices_CheckInventoryAvailability_InputMessage">
+        <wsdl:part name="parameters" element="tns:CheckInventoryAvailability"/>
+    </wsdl:message>
+    <wsdl:message name="IDmsServices_CheckInventoryAvailability_OutputMessage">
+        <wsdl:part name="parameters" element="tns:CheckInventoryAvailabilityResponse"/>
+    </wsdl:message>
+    <wsdl:portType name="IDmsServices">
+        <wsdl:operation name="CreateMaterialCategory">
+            <wsdl:input wsaw:Action="http://www.zillione.com/lk/services/IDmsServices/CreateMaterialCategory"
+                        message="tns:IDmsServices_CreateMaterialCategory_InputMessage"/>
+            <wsdl:output wsaw:Action="http://www.zillione.com/lk/services/IDmsServices/CreateMaterialCategoryResponse"
+                         message="tns:IDmsServices_CreateMaterialCategory_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="GenMaterials">
+            <wsdl:input wsaw:Action="http://www.zillione.com/lk/services/IDmsServices/GenMaterials"
+                        message="tns:IDmsServices_GenMaterials_InputMessage"/>
+            <wsdl:output wsaw:Action="http://www.zillione.com/lk/services/IDmsServices/GenMaterialsResponse"
+                         message="tns:IDmsServices_GenMaterials_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="AddUpdateSalesPerson">
+            <wsdl:input wsaw:Action="http://www.zillione.com/lk/services/IDmsServices/AddUpdateSalesPerson"
+                        message="tns:IDmsServices_AddUpdateSalesPerson_InputMessage"/>
+            <wsdl:output wsaw:Action="http://www.zillione.com/lk/services/IDmsServices/AddUpdateSalesPersonResponse"
+                         message="tns:IDmsServices_AddUpdateSalesPerson_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="OutletDetails">
+            <wsdl:input wsaw:Action="http://www.zillione.com/lk/services/IDmsServices/OutletDetails"
+                        message="tns:IDmsServices_OutletDetails_InputMessage"/>
+            <wsdl:output wsaw:Action="http://www.zillione.com/lk/services/IDmsServices/OutletDetailsResponse"
+                         message="tns:IDmsServices_OutletDetails_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="ReserveMat">
+            <wsdl:input wsaw:Action="http://www.zillione.com/lk/services/IDmsServices/ReserveMat"
+                        message="tns:IDmsServices_ReserveMat_InputMessage"/>
+            <wsdl:output wsaw:Action="http://www.zillione.com/lk/services/IDmsServices/ReserveMatResponse"
+                         message="tns:IDmsServices_ReserveMat_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="ConfirmRes">
+            <wsdl:input wsaw:Action="http://www.zillione.com/lk/services/IDmsServices/ConfirmRes"
+                        message="tns:IDmsServices_ConfirmRes_InputMessage"/>
+            <wsdl:output wsaw:Action="http://www.zillione.com/lk/services/IDmsServices/ConfirmResResponse"
+                         message="tns:IDmsServices_ConfirmRes_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="CancelReservation">
+            <wsdl:input wsaw:Action="http://www.zillione.com/lk/services/IDmsServices/CancelReservation"
+                        message="tns:IDmsServices_CancelReservation_InputMessage"/>
+            <wsdl:output wsaw:Action="http://www.zillione.com/lk/services/IDmsServices/CancelReservationResponse"
+                         message="tns:IDmsServices_CancelReservation_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="StockMovement">
+            <wsdl:input wsaw:Action="http://www.zillione.com/lk/services/IDmsServices/StockMovement"
+                        message="tns:IDmsServices_StockMovement_InputMessage"/>
+            <wsdl:output wsaw:Action="http://www.zillione.com/lk/services/IDmsServices/StockMovementResponse"
+                         message="tns:IDmsServices_StockMovement_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="ValidateMaterialItem">
+            <wsdl:input wsaw:Action="http://www.zillione.com/lk/services/IDmsServices/ValidateMaterialItem"
+                        message="tns:IDmsServices_ValidateMaterialItem_InputMessage"/>
+            <wsdl:output wsaw:Action="http://www.zillione.com/lk/services/IDmsServices/ValidateMaterialItemResponse"
+                         message="tns:IDmsServices_ValidateMaterialItem_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="ValidateMaterial">
+            <wsdl:input wsaw:Action="http://www.zillione.com/lk/services/IDmsServices/ValidateMaterial"
+                        message="tns:IDmsServices_ValidateMaterial_InputMessage"/>
+            <wsdl:output wsaw:Action="http://www.zillione.com/lk/services/IDmsServices/ValidateMaterialResponse"
+                         message="tns:IDmsServices_ValidateMaterial_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="GetSerialsByBundleSerial">
+            <wsdl:input wsaw:Action="http://www.zillione.com/lk/services/IDmsServices/GetSerialsByBundleSerial"
+                        message="tns:IDmsServices_GetSerialsByBundleSerial_InputMessage"/>
+            <wsdl:output wsaw:Action="http://www.zillione.com/lk/services/IDmsServices/GetSerialsByBundleSerialResponse"
+                         message="tns:IDmsServices_GetSerialsByBundleSerial_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="TransInventory">
+            <wsdl:input wsaw:Action="http://www.zillione.com/lk/services/IDmsServices/TransInventory"
+                        message="tns:IDmsServices_TransInventory_InputMessage"/>
+            <wsdl:output wsaw:Action="http://www.zillione.com/lk/services/IDmsServices/TransInventoryResponse"
+                         message="tns:IDmsServices_TransInventory_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="AcceptTransfer">
+            <wsdl:input wsaw:Action="http://www.zillione.com/lk/services/IDmsServices/AcceptTransfer"
+                        message="tns:IDmsServices_AcceptTransfer_InputMessage"/>
+            <wsdl:output wsaw:Action="http://www.zillione.com/lk/services/IDmsServices/AcceptTransferResponse"
+                         message="tns:IDmsServices_AcceptTransfer_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="DoItemTransfer">
+            <wsdl:input wsaw:Action="http://www.zillione.com/lk/services/IDmsServices/DoItemTransfer"
+                        message="tns:IDmsServices_DoItemTransfer_InputMessage"/>
+            <wsdl:output wsaw:Action="http://www.zillione.com/lk/services/IDmsServices/DoItemTransferResponse"
+                         message="tns:IDmsServices_DoItemTransfer_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="ValidateMaterialSerials">
+            <wsdl:input wsaw:Action="http://www.zillione.com/lk/services/IDmsServices/ValidateMaterialSerials"
+                        message="tns:IDmsServices_ValidateMaterialSerials_InputMessage"/>
+            <wsdl:output wsaw:Action="http://www.zillione.com/lk/services/IDmsServices/ValidateMaterialSerialsResponse"
+                         message="tns:IDmsServices_ValidateMaterialSerials_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="SapValidateSerial">
+            <wsdl:input wsaw:Action="http://www.zillione.com/lk/services/IDmsServices/SapValidateSerial"
+                        message="tns:IDmsServices_SapValidateSerial_InputMessage"/>
+            <wsdl:output wsaw:Action="http://www.zillione.com/lk/services/IDmsServices/SapValidateSerialResponse"
+                         message="tns:IDmsServices_SapValidateSerial_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="CheckInventoryAvailability">
+            <wsdl:input wsaw:Action="http://www.zillione.com/lk/services/IDmsServices/CheckInventoryAvailability"
+                        message="tns:IDmsServices_CheckInventoryAvailability_InputMessage"/>
+            <wsdl:output
+                    wsaw:Action="http://www.zillione.com/lk/services/IDmsServices/CheckInventoryAvailabilityResponse"
+                    message="tns:IDmsServices_CheckInventoryAvailability_OutputMessage"/>
+        </wsdl:operation>
+    </wsdl:portType>
+</wsdl:definitions>

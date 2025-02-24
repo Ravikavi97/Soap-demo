@@ -1,0 +1,107 @@
+<xs:schema elementFormDefault="qualified"
+           targetNamespace="http://common.org/"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:tns="http://common.org/">
+    <xs:import schemaLocation="DMSSalesAppService2.xsd"
+               namespace="http://schemas.datacontract.org/2004/07/DMSSalesAppIntegrationService.Contact"/>
+    <xs:simpleType name="ItemStatus">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="NEW">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1</EnumerationValue>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="USED">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">2</EnumerationValue>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="FAULTY">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">3</EnumerationValue>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:element name="DoItemTransferRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" name="FromMSISDN" nillable="true" type="xs:string"/>
+                <xs:element minOccurs="0" name="FromProfileID" type="xs:int"/>
+                <xs:element minOccurs="0" name="ItemStatus" type="tns:ItemStatus"
+                />
+                <xs:element minOccurs="0" name="Items" nillable="true" type="q28:ArrayOfDoItemTransferItem"
+                            xmlns:q28="http://schemas.datacontract.org/2004/07/DMSSalesAppIntegrationService.Contact"/>
+                <xs:element minOccurs="0" name="RequestId" nillable="true" type="xs:string"/>
+                <xs:element minOccurs="0" name="ToMSISDN" nillable="true" type="xs:string"/>
+                <xs:element minOccurs="0" name="ToProfileID" type="xs:int"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="DoItemTransferResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string"/>
+                <xs:element minOccurs="0" name="FailReason" nillable="true" type="xs:string"/>
+                <xs:element minOccurs="0" name="RequestId" nillable="true" type="xs:string"/>
+                <xs:element minOccurs="0" name="StatusDesc" nillable="true" type="xs:string"/>
+                <xs:element minOccurs="0" name="StatusID" type="xs:int"/>
+                <xs:element minOccurs="0" name="Success" type="xs:boolean"/>
+                <xs:element minOccurs="0" name="TransactionID" type="xs:long"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="GetItemTransferInfoRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" name="RequestId" nillable="true" type="xs:string"/>
+                <xs:element minOccurs="0" name="ToMSISDN" nillable="true" type="xs:string"/>
+                <xs:element minOccurs="0" name="ToProfileID" type="xs:int"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="GetItemTransferInfoResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string"/>
+                <xs:element minOccurs="0" name="RequestId" nillable="true" type="xs:string"/>
+                <xs:element minOccurs="0" name="Success" type="xs:boolean"/>
+                <xs:element minOccurs="0" name="TransferInfo" nillable="true" type="q29:ArrayOfTransferInfo"
+                            xmlns:q29="http://schemas.datacontract.org/2004/07/DMSSalesAppIntegrationService.Contact"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="AcceptItemTransferRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" name="RecipientMSISDN" nillable="true" type="xs:string"/>
+                <xs:element minOccurs="0" name="RecipientProfileID" type="xs:int"/>
+                <xs:element minOccurs="0" name="RequestId" nillable="true" type="xs:string"/>
+                <xs:element minOccurs="0" name="TransactionID" type="xs:long"/>
+                <xs:element minOccurs="0" name="TransferAcceptanceStatus" type="xs:int"/>
+                <xs:element minOccurs="0" name="TransferDetails" nillable="true"
+                            type="q30:ArrayOfAcceptItemTransferDetails"
+                            xmlns:q30="http://schemas.datacontract.org/2004/07/DMSSalesAppIntegrationService.Contact"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="AcceptItemTransferResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string"/>
+                <xs:element minOccurs="0" name="FailReason" nillable="true" type="xs:string"/>
+                <xs:element minOccurs="0" name="RequestId" nillable="true" type="xs:string"/>
+                <xs:element minOccurs="0" name="StatusDesc" nillable="true" type="xs:string"/>
+                <xs:element minOccurs="0" name="StatusID" type="xs:int"/>
+                <xs:element minOccurs="0" name="Success" type="xs:boolean"/>
+                <xs:element minOccurs="0" name="TransactionID" type="xs:long"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

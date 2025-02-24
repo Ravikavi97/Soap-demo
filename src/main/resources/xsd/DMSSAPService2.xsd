@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           elementFormDefault="qualified" targetNamespace="http://Dialog.DMS.Integration.OutBound.Sap">
+    <xs:import schemaLocation="./DMSSAPService4.xsd"
+               namespace="http://schemas.datacontract.org/2004/07/DMSSAPIntegrationService"/>
+    <xs:import schemaLocation="DMSSAPService1.xsd"
+               namespace="http://schemas.datacontract.org/2004/07/Dialog.Dms.Business.BusinessObject.Inventory"/>
+    <xs:element name="SetOrderSuccessfullyReceivedRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" name="OrderId" type="xs:int"/>
+                <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/DMSSAPIntegrationService" minOccurs="0"
+                            name="OrderType" type="q1:SapOrderType"/>
+                <xs:element minOccurs="0" name="RequestClient" nillable="true" type="xs:string"/>
+                <xs:element minOccurs="0" name="RequestId" nillable="true" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="SetOrderSuccessfullyReceivedResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string"/>
+                <xs:element minOccurs="0" name="RequestId" nillable="true" type="xs:string"/>
+                <xs:element minOccurs="0" name="Success" type="xs:boolean"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="STOItemIssue">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/DMSSAPIntegrationService" minOccurs="0"
+                            name="ReqHeader" nillable="true" type="q2:STOItemIssueRequestHeader"/>
+                <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/DMSSAPIntegrationService" minOccurs="0"
+                            name="Request" nillable="true" type="q3:ArrayOfSTOItemIssueRequestDetail"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="STOItemIssueResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/DMSSAPIntegrationService" minOccurs="0"
+                            name="STOItemIssueResult" nillable="true" type="q4:ActionResponce"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="StoDirectIssuence">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/DMSSAPIntegrationService" minOccurs="0"
+                            name="ReqHeader" nillable="true" type="q5:DirectIssuenceReqHeader"/>
+                <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/DMSSAPIntegrationService" minOccurs="0"
+                            name="ReqDetail" nillable="true" type="q6:ArrayOfDirectIssuenceReqDetail"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="StoDirectIssuenceResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/DMSSAPIntegrationService" minOccurs="0"
+                            name="StoDirectIssuenceResult" nillable="true" type="q7:ActionResponce"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="StoUnsoldReturnAcceptance">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/DMSSAPIntegrationService" minOccurs="0"
+                            name="ReqHeader" nillable="true" type="q8:StoUnsoldReturnAccepRequestHeader"/>
+                <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/DMSSAPIntegrationService" minOccurs="0"
+                            name="ReqDetail" nillable="true" type="q9:ArrayOfStoUnsoldReturnAccepRequestDetail"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="StoUnsoldReturnAcceptanceResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/DMSSAPIntegrationService" minOccurs="0"
+                            name="StoUnsoldReturnAcceptanceResult" nillable="true" type="q10:ActionResponce"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="InvoiceItemIssuences">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/DMSSAPIntegrationService" minOccurs="0"
+                            name="ReqHeader" nillable="true" type="q11:InvoiceItemIssueHeaderReq"/>
+                <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/DMSSAPIntegrationService" minOccurs="0"
+                            name="ReqDetail" nillable="true" type="q12:ArrayOfInvoiceItemIssueDetailReq"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="InvoiceItemIssuencesResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/DMSSAPIntegrationService" minOccurs="0"
+                            name="InvoiceItemIssuencesResult" nillable="true" type="q13:InvoiceItemIssueResponse"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="ReceiptCreation">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/DMSSAPIntegrationService" minOccurs="0"
+                            name="ReqHeader" nillable="true" type="q14:ReceiptCreationRequest"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="ReceiptCreationResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/DMSSAPIntegrationService" minOccurs="0"
+                            name="ReceiptCreationResult" nillable="true" type="q15:ReceiptCreationResponse"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="GetConsignmentInfoReq">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" name="ExtractedDate" nillable="true" type="xs:string"/>
+                <xs:element minOccurs="0" name="RequestClient" nillable="true" type="xs:string"/>
+                <xs:element minOccurs="0" name="RequestId" nillable="true" type="xs:string"/>
+                <xs:element minOccurs="0" name="SalesOrderIdentifire" nillable="true" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="GetConsignmentInfoRes">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string"/>
+                <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/DMSSAPIntegrationService" minOccurs="0"
+                            name="InfoList" nillable="true" type="q16:ArrayOfConsignResponseHeader"/>
+                <xs:element minOccurs="0" name="RequestId" nillable="true" type="xs:string"/>
+                <xs:element minOccurs="0" name="Success" type="xs:boolean"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="ConsignmentUpdate">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/DMSSAPIntegrationService" minOccurs="0"
+                            name="Request" nillable="true" type="q17:ArrayOfConsignmentStatusUpdateReq"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="ConsignmentUpdateResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/DMSSAPIntegrationService" minOccurs="0"
+                            name="ConsignmentUpdateResult" nillable="true" type="q18:ConsignUpdateResponse"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="SapItemCreationRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" name="MaterialCode" nillable="true" type="xs:string"/>
+                <xs:element minOccurs="0" name="MaterialName" nillable="true" type="xs:string"/>
+                <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/DMSSAPIntegrationService" minOccurs="0"
+                            name="SBU" type="q19:SBUList"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="SapItemCreationResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string"/>
+                <xs:element minOccurs="0" name="MaterialCode" nillable="true" type="xs:string"/>
+                <xs:element minOccurs="0" name="RequestId" nillable="true" type="xs:string"/>
+                <xs:element minOccurs="0" name="Success" type="xs:boolean"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="PurchaseOrderPayInfoRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" name="CommisionValue" type="xs:double"/>
+                <xs:element minOccurs="0" name="InvoiceAmount" type="xs:double"/>
+                <xs:element minOccurs="0" name="InvoiceID" nillable="true" type="xs:string"/>
+                <xs:element
+                        xmlns:q20="http://schemas.datacontract.org/2004/07/Dialog.Dms.Business.BusinessObject.Inventory"
+                        minOccurs="0" name="ItemsList" nillable="true" type="q20:ArrayOfDummyItem"/>
+                <xs:element minOccurs="0" name="POID" type="xs:int"/>
+                <xs:element minOccurs="0" name="RequestClient" nillable="true" type="xs:string"/>
+                <xs:element minOccurs="0" name="RequestId" nillable="true" type="xs:string"/>
+                <xs:element minOccurs="0" name="SAPStatusId" type="xs:int"/>
+                <xs:element minOccurs="0" name="SalesOrderID" nillable="true" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="PurchaseOrderPaymentInfoResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" name="PONumber" type="xs:int"/>
+                <xs:element minOccurs="0" name="ResponseDesc" nillable="true" type="xs:string"/>
+                <xs:element minOccurs="0" name="ResponseStatusID" type="xs:int"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="ConsignmentFillUpPOItemIssuences">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/DMSSAPIntegrationService" minOccurs="0"
+                            name="reqHeader" nillable="true" type="q21:ConFillUpInvoiceItemIssueHeaderReq"/>
+                <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/DMSSAPIntegrationService" minOccurs="0"
+                            name="reqDetail" nillable="true" type="q22:ArrayOfConFillUpInvoiceItemIssueDetailReq"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="ConsignmentFillUpPOItemIssuencesResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/DMSSAPIntegrationService" minOccurs="0"
+                            name="ConsignmentFillUpPOItemIssuencesResult" nillable="true"
+                            type="q23:ConFillUpInvoiceItemIssueResponse"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="ConsignmentFillUpPOCancel">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/DMSSAPIntegrationService" minOccurs="0"
+                            name="reqCancel" nillable="true" type="q24:ConsignmentFillUpPOCancelRequest"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="ConsignmentFillUpPOCancelResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element xmlns:q25="http://schemas.datacontract.org/2004/07/DMSSAPIntegrationService" minOccurs="0"
+                            name="ConsignmentFillUpPOCancelResult" nillable="true"
+                            type="q25:ConsignmentFillUpPOCancelResponse"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

@@ -1,0 +1,53 @@
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/"
+             xmlns:xs="http://www.w3.org/2001/XMLSchema"
+             xmlns:tns="http://www.soap.com/service"
+             xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+             targetNamespace="http://www.soap.com/service">
+
+    <!-- Define types and import external XSD -->
+    <types>
+        <xs:schema targetNamespace="http://www.soap.com/service" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <!-- Fix the namespace in the import element -->
+            <xs:import namespace="http://www.soap.com/service" schemaLocation="../xsd/service.xsd"/>
+
+        </xs:schema>
+    </types>
+
+    <!-- Define messages -->
+    <message name="getHelloRequest">
+        <part name="parameters" element="tns:getHelloRequest"/>
+    </message>
+    <message name="getHelloResponse">
+        <part name="parameters" element="tns:getHelloResponse"/>
+    </message>
+
+    <!-- Define the port type (operations) -->
+    <portType name="HelloServicePort">
+        <operation name="getHello">
+            <input message="tns:getHelloRequest"/>
+            <output message="tns:getHelloResponse"/>
+        </operation>
+    </portType>
+
+    <!-- Define the binding (SOAP details) -->
+    <binding name="HelloServiceBinding" type="tns:HelloServicePort">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <operation name="getHello">
+            <soap:operation soapAction="http://www.soap.com/service/getHello"/>
+            <input>
+                <soap:body use="literal"/>
+            </input>
+            <output>
+                <soap:body use="literal"/>
+            </output>
+        </operation>
+    </binding>
+
+    <!-- Define the service -->
+    <service name="HelloService">
+        <port name="HelloServicePort" binding="tns:HelloServiceBinding">
+            <soap:address location="http://localhost:52979/ws/helloService"/>
+        </port>
+    </service>
+
+</definitions>

@@ -1,0 +1,296 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.zillione.com/lk/services/" elementFormDefault="qualified" targetNamespace="http://www.zillione.com/lk/services/">
+<xs:import schemaLocation="./DMSService2.xsd" namespace="http://schemas.datacontract.org/2004/07/Zbs.Dcpos.DataContract.Dms"/>
+<xs:import schemaLocation="./DMSService3.xsd" namespace="http://schemas.datacontract.org/2004/07/Zbs.Dcpos.DataContract.Warehouse"/>
+<xs:element name="CreateMaterialCategory">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="objRequest" nillable="true" type="tns:MaterialCategoryCreationRequest"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:complexType name="MaterialCategoryCreationRequest">
+<xs:sequence>
+<xs:element minOccurs="0" name="ItemCategoryCode" type="xs:int"/>
+<xs:element minOccurs="0" name="ItemCategoryDesc" nillable="true" type="xs:string"/>
+<xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Zbs.Dcpos.DataContract.Dms" minOccurs="0" name="Status" type="q1:Status"/>
+</xs:sequence>
+</xs:complexType>
+<xs:element name="MaterialCategoryCreationRequest" nillable="true" type="tns:MaterialCategoryCreationRequest"/>
+<xs:element name="CreateMaterialCategoryResponse">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="CreateMaterialCategoryResult" nillable="true" type="tns:MaterialCategoryCreationResponse"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:complexType name="MaterialCategoryCreationResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="ErrorCode" type="xs:int"/>
+<xs:element minOccurs="0" name="ErrorDescription" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="Success" type="xs:boolean"/>
+</xs:sequence>
+</xs:complexType>
+<xs:element name="MaterialCategoryCreationResponse" nillable="true" type="tns:MaterialCategoryCreationResponse"/>
+<xs:element name="GenMaterials">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="objCreateMaterials" nillable="true" type="tns:MaterialCreationRequest"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:complexType name="MaterialCreationRequest">
+<xs:sequence>
+<xs:element name="ItemCode" nillable="true" type="xs:string"/>
+<xs:element name="ItemDesc" nillable="true" type="xs:string"/>
+<xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/Zbs.Dcpos.DataContract.Dms" minOccurs="0" name="SBU" type="q2:SBU"/>
+<xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/Zbs.Dcpos.DataContract.Dms" minOccurs="0" name="VendorType" type="q3:VendorType"/>
+<xs:element name="ItemCategory" type="xs:int"/>
+<xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/Zbs.Dcpos.DataContract.Dms" minOccurs="0" name="IsTangibleItem" type="q4:ItemType"/>
+<xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/Zbs.Dcpos.DataContract.Dms" minOccurs="0" name="IsSerialNoReq" type="q5:SerialNoReq"/>
+<xs:element name="DefaultWarranty" type="xs:int"/>
+<xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/Zbs.Dcpos.DataContract.Dms" minOccurs="0" name="Status" type="q6:Status"/>
+</xs:sequence>
+</xs:complexType>
+<xs:element name="MaterialCreationRequest" nillable="true" type="tns:MaterialCreationRequest"/>
+<xs:element name="GenMaterialsResponse">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="GenMaterialsResult" nillable="true" type="tns:MaterialCreationResponse"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:complexType name="MaterialCreationResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="ErrorCode" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="ErrorDescription" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="Status" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+<xs:element name="MaterialCreationResponse" nillable="true" type="tns:MaterialCreationResponse"/>
+<xs:element name="AddUpdateSalesPerson">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="objPersonCreation" nillable="true" type="tns:SalesPersonCreationRequest"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:complexType name="SalesPersonCreationRequest">
+<xs:sequence>
+<xs:element name="SalesPersanCode" type="xs:int"/>
+<xs:element minOccurs="0" name="SalesPersanName" nillable="true" type="xs:string"/>
+<xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/Zbs.Dcpos.DataContract.Dms" minOccurs="0" name="Inactive" type="q7:Status"/>
+</xs:sequence>
+</xs:complexType>
+<xs:element name="SalesPersonCreationRequest" nillable="true" type="tns:SalesPersonCreationRequest"/>
+<xs:element name="AddUpdateSalesPersonResponse">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="AddUpdateSalesPersonResult" nillable="true" type="tns:SalesPersonCreationResponse"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:complexType name="SalesPersonCreationResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="ErrorCode" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="ErrorDescription" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="Status" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+<xs:element name="SalesPersonCreationResponse" nillable="true" type="tns:SalesPersonCreationResponse"/>
+<xs:element name="OutletDetails">
+<xs:complexType>
+<xs:sequence>
+<xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/Zbs.Dcpos.DataContract.Dms" minOccurs="0" name="objOutletDetailsRequest" nillable="true" type="q8:OutletDetailsRequest"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="OutletDetailsResponse">
+<xs:complexType>
+<xs:sequence>
+<xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/Zbs.Dcpos.DataContract.Dms" minOccurs="0" name="OutletDetailsResult" nillable="true" type="q9:OutletDetailsResponce"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="ReserveMat">
+<xs:complexType>
+<xs:sequence>
+<xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/Zbs.Dcpos.DataContract.Dms" minOccurs="0" name="resMatRequest" nillable="true" type="q10:RetrieveMaterialAvailabilityRequest"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="ReserveMatResponse">
+<xs:complexType>
+<xs:sequence>
+<xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/Zbs.Dcpos.DataContract.Dms" minOccurs="0" name="ReserveMatResult" nillable="true" type="q11:RetrieveMaterialAvailabilityResponse"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="ConfirmRes">
+<xs:complexType>
+<xs:sequence>
+<xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/Zbs.Dcpos.DataContract.Dms" minOccurs="0" name="confirmMaterialRes" nillable="true" type="q12:ConfirmMaterialResRequest"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="ConfirmResResponse">
+<xs:complexType>
+<xs:sequence>
+<xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/Zbs.Dcpos.DataContract.Dms" minOccurs="0" name="ConfirmResResult" nillable="true" type="q13:ConfirmMaterialResResponse"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="CancelReservation">
+<xs:complexType>
+<xs:sequence>
+<xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/Zbs.Dcpos.DataContract.Dms" minOccurs="0" name="objRequest" nillable="true" type="q14:ResCancelRequest"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="CancelReservationResponse">
+<xs:complexType>
+<xs:sequence>
+<xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/Zbs.Dcpos.DataContract.Dms" minOccurs="0" name="CancelReservationResult" nillable="true" type="q15:ResCancelResponse"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="StockMovement">
+<xs:complexType>
+<xs:sequence>
+<xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/Zbs.Dcpos.DataContract.Dms" minOccurs="0" name="objRequest" nillable="true" type="q16:StockMovementRequest"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="StockMovementResponse">
+<xs:complexType>
+<xs:sequence>
+<xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/Zbs.Dcpos.DataContract.Dms" minOccurs="0" name="StockMovementResult" nillable="true" type="q17:StockMovementResponse"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="ValidateMaterialItem">
+<xs:complexType>
+<xs:sequence>
+<xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/Zbs.Dcpos.DataContract.Dms" minOccurs="0" name="objRequest" nillable="true" type="q18:ValidateMaterialItemRequest"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="ValidateMaterialItemResponse">
+<xs:complexType>
+<xs:sequence>
+<xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/Zbs.Dcpos.DataContract.Dms" minOccurs="0" name="ValidateMaterialItemResult" nillable="true" type="q19:ValidateMaterialItemResponse"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="ValidateMaterial">
+<xs:complexType>
+<xs:sequence>
+<xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/Zbs.Dcpos.DataContract.Dms" minOccurs="0" name="objRequest" nillable="true" type="q20:ValidateMaterialRequest"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="ValidateMaterialResponse">
+<xs:complexType>
+<xs:sequence>
+<xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/Zbs.Dcpos.DataContract.Dms" minOccurs="0" name="ValidateMaterialResult" nillable="true" type="q21:ValidateMaterialResponse"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="GetSerialsByBundleSerial">
+<xs:complexType>
+<xs:sequence>
+<xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/Zbs.Dcpos.DataContract.Dms" minOccurs="0" name="objRequest" nillable="true" type="q22:BundleSerialRequest"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="GetSerialsByBundleSerialResponse">
+<xs:complexType>
+<xs:sequence>
+<xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/Zbs.Dcpos.DataContract.Dms" minOccurs="0" name="GetSerialsByBundleSerialResult" nillable="true" type="q23:BundleSerialResponse"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="TransInventory">
+<xs:complexType>
+<xs:sequence>
+<xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/Zbs.Dcpos.DataContract.Dms" minOccurs="0" name="objRequest" nillable="true" type="q24:InventoryTransferRequest"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="TransInventoryResponse">
+<xs:complexType>
+<xs:sequence>
+<xs:element xmlns:q25="http://schemas.datacontract.org/2004/07/Zbs.Dcpos.DataContract.Dms" minOccurs="0" name="TransInventoryResult" nillable="true" type="q25:InventoryTransferResponse"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="AcceptTransfer">
+<xs:complexType>
+<xs:sequence>
+<xs:element xmlns:q26="http://schemas.datacontract.org/2004/07/Zbs.Dcpos.DataContract.Dms" minOccurs="0" name="objRequest" nillable="true" type="q26:AcceptInventoryTransferRequest"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="AcceptTransferResponse">
+<xs:complexType>
+<xs:sequence>
+<xs:element xmlns:q27="http://schemas.datacontract.org/2004/07/Zbs.Dcpos.DataContract.Dms" minOccurs="0" name="AcceptTransferResult" nillable="true" type="q27:AcceptInventoryTransferResponse"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="DoItemTransfer">
+<xs:complexType>
+<xs:sequence>
+<xs:element xmlns:q28="http://schemas.datacontract.org/2004/07/Zbs.Dcpos.DataContract.Dms" minOccurs="0" name="objRequest" nillable="true" type="q28:ItemTransferRequest"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="DoItemTransferResponse">
+<xs:complexType>
+<xs:sequence>
+<xs:element xmlns:q29="http://schemas.datacontract.org/2004/07/Zbs.Dcpos.DataContract.Dms" minOccurs="0" name="DoItemTransferResult" nillable="true" type="q29:ItemTransferResponse"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="ValidateMaterialSerials">
+<xs:complexType>
+<xs:sequence>
+<xs:element xmlns:q30="http://schemas.datacontract.org/2004/07/Zbs.Dcpos.DataContract.Dms" minOccurs="0" name="objRequest" nillable="true" type="q30:ValidateMaterialSerialsRequest"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="ValidateMaterialSerialsResponse">
+<xs:complexType>
+<xs:sequence>
+<xs:element xmlns:q31="http://schemas.datacontract.org/2004/07/Zbs.Dcpos.DataContract.Dms" minOccurs="0" name="ValidateMaterialSerialsResult" nillable="true" type="q31:ValidateMaterialSerialsResponse"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="SapValidateSerial">
+<xs:complexType>
+<xs:sequence>
+<xs:element xmlns:q32="http://schemas.datacontract.org/2004/07/Zbs.Dcpos.DataContract.Warehouse" minOccurs="0" name="objRequest" nillable="true" type="q32:SapValidateSerialRequest"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="SapValidateSerialResponse">
+<xs:complexType>
+<xs:sequence>
+<xs:element xmlns:q33="http://schemas.datacontract.org/2004/07/Zbs.Dcpos.DataContract.Warehouse" minOccurs="0" name="SapValidateSerialResult" nillable="true" type="q33:SapValidateSerialResponse"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="CheckInventoryAvailability">
+<xs:complexType>
+<xs:sequence>
+<xs:element xmlns:q34="http://schemas.datacontract.org/2004/07/Zbs.Dcpos.DataContract.Dms" minOccurs="0" name="itemsCol" nillable="true" type="q34:CheckInventoryAvailabilityRequest"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="CheckInventoryAvailabilityResponse">
+<xs:complexType>
+<xs:sequence>
+<xs:element xmlns:q35="http://schemas.datacontract.org/2004/07/Zbs.Dcpos.DataContract.Dms" minOccurs="0" name="CheckInventoryAvailabilityResult" nillable="true" type="q35:CheckInventoryAvailabilityResponse"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+</xs:schema>

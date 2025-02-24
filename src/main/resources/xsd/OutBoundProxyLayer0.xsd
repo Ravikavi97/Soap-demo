@@ -1,0 +1,245 @@
+<xs:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:import schemaLocation="OutBoundProxyLayer2.xsd" namespace="http://schemas.datacontract.org/2004/07/OutBoundProxyService"/>
+    <xs:import schemaLocation="OutBoundProxyLayer3.xsd" namespace="http://schemas.datacontract.org/2004/07/Dialog.Dms.Business.BusinessObject"/>
+    <xs:import schemaLocation="OutBoundProxyLayer4.xsd" namespace="http://schemas.datacontract.org/2004/07/DmsService.Inventory"/>
+    <xs:import schemaLocation="CommonObjects.xsd" namespace="http://common.org/"/>
+    <xs:element name="InvAdjustmentRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" name="Adjustmentreq" nillable="true" type="q1:InventoryAdjustmentCPOS" xmlns:q1="http://schemas.datacontract.org/2004/07/OutBoundProxyService"/>
+                <xs:element minOccurs="0" name="CreatedUser" nillable="true" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="AgentInventoryAdjustmentResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string"/>
+                <xs:element minOccurs="0" name="ErrorCode" type="xs:int"/>
+                <xs:element minOccurs="0" name="InventoryAdjustment" nillable="true" type="q2:AgentInventoryAdjustment" xmlns:q2="http://schemas.datacontract.org/2004/07/Dialog.Dms.Business.BusinessObject"/>
+                <xs:element minOccurs="0" name="RequestId" nillable="true" type="xs:string"/>
+                <xs:element minOccurs="0" name="Success" type="xs:boolean"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="DoItemTransferRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" name="FromMSISDN" nillable="true" type="xs:string"/>
+                <xs:element minOccurs="0" name="FromProfileID" type="xs:int"/>
+                <xs:element minOccurs="0" name="ItemStatus" type="q3:ItemStatus" xmlns:q3="http://common.org/"/>
+                <xs:element minOccurs="0" name="Items" nillable="true" type="q4:ArrayOfDoItemTransferItem" xmlns:q4="http://schemas.datacontract.org/2004/07/OutBoundProxyService"/>
+                <xs:element minOccurs="0" name="RequestId" nillable="true" type="xs:string"/>
+                <xs:element minOccurs="0" name="ToMSISDN" nillable="true" type="xs:string"/>
+                <xs:element minOccurs="0" name="ToProfileID" type="xs:int"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="DoItemTransferResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string"/>
+                <xs:element minOccurs="0" name="FailReason" nillable="true" type="xs:string"/>
+                <xs:element minOccurs="0" name="RequestId" nillable="true" type="xs:string"/>
+                <xs:element minOccurs="0" name="StatusDesc" nillable="true" type="xs:string"/>
+                <xs:element minOccurs="0" name="StatusID" type="xs:int"/>
+                <xs:element minOccurs="0" name="Success" type="xs:boolean"/>
+                <xs:element minOccurs="0" name="TransactionID" type="xs:long"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="GetItemTransferInfoRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" name="RequestId" nillable="true" type="xs:string"/>
+                <xs:element minOccurs="0" name="ToMSISDN" nillable="true" type="xs:string"/>
+                <xs:element minOccurs="0" name="ToProfileID" type="xs:int"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="GetItemTransferInfoResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string"/>
+                <xs:element minOccurs="0" name="RequestId" nillable="true" type="xs:string"/>
+                <xs:element minOccurs="0" name="Success" type="xs:boolean"/>
+                <xs:element minOccurs="0" name="TransferInfo" nillable="true" type="q5:ArrayOfTransferInfo" xmlns:q5="http://schemas.datacontract.org/2004/07/OutBoundProxyService"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="AcceptItemTransferRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" name="RequestId" nillable="true" type="xs:string"/>
+                <xs:element minOccurs="0" name="TransactionID" type="xs:long"/>
+                <xs:element minOccurs="0" name="TransferAcceptanceStatus" type="xs:int"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="AcceptItemTransferResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string"/>
+                <xs:element minOccurs="0" name="FailReason" nillable="true" type="xs:string"/>
+                <xs:element minOccurs="0" name="RequestId" nillable="true" type="xs:string"/>
+                <xs:element minOccurs="0" name="StatusDesc" nillable="true" type="xs:string"/>
+                <xs:element minOccurs="0" name="StatusID" type="xs:int"/>
+                <xs:element minOccurs="0" name="Success" type="xs:boolean"/>
+                <xs:element minOccurs="0" name="TransactionID" type="xs:long"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="SearchSerialHistoryRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" name="RequestClient" nillable="true" type="xs:string"/>
+                <xs:element minOccurs="0" name="RequestId" nillable="true" type="xs:string"/>
+                <xs:element minOccurs="0" name="serialNo" nillable="true" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="SearchSerialHistoryProxyResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string"/>
+                <xs:element minOccurs="0" name="ErrorCode" type="xs:int"/>
+                <xs:element minOccurs="0" name="RequestId" nillable="true" type="xs:string"/>
+                <xs:element minOccurs="0" name="SerialItems" nillable="true" type="q6:ArrayOfSerialHistory" xmlns:q6="http://schemas.datacontract.org/2004/07/OutBoundProxyService"/>
+                <xs:element minOccurs="0" name="Success" type="xs:boolean"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="GetWearhouseReturnHeaderRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" name="ItemStatus" type="q7:ItemStatus" xmlns:q7="http://common.org/"/>
+                <xs:element minOccurs="0" name="OutletId" type="xs:int"/>
+                <xs:element minOccurs="0" name="RequestId" nillable="true" type="xs:string"/>
+                <xs:element minOccurs="0" name="SBU" type="q8:SBUList" xmlns:q8="http://schemas.datacontract.org/2004/07/OutBoundProxyService"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="GetWearhouseReturnHeaderResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string"/>
+                <xs:element minOccurs="0" name="RequestId" nillable="true" type="xs:string"/>
+                <xs:element minOccurs="0" name="Success" type="xs:boolean"/>
+                <xs:element minOccurs="0" name="WearhouseItemInfo" nillable="true" type="q9:ArrayOfWearhouseItemInfo" xmlns:q9="http://schemas.datacontract.org/2004/07/OutBoundProxyService"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="GetWearhouseReturnDetailRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" name="ItemCode" nillable="true" type="xs:string"/>
+                <xs:element minOccurs="0" name="ItemStatus" type="q10:ItemStatus" xmlns:q10="http://common.org/"/>
+                <xs:element minOccurs="0" name="OutletId" type="xs:int"/>
+                <xs:element minOccurs="0" name="RequestId" nillable="true" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="GetWearhouseReturnDetailResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string"/>
+                <xs:element minOccurs="0" name="ItemCode" nillable="true" type="xs:string"/>
+                <xs:element minOccurs="0" name="ItemInfo" nillable="true" type="q11:ArrayOfWeahoseItemDetailInfo" xmlns:q11="http://schemas.datacontract.org/2004/07/OutBoundProxyService"/>
+                <xs:element minOccurs="0" name="RequestId" nillable="true" type="xs:string"/>
+                <xs:element minOccurs="0" name="Success" type="xs:boolean"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="GetGantonMaterialPOSRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" name="MaterialCode" nillable="true" type="xs:string"/>
+                <xs:element minOccurs="0" name="RequestClient" nillable="true" type="xs:string"/>
+                <xs:element minOccurs="0" name="RequestId" nillable="true" type="xs:string"/>
+                <xs:element minOccurs="0" name="SerialNumber" nillable="true" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="GetGantonMaterialResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string"/>
+                <xs:element minOccurs="0" name="RequestId" nillable="true" type="xs:string"/>
+                <xs:element minOccurs="0" name="Status" nillable="true" type="xs:string"/>
+                <xs:element minOccurs="0" name="Success" type="xs:boolean"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="ValidateMaterialSerialsRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" name="ItemStatus" type="q12:ItemCondition" xmlns:q12="http://schemas.datacontract.org/2004/07/OutBoundProxyService"/>
+                <xs:element minOccurs="0" name="Materials" nillable="true" type="q13:ArrayOfMaterial" xmlns:q13="http://schemas.datacontract.org/2004/07/OutBoundProxyService"/>
+                <xs:element minOccurs="0" name="ProfileId" nillable="true" type="xs:string"/>
+                <xs:element minOccurs="0" name="RequestId" nillable="true" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="ValidateMaterialSerialsResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string"/>
+                <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string"/>
+                <xs:element minOccurs="0" name="RequestId" nillable="true" type="xs:string"/>
+                <xs:element minOccurs="0" name="Status" type="xs:boolean"/>
+                <xs:element minOccurs="0" name="Success" type="xs:boolean"/>
+                <xs:element minOccurs="0" name="UnavailableMaterials" nillable="true" type="q14:ArrayOfSapMaterial" xmlns:q14="http://schemas.datacontract.org/2004/07/DmsService.Inventory"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="WarehouseReturnValidateSerialRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" name="Branch_Code_Sender_Loc" type="xs:int"/>
+                <xs:element minOccurs="0" name="DMSRequest_ID" type="xs:int"/>
+                <xs:element minOccurs="0" name="ExpectedDate" nillable="true" type="xs:string"/>
+                <xs:element minOccurs="0" name="ItemReturnInfo" nillable="true" type="q15:ArrayOfMat_Details" xmlns:q15="http://schemas.datacontract.org/2004/07/OutBoundProxyService"/>
+                <xs:element minOccurs="0" name="Item_Status" type="q16:ItemCondition" xmlns:q16="http://schemas.datacontract.org/2004/07/OutBoundProxyService"/>
+                <xs:element minOccurs="0" name="RequestId" nillable="true" type="xs:string"/>
+                <xs:element minOccurs="0" name="Sales_ORG" nillable="true" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="WarehouseReturnValidateSerialResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" name="DMSRequest_ID" type="xs:int"/>
+                <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string"/>
+                <xs:element minOccurs="0" name="DetailInfo" nillable="true" type="q17:ArrayOfSapMat_details" xmlns:q17="http://schemas.datacontract.org/2004/07/OutBoundProxyService"/>
+                <xs:element minOccurs="0" name="RequestId" nillable="true" type="xs:string"/>
+                <xs:element minOccurs="0" name="ResponseDescription" nillable="true" type="xs:string"/>
+                <xs:element minOccurs="0" name="ResponseStatus" type="xs:int"/>
+                <xs:element minOccurs="0" name="Success" type="xs:boolean"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="GetSerialWiseAgentInventoryRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" name="InventorySection" nillable="true" type="xs:string"/>
+                <xs:element minOccurs="0" name="ProfileID" type="xs:int"/>
+                <xs:element minOccurs="0" name="RequestClient" nillable="true" type="xs:string"/>
+                <xs:element minOccurs="0" name="RequestId" nillable="true" type="xs:string"/>
+                <xs:element minOccurs="0" name="SAPMaterialcode" nillable="true" type="xs:string"/>
+                <xs:element minOccurs="0" name="ToDate" nillable="true" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="GetSerialWiseAgentInventoryResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string"/>
+                <xs:element minOccurs="0" name="ErrorCode" type="xs:int"/>
+                <xs:element minOccurs="0" name="InventoryList" nillable="true" type="q18:ArrayOfAgentInventoryDtl" xmlns:q18="http://schemas.datacontract.org/2004/07/Dialog.Dms.Business.BusinessObject"/>
+                <xs:element minOccurs="0" name="RequestId" nillable="true" type="xs:string"/>
+                <xs:element minOccurs="0" name="Success" type="xs:boolean"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

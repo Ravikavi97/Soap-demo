@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions
+        xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/"
+        xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy"
+        xmlns:i0="http://Dialog.DMS.Integration.OutBound.Sap"
+        xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"
+        xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl"
+        xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd"
+        xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+        name="DMSSAPService" targetNamespace="http://tempuri.org/">
+    <wsp:Policy wsu:Id="WSHttpBinding_IDMSSAPService_policy">
+        <wsp:ExactlyOne>
+            <wsp:All>
+                <wsoma:OptimizedMimeSerialization
+                        xmlns:wsoma="http://schemas.xmlsoap.org/ws/2004/09/policy/optimizedmimeserialization"/>
+                <wsaw:UsingAddressing/>
+            </wsp:All>
+        </wsp:ExactlyOne>
+    </wsp:Policy>
+    <wsdl:import namespace="http://Dialog.DMS.Integration.OutBound.Sap"
+                 location="http://localhost:52979/DMSSAPService.svc?wsdl=wsdl0"/>
+    <wsdl:types/>
+    <wsdl:binding name="WSHttpBinding_IDMSSAPService" type="i0:IDMSSAPService">
+        <wsp:PolicyReference URI="#WSHttpBinding_IDMSSAPService_policy"/>
+        <soap12:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="SetOrderSuccessfullyReceived">
+            <soap12:operation
+                    soapAction="http://Dialog.DMS.Integration.OutBound.Sap/IDMSSAPService/SetOrderSuccessfullyReceived"
+                    style="document"/>
+            <wsdl:input name="SetOrderSuccessfullyReceivedRequest">
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="SetOrderSuccessfullyReceivedResponse">
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="STOItemIssue">
+            <soap12:operation soapAction="http://Dialog.DMS.Integration.OutBound.Sap/IDMSSAPService/STOItemIssue"
+                              style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="StoDirectIssuence">
+            <soap12:operation soapAction="http://Dialog.DMS.Integration.OutBound.Sap/IDMSSAPService/StoDirectIssuence"
+                              style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="StoUnsoldReturnAcceptance">
+            <soap12:operation
+                    soapAction="http://Dialog.DMS.Integration.OutBound.Sap/IDMSSAPService/StoUnsoldReturnAcceptance"
+                    style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="InvoiceItemIssuences">
+            <soap12:operation
+                    soapAction="http://Dialog.DMS.Integration.OutBound.Sap/IDMSSAPService/InvoiceItemIssuences"
+                    style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="ReceiptCreation">
+            <soap12:operation soapAction="http://Dialog.DMS.Integration.OutBound.Sap/IDMSSAPService/ReceiptCreation"
+                              style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetConsignmentInfo">
+            <soap12:operation soapAction="http://Dialog.DMS.Integration.OutBound.Sap/IDMSSAPService/GetConsignmentInfo"
+                              style="document"/>
+            <wsdl:input name="GetConsignmentInfoReq">
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="GetConsignmentInfoRes">
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="ConsignmentUpdate">
+            <soap12:operation soapAction="http://Dialog.DMS.Integration.OutBound.Sap/IDMSSAPService/ConsignmentUpdate"
+                              style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="SapItemCreation">
+            <soap12:operation soapAction="http://Dialog.DMS.Integration.OutBound.Sap/IDMSSAPService/SapItemCreation"
+                              style="document"/>
+            <wsdl:input name="SapItemCreationRequest">
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="SapItemCreationResponse">
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetApprovedReceiptDetails">
+            <soap12:operation
+                    soapAction="http://Dialog.DMS.Integration.OutBound.Sap/IDMSSAPService/GetApprovedReceiptDetails"
+                    style="document"/>
+            <wsdl:input name="GetApprovedReceiptDetailsRequest">
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="GetApprovedReceiptDetailsResponse">
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="ConsignmentPOIssurance">
+            <soap12:operation
+                    soapAction="http://Dialog.DMS.Integration.OutBound.Sap/IDMSSAPService/ConsignmentPOIssurance"
+                    style="document"/>
+            <wsdl:input name="PurchaseOrderPayInfoRequest">
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="PurchaseOrderPaymentInfoResponse">
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="ConsignmentFillUpPOItemIssuences">
+            <soap12:operation
+                    soapAction="http://Dialog.DMS.Integration.OutBound.Sap/IDMSSAPService/ConsignmentFillUpPOItemIssuences"
+                    style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="ConsignmentFillUpPOCancel">
+            <soap12:operation
+                    soapAction="http://Dialog.DMS.Integration.OutBound.Sap/IDMSSAPService/ConsignmentFillUpPOCancel"
+                    style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="DMSSAPService">
+        <wsdl:port name="WSHttpBinding_IDMSSAPService" binding="tns:WSHttpBinding_IDMSSAPService">
+            <soap12:address location="http://localhost:52979/DMSSAPService.svc"/>
+            <wsa10:EndpointReference>
+                <wsa10:Address>http://localhost:52979/DMSSAPService.svc</wsa10:Address>
+            </wsa10:EndpointReference>
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>

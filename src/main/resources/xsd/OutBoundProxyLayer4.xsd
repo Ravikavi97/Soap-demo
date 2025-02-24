@@ -1,0 +1,31 @@
+<xs:schema elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/DmsService.Inventory" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://schemas.datacontract.org/2004/07/DmsService.Inventory">
+    <xs:complexType name="ArrayOfSapMaterial">
+        <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="SapMaterial" nillable="true" type="tns:SapMaterial"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="ArrayOfSapMaterial" nillable="true" type="tns:ArrayOfSapMaterial"/>
+    <xs:complexType name="SapMaterial">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="MaterialCode" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="Qty" type="xs:double"/>
+            <xs:element minOccurs="0" name="Serials" nillable="true" type="tns:ArrayOfItemSerial"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="SapMaterial" nillable="true" type="tns:SapMaterial"/>
+    <xs:complexType name="ArrayOfItemSerial">
+        <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="ItemSerial" nillable="true" type="tns:ItemSerial"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="ArrayOfItemSerial" nillable="true" type="tns:ArrayOfItemSerial"/>
+    <xs:complexType name="ItemSerial">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="Comment" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="FromSerial" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="Quantity" type="xs:int"/>
+            <xs:element minOccurs="0" name="ToSerial" nillable="true" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="ItemSerial" nillable="true" type="tns:ItemSerial"/>
+</xs:schema>

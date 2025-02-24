@@ -1,0 +1,496 @@
+<xs:schema elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/DMSSalesAppIntegrationService.Contact" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://schemas.datacontract.org/2004/07/DMSSalesAppIntegrationService.Contact">
+    <xs:simpleType name="BundleMaterial">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Yes">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1</EnumerationValue>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="No">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">0</EnumerationValue>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:element name="BundleMaterial" nillable="true" type="tns:BundleMaterial"/>
+    <xs:simpleType name="ItemStatus">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="New">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1</EnumerationValue>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="Used">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">2</EnumerationValue>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="Faulty">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">3</EnumerationValue>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:element name="ItemStatus" nillable="true" type="tns:ItemStatus"/>
+    <xs:simpleType name="UpdateOrdType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Normal">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1</EnumerationValue>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="Trial">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">2</EnumerationValue>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:element name="UpdateOrdType" nillable="true" type="tns:UpdateOrdType"/>
+    <xs:simpleType name="FunctionalType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Po">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1</EnumerationValue>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="StockRequest">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">2</EnumerationValue>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="Transfer">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">3</EnumerationValue>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:element name="FunctionalType" nillable="true" type="tns:FunctionalType"/>
+    <xs:simpleType name="BundleReq">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="No"/>
+            <xs:enumeration value="Yes"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:element name="BundleReq" nillable="true" type="tns:BundleReq"/>
+    <xs:simpleType name="ReqOrdType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Normal">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1</EnumerationValue>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="Trial">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">2</EnumerationValue>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:element name="ReqOrdType" nillable="true" type="tns:ReqOrdType"/>
+    <xs:complexType name="ArrayOfRequestDetail">
+        <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="RequestDetail" nillable="true" type="tns:RequestDetail"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="ArrayOfRequestDetail" nillable="true" type="tns:ArrayOfRequestDetail"/>
+    <xs:complexType name="RequestDetail">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="MaterialCode" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="MaterialDesc" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="Price" type="xs:double"/>
+            <xs:element minOccurs="0" name="Quantity" type="xs:double"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="RequestDetail" nillable="true" type="tns:RequestDetail"/>
+    <xs:simpleType name="PendingResponseStatus">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="ApprovalPending">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1</EnumerationValue>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="SAPPending">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">2</EnumerationValue>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="Completed">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">3</EnumerationValue>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="Acquired">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">4</EnumerationValue>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="Rejected">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">5</EnumerationValue>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:element name="PendingResponseStatus" nillable="true" type="tns:PendingResponseStatus"/>
+    <xs:complexType name="ArrayOfApprovalResponseDetail">
+        <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="ApprovalResponseDetail" nillable="true" type="tns:ApprovalResponseDetail"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="ArrayOfApprovalResponseDetail" nillable="true" type="tns:ArrayOfApprovalResponseDetail"/>
+    <xs:complexType name="ApprovalResponseDetail">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="AcceptedQty" type="xs:int"/>
+            <xs:element minOccurs="0" name="InHandQty" type="xs:int"/>
+            <xs:element minOccurs="0" name="MaterialCode" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="MaterialDesc" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="RequestedQty" type="xs:int"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="ApprovalResponseDetail" nillable="true" type="tns:ApprovalResponseDetail"/>
+    <xs:complexType name="ArrayOfApprovalRequestDetailInfo">
+        <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="ApprovalRequestDetailInfo" nillable="true" type="tns:ApprovalRequestDetailInfo"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="ArrayOfApprovalRequestDetailInfo" nillable="true" type="tns:ArrayOfApprovalRequestDetailInfo"/>
+    <xs:complexType name="ApprovalRequestDetailInfo">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="ApprovedQTY" type="xs:double"/>
+            <xs:element minOccurs="0" name="MaterialCode" nillable="true" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="ApprovalRequestDetailInfo" nillable="true" type="tns:ApprovalRequestDetailInfo"/>
+    <xs:complexType name="ApprovalRequestHeaderInfo">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="AcceptedDate" type="xs:dateTime"/>
+            <xs:element minOccurs="0" name="AcceptedStatus" type="tns:AcceptedStatus"/>
+            <xs:element minOccurs="0" name="FunctionalType" type="tns:FunctionalType"/>
+            <xs:element minOccurs="0" name="MSISDN" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="ProfileID" type="xs:int"/>
+            <xs:element minOccurs="0" name="STORequestID" type="xs:int"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="ApprovalRequestHeaderInfo" nillable="true" type="tns:ApprovalRequestHeaderInfo"/>
+    <xs:simpleType name="AcceptedStatus">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Approved">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1</EnumerationValue>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="Rejected">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">2</EnumerationValue>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:element name="AcceptedStatus" nillable="true" type="tns:AcceptedStatus"/>
+    <xs:complexType name="ArrayOfGetSTOItemsAcquasitionInfoResponseItem">
+        <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="GetSTOItemsAcquasitionInfoResponseItem" nillable="true" type="tns:GetSTOItemsAcquasitionInfoResponseItem"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="ArrayOfGetSTOItemsAcquasitionInfoResponseItem" nillable="true" type="tns:ArrayOfGetSTOItemsAcquasitionInfoResponseItem"/>
+    <xs:complexType name="GetSTOItemsAcquasitionInfoResponseItem">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="ApprovedDate" nillable="true" type="xs:dateTime"/>
+            <xs:element minOccurs="0" name="RequestDate" type="xs:dateTime"/>
+            <xs:element minOccurs="0" name="STORequestID" type="xs:int"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="GetSTOItemsAcquasitionInfoResponseItem" nillable="true" type="tns:GetSTOItemsAcquasitionInfoResponseItem"/>
+    <xs:complexType name="ArrayOfSTOAcquasitionDetailInfoItem">
+        <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="STOAcquasitionDetailInfoItem" nillable="true" type="tns:STOAcquasitionDetailInfoItem"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="ArrayOfSTOAcquasitionDetailInfoItem" nillable="true" type="tns:ArrayOfSTOAcquasitionDetailInfoItem"/>
+    <xs:complexType name="STOAcquasitionDetailInfoItem">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="ApprovedQty" type="xs:double"/>
+            <xs:element minOccurs="0" name="MaterialCode" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="MaterialDesc" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="SAPIssuedQty" type="xs:double"/>
+            <xs:element minOccurs="0" name="Serials" nillable="true" type="tns:ArrayOfMaterialSerials"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="STOAcquasitionDetailInfoItem" nillable="true" type="tns:STOAcquasitionDetailInfoItem"/>
+    <xs:complexType name="ArrayOfMaterialSerials">
+        <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="MaterialSerials" nillable="true" type="tns:MaterialSerials"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="ArrayOfMaterialSerials" nillable="true" type="tns:ArrayOfMaterialSerials"/>
+    <xs:complexType name="MaterialSerials">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="FromSerial" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="Quantity" type="xs:double"/>
+            <xs:element minOccurs="0" name="ToSerial" nillable="true" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="MaterialSerials" nillable="true" type="tns:MaterialSerials"/>
+    <xs:simpleType name="MaterialReturnType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="New">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1</EnumerationValue>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="Used">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">2</EnumerationValue>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="Faulty">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">3</EnumerationValue>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="Damage">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">4</EnumerationValue>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:element name="MaterialReturnType" nillable="true" type="tns:MaterialReturnType"/>
+    <xs:complexType name="ArrayOfReturnRequestDetail">
+        <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="ReturnRequestDetail" nillable="true" type="tns:ReturnRequestDetail"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="ArrayOfReturnRequestDetail" nillable="true" type="tns:ArrayOfReturnRequestDetail"/>
+    <xs:complexType name="ReturnRequestDetail">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="MaterialCode" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="MaterialDesc" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="RequestedQty" type="xs:double"/>
+            <xs:element minOccurs="0" name="SerialNumber" nillable="true" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="ReturnRequestDetail" nillable="true" type="tns:ReturnRequestDetail"/>
+    <xs:complexType name="ArrayOfSTOAcquasitionItem">
+        <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="STOAcquasitionItem" nillable="true" type="tns:STOAcquasitionItem"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="ArrayOfSTOAcquasitionItem" nillable="true" type="tns:ArrayOfSTOAcquasitionItem"/>
+    <xs:complexType name="STOAcquasitionItem">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="ApprovedQty" type="xs:double"/>
+            <xs:element minOccurs="0" name="MaterialCode" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="MaterialDesc" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="ReceivedQty" type="xs:double"/>
+            <xs:element minOccurs="0" name="RequestedQty" type="xs:double"/>
+            <xs:element minOccurs="0" name="SAPIssuedQty" type="xs:double"/>
+            <xs:element minOccurs="0" name="Serials" nillable="true" type="tns:ArrayOfMaterialSerials"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="STOAcquasitionItem" nillable="true" type="tns:STOAcquasitionItem"/>
+    <xs:complexType name="ArrayOfSectionQty">
+        <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="SectionQty" nillable="true" type="tns:SectionQty"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="ArrayOfSectionQty" nillable="true" type="tns:ArrayOfSectionQty"/>
+    <xs:complexType name="SectionQty">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="Quantity" type="xs:double"/>
+            <xs:element minOccurs="0" name="Section" type="tns:InventorySection"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="SectionQty" nillable="true" type="tns:SectionQty"/>
+    <xs:simpleType name="InventorySection">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="None"/>
+            <xs:enumeration value="Utilizable"/>
+            <xs:enumeration value="GoodsInTransit"/>
+            <xs:enumeration value="Sold"/>
+            <xs:enumeration value="Return"/>
+            <xs:enumeration value="ReturnGoodsinTransit"/>
+            <xs:enumeration value="TransferGoodsInTransit"/>
+            <xs:enumeration value="SalesInTransit"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:element name="InventorySection" nillable="true" type="tns:InventorySection"/>
+    <xs:complexType name="ArrayOfDoItemTransferItem">
+        <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="DoItemTransferItem" nillable="true" type="tns:DoItemTransferItem"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="ArrayOfDoItemTransferItem" nillable="true" type="tns:ArrayOfDoItemTransferItem"/>
+    <xs:complexType name="DoItemTransferItem">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="MaterialCode" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="MaterialDesc" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="Serials" nillable="true" type="tns:ArrayOfMaterialSerials"/>
+            <xs:element minOccurs="0" name="TransferQty" type="xs:double"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="DoItemTransferItem" nillable="true" type="tns:DoItemTransferItem"/>
+    <xs:complexType name="ArrayOfTransferInfo">
+        <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="TransferInfo" nillable="true" type="tns:TransferInfo"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="ArrayOfTransferInfo" nillable="true" type="tns:ArrayOfTransferInfo"/>
+    <xs:complexType name="TransferInfo">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="FromUser" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="Items" nillable="true" type="tns:ArrayOfDoItemTransferItem"/>
+            <xs:element minOccurs="0" name="TransferDate" type="xs:dateTime"/>
+            <xs:element minOccurs="0" name="TransferID" type="xs:int"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="TransferInfo" nillable="true" type="tns:TransferInfo"/>
+    <xs:complexType name="ArrayOfAcceptItemTransferDetails">
+        <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="AcceptItemTransferDetails" nillable="true" type="tns:AcceptItemTransferDetails"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="ArrayOfAcceptItemTransferDetails" nillable="true" type="tns:ArrayOfAcceptItemTransferDetails"/>
+    <xs:complexType name="AcceptItemTransferDetails">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="AcceptedQty" type="xs:double"/>
+            <xs:element minOccurs="0" name="MaterialCode" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="MaterialSerialNumber" nillable="true" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="AcceptItemTransferDetails" nillable="true" type="tns:AcceptItemTransferDetails"/>
+    <xs:simpleType name="StockInforRequestStatus">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Pending"/>
+            <xs:enumeration value="Completed">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">2</EnumerationValue>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="Rejected">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">3</EnumerationValue>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:element name="StockInforRequestStatus" nillable="true" type="tns:StockInforRequestStatus"/>
+    <xs:simpleType name="MaterialType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Individual">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1</EnumerationValue>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="Bundle">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">2</EnumerationValue>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:element name="MaterialType" nillable="true" type="tns:MaterialType"/>
+    <xs:complexType name="ArrayOfItemSerials">
+        <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="ItemSerials" nillable="true" type="tns:ItemSerials"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="ArrayOfItemSerials" nillable="true" type="tns:ArrayOfItemSerials"/>
+    <xs:complexType name="ItemSerials">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="Serial" nillable="true" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="ItemSerials" nillable="true" type="tns:ItemSerials"/>
+    <xs:simpleType name="TransactionType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="NewSale">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1</EnumerationValue>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="ReturnReplacement">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">2</EnumerationValue>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="Return">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">3</EnumerationValue>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:element name="TransactionType" nillable="true" type="tns:TransactionType"/>
+    <xs:simpleType name="Status">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Success"/>
+            <xs:enumeration value="Fail"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:element name="Status" nillable="true" type="tns:Status"/>
+</xs:schema>

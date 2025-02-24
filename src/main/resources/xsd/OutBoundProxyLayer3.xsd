@@ -1,0 +1,38 @@
+<xs:schema elementFormDefault="qualified"
+           targetNamespace="http://schemas.datacontract.org/2004/07/Dialog.Dms.Business.BusinessObject"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:tns="http://schemas.datacontract.org/2004/07/Dialog.Dms.Business.BusinessObject">
+    <xs:complexType name="AgentInventoryAdjustment">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="FailReason" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="StatusDesc" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="StatusID" type="xs:int"/>
+            <xs:element minOccurs="0" name="TransactionID" type="xs:long"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="AgentInventoryAdjustment" nillable="true" type="tns:AgentInventoryAdjustment"/>
+    <xs:complexType name="ArrayOfAgentInventoryDtl">
+        <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="AgentInventoryDtl" nillable="true"
+                        type="tns:AgentInventoryDtl"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="ArrayOfAgentInventoryDtl" nillable="true" type="tns:ArrayOfAgentInventoryDtl"/>
+    <xs:complexType name="AgentInventoryDtl">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="FromSerial" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="InventorySection" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="ItemCondition" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="ItemName" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="LOB" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="ProfileId" type="xs:int"/>
+            <xs:element minOccurs="0" name="ProfileName" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="Qty" type="xs:int"/>
+            <xs:element minOccurs="0" name="SAPMaterialcode" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="ToSerial" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="TransactionID" type="xs:long"/>
+            <xs:element minOccurs="0" name="UpdatedDate" nillable="true" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="AgentInventoryDtl" nillable="true" type="tns:AgentInventoryDtl"/>
+</xs:schema>

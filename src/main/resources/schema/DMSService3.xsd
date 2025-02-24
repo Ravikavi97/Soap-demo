@@ -1,0 +1,55 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://schemas.datacontract.org/2004/07/Zbs.Dcpos.DataContract.Warehouse" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Zbs.Dcpos.DataContract.Warehouse">
+<xs:complexType name="SapValidateSerialRequest">
+<xs:sequence>
+<xs:element minOccurs="0" name="branchCodeSenderLoc" type="xs:int"/>
+<xs:element minOccurs="0" name="itemStatus" type="xs:int"/>
+<xs:element minOccurs="0" name="listOfdetailses" nillable="true" type="tns:ArrayOfDtDetails"/>
+<xs:element minOccurs="0" name="requestId" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="sbu" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+<xs:element name="SapValidateSerialRequest" nillable="true" type="tns:SapValidateSerialRequest"/>
+<xs:complexType name="ArrayOfDtDetails">
+<xs:sequence>
+<xs:element minOccurs="0" maxOccurs="unbounded" name="DtDetails" nillable="true" type="tns:DtDetails"/>
+</xs:sequence>
+</xs:complexType>
+<xs:element name="ArrayOfDtDetails" nillable="true" type="tns:ArrayOfDtDetails"/>
+<xs:complexType name="DtDetails">
+<xs:sequence>
+<xs:element minOccurs="0" name="fromSerial" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="matCode" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="qty" type="xs:int"/>
+<xs:element minOccurs="0" name="qtySpecified" type="xs:boolean"/>
+</xs:sequence>
+</xs:complexType>
+<xs:element name="DtDetails" nillable="true" type="tns:DtDetails"/>
+<xs:complexType name="SapValidateSerialResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="description" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="dmsRequestId" type="xs:int"/>
+<xs:element minOccurs="0" name="listOfdetailInfo" nillable="true" type="tns:ArrayOfDetailInfo"/>
+<xs:element minOccurs="0" name="requestId" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="responseDescription" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="responseStatus" type="xs:int"/>
+<xs:element minOccurs="0" name="success" type="xs:boolean"/>
+</xs:sequence>
+</xs:complexType>
+<xs:element name="SapValidateSerialResponse" nillable="true" type="tns:SapValidateSerialResponse"/>
+<xs:complexType name="ArrayOfDetailInfo">
+<xs:sequence>
+<xs:element minOccurs="0" maxOccurs="unbounded" name="DetailInfo" nillable="true" type="tns:DetailInfo"/>
+</xs:sequence>
+</xs:complexType>
+<xs:element name="ArrayOfDetailInfo" nillable="true" type="tns:ArrayOfDetailInfo"/>
+<xs:complexType name="DetailInfo">
+<xs:sequence>
+<xs:element minOccurs="0" name="matCode" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="qty" type="xs:int"/>
+<xs:element minOccurs="0" name="qtySpecified" type="xs:boolean"/>
+<xs:element minOccurs="0" name="serial" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="serialStatus" nillable="true" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:element name="DetailInfo" nillable="true" type="tns:DetailInfo"/>
+</xs:schema>

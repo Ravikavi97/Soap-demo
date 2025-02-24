@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Dialog.Dms.Business.BusinessObject.Inventory"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           elementFormDefault="qualified"
+           targetNamespace="http://schemas.datacontract.org/2004/07/Dialog.Dms.Business.BusinessObject.Inventory">
+    <xs:complexType name="ArrayOfDummyItem">
+        <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="DummyItem" nillable="true" type="tns:DummyItem"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="ArrayOfDummyItem" nillable="true" type="tns:ArrayOfDummyItem"/>
+    <xs:complexType name="DummyItem">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="ItemId" type="xs:int"/>
+            <xs:element minOccurs="0" name="ItemName" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="SAPMaterialCode" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="SalesPrice" type="xs:double"/>
+            <xs:element minOccurs="0" name="UnitPrice" type="xs:double"/>
+            <xs:element minOccurs="0" name="lineCommisionValue" type="xs:double"/>
+            <xs:element minOccurs="0" name="lineitemDiscountAmount" type="xs:double"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="DummyItem" nillable="true" type="tns:DummyItem"/>
+</xs:schema>

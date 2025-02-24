@@ -1,0 +1,76 @@
+<wsdl:definitions xmlns:p1="http://DMS_Sales_Ord_Rejection"
+                  xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy"
+                  xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd"
+                  xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="SI_DMS_SO_Rej_OB"
+                  targetNamespace="http://DMS_Sales_Ord_Rejection">
+    <wsdl:documentation/>
+    <wsp:UsingPolicy wsdl:required="true"/>
+    <wsp:Policy wsu:Id="OP_SI_DMS_SO_Rej_OB"/>
+    <wsdl:types>
+        <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://DMS_Sales_Ord_Rejection" targetNamespace="http://DMS_Sales_Ord_Rejection">
+            <xsd:element name="MT_DMS_SO_Rej_Req" type="DT_DMS_SO_Rej_Req"/>
+            <xsd:element name="MT_DMS_SO_Rej_Res" type="DT_DMS_SO_Rej_Res"/>
+            <xsd:complexType name="DT_DMS_SO_Rej_Req">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="EN">DT SO Rejection Request</xsd:documentation>
+                    <xsd:appinfo source="http://sap.com/xi/VersionID">06916841442a11ebcadb001125e7e82a</xsd:appinfo>
+                </xsd:annotation>
+                <xsd:sequence>
+                    <xsd:element name="PONum" type="xsd:string"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="DT_DMS_SO_Rej_Res">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="EN">DT SO Rejection Response</xsd:documentation>
+                    <xsd:appinfo source="http://sap.com/xi/VersionID">0d6e74f1442a11ebba7d001125e7e82a</xsd:appinfo>
+                </xsd:annotation>
+                <xsd:sequence>
+                    <xsd:element name="PONum" type="xsd:string"/>
+                    <xsd:element name="SONum" type="xsd:string"/>
+                    <xsd:element name="Status" type="xsd:string"/>
+                    <xsd:element name="Description" type="xsd:string"/>
+                    <xsd:element name="PI_Num" type="xsd:string"/>
+                </xsd:sequence>
+            </xsd:complexType>
+        </xsd:schema>
+    </wsdl:types>
+    <wsdl:message name="MT_DMS_SO_Rej_Req">
+        <wsdl:documentation/>
+        <wsdl:part name="MT_DMS_SO_Rej_Req" element="p1:MT_DMS_SO_Rej_Req"/>
+    </wsdl:message>
+    <wsdl:message name="MT_DMS_SO_Rej_Res">
+        <wsdl:documentation/>
+        <wsdl:part name="MT_DMS_SO_Rej_Res" element="p1:MT_DMS_SO_Rej_Res"/>
+    </wsdl:message>
+    <wsdl:portType name="SI_DMS_SO_Rej_OB">
+        <wsdl:documentation/>
+        <wsdl:operation name="SI_DMS_SO_Rej_OB">
+            <wsdl:documentation/>
+            <wsp:Policy>
+                <wsp:PolicyReference URI="#OP_SI_DMS_SO_Rej_OB"/>
+            </wsp:Policy>
+            <wsdl:input message="p1:MT_DMS_SO_Rej_Req"/>
+            <wsdl:output message="p1:MT_DMS_SO_Rej_Res"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="SI_DMS_SO_Rej_OBBinding" type="p1:SI_DMS_SO_Rej_OB">
+        <soap:binding xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="SI_DMS_SO_Rej_OB">
+            <soap:operation xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="http://sap.com/xi/WebService/soap1.1"/>
+            <wsdl:input>
+                <soap:body xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="XI_d160293957343e48befff0062abb5a80_Service">
+        <wsdl:port name="HTTP_Port" binding="p1:SI_DMS_SO_Rej_OBBinding">
+            <soap:address xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" location="http://SAPPED:50000/XISOAPAdapter/MessageServlet?senderParty=&amp;senderService=DMS&amp;receiverParty=&amp;receiverService=&amp;interface=SI_DMS_SO_Rej_OB&amp;interfaceNamespace=http%3A%2F%2FDMS_Sales_Ord_Rejection"/>
+        </wsdl:port>
+        <wsdl:port name="HTTPS_Port" binding="p1:SI_DMS_SO_Rej_OBBinding">
+            <soap:address xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" location="https://SAPPED:50001/XISOAPAdapter/MessageServlet?senderParty=&amp;senderService=DMS&amp;receiverParty=&amp;receiverService=&amp;interface=SI_DMS_SO_Rej_OB&amp;interfaceNamespace=http%3A%2F%2FDMS_Sales_Ord_Rejection"/>
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>

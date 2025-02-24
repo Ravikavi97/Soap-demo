@@ -1,0 +1,194 @@
+<wsdl:definitions name="SI_GR_DMS_R" targetNamespace="http://dms_GR_RequestByDMS" xmlns:p1="http://dms_GR_RequestByDMS" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+   <wsdl:documentation/>
+   <wsp:UsingPolicy wsdl:required="true"/>
+   <wsp:Policy wsu:Id="OP_SI_GR_DMS_R"/>
+   <wsdl:types>
+      <xsd:schema targetNamespace="http://dms_GR_RequestByDMS" xmlns="http://dms_GR_RequestByDMS" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+         <xsd:element name="MT_GR_Request" type="DT_STO_request"/>
+         <xsd:element name="MT_GR_Response" type="DT_STO_response"/>
+         <xsd:complexType name="DT_Details">
+            <xsd:annotation>
+               <xsd:appinfo source="http://sap.com/xi/VersionID">76af84519d3111e487e1001125e7e82a</xsd:appinfo>
+            </xsd:annotation>
+            <xsd:sequence>
+               <xsd:element name="ITM_NO" type="xsd:string">
+                  <xsd:annotation>
+                     <xsd:appinfo source="http://sap.com/xi/TextID">2e1b9fa09d3411e4c5e0025041000001</xsd:appinfo>
+                  </xsd:annotation>
+               </xsd:element>
+               <xsd:element name="QTY" type="xsd:string">
+                  <xsd:annotation>
+                     <xsd:appinfo source="http://sap.com/xi/TextID">2e1b9fa19d3411e4c409025041000001</xsd:appinfo>
+                  </xsd:annotation>
+               </xsd:element>
+               <xsd:element name="MAT_CODE" type="xsd:string">
+                  <xsd:annotation>
+                     <xsd:appinfo source="http://sap.com/xi/TextID">2e1b9fa29d3411e4b556025041000001</xsd:appinfo>
+                  </xsd:annotation>
+               </xsd:element>
+               <xsd:element name="From_Serial" type="xsd:string"/>
+               <xsd:element name="To_Serial" type="xsd:string"/>
+            </xsd:sequence>
+         </xsd:complexType>
+         <xsd:complexType name="DT_STO_response">
+            <xsd:annotation>
+               <xsd:appinfo source="http://sap.com/xi/VersionID">b32ce6219d3111e49c7b001125e7e82a</xsd:appinfo>
+            </xsd:annotation>
+            <xsd:sequence>
+               <xsd:element name="SAP_RefID" type="xsd:string">
+                  <xsd:annotation>
+                     <xsd:appinfo source="http://sap.com/xi/TextID">8e32eef09a3e11e4cfcb025041000001</xsd:appinfo>
+                  </xsd:annotation>
+               </xsd:element>
+               <xsd:element name="DMS_REQ_ID" type="xsd:string">
+                  <xsd:annotation>
+                     <xsd:appinfo source="http://sap.com/xi/TextID">792ee0d09a3f11e4b033025041000001</xsd:appinfo>
+                  </xsd:annotation>
+               </xsd:element>
+               <xsd:element name="Message" type="xsd:string">
+                  <xsd:annotation>
+                     <xsd:appinfo source="http://sap.com/xi/TextID">8e32eef19a3e11e4813e025041000001</xsd:appinfo>
+                  </xsd:annotation>
+               </xsd:element>
+               <xsd:element name="RESPONSE_STATUS" type="xsd:string">
+                  <xsd:annotation>
+                     <xsd:appinfo source="http://sap.com/xi/TextID">792ee0d19a3f11e4a435025041000001</xsd:appinfo>
+                  </xsd:annotation>
+               </xsd:element>
+               <xsd:element name="RESPONSE_DESC" type="xsd:string">
+                  <xsd:annotation>
+                     <xsd:appinfo source="http://sap.com/xi/TextID">792ee0d29a3f11e4bbdd025041000001</xsd:appinfo>
+                  </xsd:annotation>
+               </xsd:element>
+               <xsd:element name="PIMessageID" type="xsd:string">
+                  <xsd:annotation>
+                     <xsd:appinfo source="http://sap.com/xi/TextID">a00cc8509d3411e4a84d025041000001</xsd:appinfo>
+                  </xsd:annotation>
+               </xsd:element>
+            </xsd:sequence>
+         </xsd:complexType>
+         <xsd:complexType name="DT_Serial">
+            <xsd:annotation>
+               <xsd:appinfo source="http://sap.com/xi/VersionID">a8d38300b27111e4a0cd001125e7e82a</xsd:appinfo>
+            </xsd:annotation>
+            <xsd:sequence>
+               <xsd:element name="ITM_NO" type="xsd:string">
+                  <xsd:annotation>
+                     <xsd:appinfo source="http://sap.com/xi/TextID">2e1b9fa09d3411e4c5e0025041000001</xsd:appinfo>
+                  </xsd:annotation>
+               </xsd:element>
+               <xsd:element name="MAT_CODE" type="xsd:string">
+                  <xsd:annotation>
+                     <xsd:appinfo source="http://sap.com/xi/TextID">2e1b9fa29d3411e4b556025041000001</xsd:appinfo>
+                  </xsd:annotation>
+               </xsd:element>
+               <xsd:element name="From_Serial" type="xsd:string">
+                  <xsd:annotation>
+                     <xsd:appinfo source="http://sap.com/xi/TextID">86fb3210a2e411e4a06d025041000001</xsd:appinfo>
+                  </xsd:annotation>
+               </xsd:element>
+               <xsd:element name="To_Serial" type="xsd:string">
+                  <xsd:annotation>
+                     <xsd:appinfo source="http://sap.com/xi/TextID">86fb3211a2e411e4c9c5025041000001</xsd:appinfo>
+                  </xsd:annotation>
+               </xsd:element>
+               <xsd:element name="QTY" type="xsd:string"/>
+            </xsd:sequence>
+         </xsd:complexType>
+         <xsd:complexType name="DT_STO_request">
+            <xsd:annotation>
+               <xsd:appinfo source="http://sap.com/xi/VersionID">1199eb50f55611e49e51001125e7e82a</xsd:appinfo>
+            </xsd:annotation>
+            <xsd:sequence>
+               <xsd:element name="GR_Request">
+                  <xsd:annotation>
+                     <xsd:appinfo source="http://sap.com/xi/TextID">cddc36717fdc11e2b45a74e543238398</xsd:appinfo>
+                  </xsd:annotation>
+                  <xsd:complexType>
+                     <xsd:sequence>
+                        <xsd:element name="Header" minOccurs="0">
+                           <xsd:annotation>
+                              <xsd:appinfo source="http://sap.com/xi/TextID">cddc36707fdc11e293a074e543238398</xsd:appinfo>
+                           </xsd:annotation>
+                           <xsd:complexType>
+                              <xsd:sequence>
+                                 <xsd:element name="DMSRequest_ID" type="xsd:string">
+                                    <xsd:annotation>
+                                       <xsd:appinfo source="http://sap.com/xi/TextID">1b1ecec07fdd11e28e8474e543238398</xsd:appinfo>
+                                    </xsd:annotation>
+                                 </xsd:element>
+                                 <xsd:element name="SAP_RefID" type="xsd:string">
+                                    <xsd:annotation>
+                                       <xsd:appinfo source="http://sap.com/xi/TextID">1b1ecec17fdd11e2b97f74e543238398</xsd:appinfo>
+                                    </xsd:annotation>
+                                 </xsd:element>
+                                 <xsd:element name="Item_Status" type="xsd:string">
+                                    <xsd:annotation>
+                                       <xsd:appinfo source="http://sap.com/xi/TextID">691044b07fdd11e29ad974e543238398</xsd:appinfo>
+                                    </xsd:annotation>
+                                 </xsd:element>
+                                 <xsd:element name="Completion_Status" type="xsd:string">
+                                    <xsd:annotation>
+                                       <xsd:appinfo source="http://sap.com/xi/TextID">8701d3817fdd11e2b92f74e543238398</xsd:appinfo>
+                                    </xsd:annotation>
+                                 </xsd:element>
+                                 <xsd:element name="DT_Details" type="DT_Details" minOccurs="0" maxOccurs="unbounded">
+                                    <xsd:annotation>
+                                       <xsd:appinfo source="http://sap.com/xi/TextID">6267fef09a3e11e4b0c3025041000001</xsd:appinfo>
+                                    </xsd:annotation>
+                                 </xsd:element>
+                                 <xsd:element name="DT_Serial" type="DT_Serial" minOccurs="0" maxOccurs="unbounded">
+                                    <xsd:annotation>
+                                       <xsd:appinfo source="http://sap.com/xi/TextID">c291dd60a2e411e4aad8025041000001</xsd:appinfo>
+                                    </xsd:annotation>
+                                 </xsd:element>
+                              </xsd:sequence>
+                           </xsd:complexType>
+                        </xsd:element>
+                     </xsd:sequence>
+                  </xsd:complexType>
+               </xsd:element>
+            </xsd:sequence>
+         </xsd:complexType>
+      </xsd:schema>
+   </wsdl:types>
+   <wsdl:message name="MT_GR_Request">
+      <wsdl:documentation/>
+      <wsdl:part name="MT_GR_Request" element="p1:MT_GR_Request"/>
+   </wsdl:message>
+   <wsdl:message name="MT_GR_Response">
+      <wsdl:documentation/>
+      <wsdl:part name="MT_GR_Response" element="p1:MT_GR_Response"/>
+   </wsdl:message>
+   <wsdl:portType name="SI_GR_DMS_R">
+      <wsdl:documentation/>
+      <wsdl:operation name="SI_GR_DMS_R">
+         <wsdl:documentation/>
+         <wsp:Policy>
+            <wsp:PolicyReference URI="#OP_SI_GR_DMS_R"/>
+         </wsp:Policy>
+         <wsdl:input message="p1:MT_GR_Request"/>
+         <wsdl:output message="p1:MT_GR_Response"/>
+      </wsdl:operation>
+   </wsdl:portType>
+   <wsdl:binding name="SI_GR_DMS_RBinding" type="p1:SI_GR_DMS_R">
+      <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"/>
+      <wsdl:operation name="SI_GR_DMS_R">
+         <soap:operation soapAction="http://sap.com/xi/WebService/soap1.1" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"/>
+         <wsdl:input>
+            <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"/>
+         </wsdl:input>
+         <wsdl:output>
+            <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"/>
+         </wsdl:output>
+      </wsdl:operation>
+   </wsdl:binding>
+   <wsdl:service name="XI_f91555d24c693e33a28f09d8b7de7ad8_Service">
+      <wsdl:port name="HTTP_Port" binding="p1:SI_GR_DMS_RBinding">
+         <soap:address location="http://SAPPED:50000/XISOAPAdapter/MessageServlet?senderParty=&amp;senderService=DMS&amp;receiverParty=&amp;receiverService=&amp;interface=SI_GR_DMS_R&amp;interfaceNamespace=http%3A%2F%2Fdms_GR_RequestByDMS" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"/>
+      </wsdl:port>
+      <wsdl:port name="HTTPS_Port" binding="p1:SI_GR_DMS_RBinding">
+         <soap:address location="https://SAPPED:50001/XISOAPAdapter/MessageServlet?senderParty=&amp;senderService=DMS&amp;receiverParty=&amp;receiverService=&amp;interface=SI_GR_DMS_R&amp;interfaceNamespace=http%3A%2F%2Fdms_GR_RequestByDMS" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"/>
+      </wsdl:port>
+   </wsdl:service>
+</wsdl:definitions>

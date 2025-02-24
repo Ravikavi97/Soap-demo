@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema elementFormDefault="qualified" targetNamespace="http://dms.purchaseorder.update.sap/"
+           xmlns:tns="http://dms.purchaseorder.update.sap/"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+    <xs:simpleType name="SapStatus">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="PGI_CANCELED"/>
+            <xs:enumeration value="DELIVERY_CANCELED"/>
+            <xs:enumeration value="FOC_PO_CREDIT_BLOCK_REJECTED"/>
+            <xs:enumeration value="FOC_PO_CREDIT_BLOCKED"/>
+            <xs:enumeration value="FOC_PO_VERIFICATION_PENDING"/>
+            <xs:enumeration value="FOC_PO_REJECTED"/>
+            <xs:enumeration value="FOC_VERIFICATION_PENDING"/>
+            <xs:enumeration value="CREDIT_PO_CREDIT_BLOCKED"/>
+            <xs:enumeration value="DELIVERY_CREATED"/>
+            <xs:enumeration value="DELIVERY_SUCCESSFUL"/>
+            <xs:enumeration value="SALES_ORDER_CREATED"/>
+            <xs:enumeration value="INVOICE_CREATED"/>
+            <xs:enumeration value="CASH_PO_CREDIT_BLOCKED"/>
+            <xs:enumeration value="CASH_PO_REJECTED"/>
+            <xs:enumeration value="CREDIT_BLOCK_CLEARED"/>
+            <xs:enumeration value="CREDIT_BLOCK_REJECTED"/>
+            <xs:enumeration value="FOC_PO_APPROVED"/>
+            <xs:enumeration value="INVOICE_CANCELED"/>
+            <xs:enumeration value="PAYMENT_DETAILS_PENDING"/>
+            <xs:enumeration value="SALES_ORDER_CANCELED"/>
+            <xs:enumeration value="FOC_PO_CREDIT_BLOCK_RELEASED"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:element name="UpdatePOStatusRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" name="InvoiceAmount" type="xs:double"/>
+                <xs:element minOccurs="0" name="InvoiceID" nillable="true" type="xs:string"/>
+                <xs:element minOccurs="1" name="POID" type="xs:long"/>
+                <xs:element minOccurs="1" name="SalesOrderID">
+                    <xs:simpleType>
+                        <xs:restriction base="xs:string">
+                            <xs:minLength value="1"/>
+                        </xs:restriction>
+                    </xs:simpleType>
+                </xs:element>
+                <xs:element minOccurs="1" name="SapStatus" type="tns:SapStatus"/>
+                <xs:element minOccurs="0" name="Gross_Value" type="xs:double"/>
+                <xs:element minOccurs="0" name="Commission_Value" type="xs:double"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="UpdatePOStatusResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string"/>
+                <xs:element minOccurs="0" name="ErrorCode" type="xs:int"/>
+                <xs:element minOccurs="0" name="POID" type="xs:long"/>
+                <xs:element minOccurs="0" name="SapStatus" type="tns:SapStatus"/>
+                <xs:element minOccurs="0" name="StatusDesc" nillable="true" type="xs:string"/>
+                <xs:element minOccurs="0" name="StatusId" type="xs:int"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

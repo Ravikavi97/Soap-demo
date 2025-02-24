@@ -1,0 +1,305 @@
+<wsdl:definitions targetNamespace="lk.dialog.DMSPOSIntegration" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+                  xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="lk.dialog.DMSPOSIntegration"
+                  xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl">
+   <wsdl:types>
+      <xsd:schema targetNamespace="lk.dialog.DMSPOSIntegration/Imports">
+         <xsd:import schemaLocation="../xsd/DMSPOSService0.xsd" namespace="lk.dialog.DMSPOSIntegration"/>
+         <xsd:import schemaLocation="../xsd/DMSPOSService2.xsd" namespace="http://schemas.datacontract.org/2004/07/Dialog.Dms.Business.BusinessObject"/>
+         <xsd:import schemaLocation="../xsd/DMSPOSService3.xsd" namespace="http://schemas.datacontract.org/2004/07/DMSPOSIntegrationService"/>
+         <xsd:import schemaLocation="../xsd/DMSPOSService4.xsd" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays"/>
+      </xsd:schema>
+   </wsdl:types>
+   <wsdl:message name="PendingPosItemRequest">
+      <wsdl:part name="parameters" element="tns:PendingPosItemRequest"/>
+   </wsdl:message>
+   <wsdl:message name="PendingPosItemResponse">
+      <wsdl:part name="parameters" element="tns:PendingPosItemResponse"/>
+   </wsdl:message>
+   <wsdl:message name="GetMaterialAvailableRequest">
+      <wsdl:part name="parameters" element="tns:GetMaterialAvailableRequest"/>
+   </wsdl:message>
+   <wsdl:message name="GetMaterialAvailableResponse">
+      <wsdl:part name="parameters" element="tns:GetMaterialAvailableResponse"/>
+   </wsdl:message>
+   <wsdl:message name="MaterialCheckReserveRequest">
+      <wsdl:part name="parameters" element="tns:MaterialCheckReserveRequest"/>
+   </wsdl:message>
+   <wsdl:message name="MaterialCheckReserveResponse">
+      <wsdl:part name="parameters" element="tns:MaterialCheckReserveResponse"/>
+   </wsdl:message>
+   <wsdl:message name="ReservationConfirmRequest">
+      <wsdl:part name="parameters" element="tns:ReservationConfirmRequest"/>
+   </wsdl:message>
+   <wsdl:message name="ReservationConfirmResponse">
+      <wsdl:part name="parameters" element="tns:ReservationConfirmResponse"/>
+   </wsdl:message>
+   <wsdl:message name="ReservationCancelRequest">
+      <wsdl:part name="parameters" element="tns:ReservationCancelRequest"/>
+   </wsdl:message>
+   <wsdl:message name="ReservationCancelResponse">
+      <wsdl:part name="parameters" element="tns:ReservationCancelResponse"/>
+   </wsdl:message>
+   <wsdl:message name="GetStoByIDRequest">
+      <wsdl:part name="parameters" element="tns:GetStoByIDRequest"/>
+   </wsdl:message>
+   <wsdl:message name="GetSTODetailResponse">
+      <wsdl:part name="parameters" element="tns:GetSTODetailResponse"/>
+   </wsdl:message>
+   <wsdl:message name="CheckOutletItemBalanceRequest">
+      <wsdl:part name="parameters" element="tns:CheckOutletItemBalanceRequest"/>
+   </wsdl:message>
+   <wsdl:message name="CheckOutletItemBalanceResponse">
+      <wsdl:part name="parameters" element="tns:CheckOutletItemBalanceResponse"/>
+   </wsdl:message>
+   <wsdl:message name="CreatePOSSTOItemRequest">
+      <wsdl:part name="parameters" element="tns:CreatePOSSTOItemRequest"/>
+   </wsdl:message>
+   <wsdl:message name="CreatePOSSTOItemResponse">
+      <wsdl:part name="parameters" element="tns:CreatePOSSTOItemResponse"/>
+   </wsdl:message>
+   <wsdl:message name="IDMSPOSService_ApprovalSTORequest_InputMessage">
+      <wsdl:part name="parameters" element="tns:ApprovalSTORequest"/>
+   </wsdl:message>
+   <wsdl:message name="IDMSPOSService_ApprovalSTORequest_OutputMessage">
+      <wsdl:part name="parameters" element="tns:ApprovalSTORequestResponse"/>
+   </wsdl:message>
+   <wsdl:message name="IDMSPOSService_GetPendingGoodsTransferSTO_InputMessage">
+      <wsdl:part name="parameters" element="tns:GetPendingGoodsTransferSTO"/>
+   </wsdl:message>
+   <wsdl:message name="IDMSPOSService_GetPendingGoodsTransferSTO_OutputMessage">
+      <wsdl:part name="parameters" element="tns:GetPendingGoodsTransferSTOResponse"/>
+   </wsdl:message>
+   <wsdl:message name="IDMSPOSService_CreateReturnRequest_InputMessage">
+      <wsdl:part name="parameters" element="tns:CreateReturnRequest"/>
+   </wsdl:message>
+   <wsdl:message name="IDMSPOSService_CreateReturnRequest_OutputMessage">
+      <wsdl:part name="parameters" element="tns:CreateReturnRequestResponse"/>
+   </wsdl:message>
+   <wsdl:message name="IDMSPOSService_GetReturnRequestAcceptanceDetail_InputMessage">
+      <wsdl:part name="parameters" element="tns:GetReturnRequestAcceptanceDetail"/>
+   </wsdl:message>
+   <wsdl:message name="IDMSPOSService_GetReturnRequestAcceptanceDetail_OutputMessage">
+      <wsdl:part name="parameters" element="tns:GetReturnRequestAcceptanceDetailResponse"/>
+   </wsdl:message>
+   <wsdl:message name="UpdateGoodIssueRequest">
+      <wsdl:part name="parameters" element="tns:UpdateGoodIssueRequest"/>
+   </wsdl:message>
+   <wsdl:message name="UpdateGoodIssueResponse">
+      <wsdl:part name="parameters" element="tns:UpdateGoodIssueResponse"/>
+   </wsdl:message>
+   <wsdl:message name="GetSerialValidationRequest">
+      <wsdl:part name="parameters" element="tns:GetSerialValidationRequest"/>
+   </wsdl:message>
+   <wsdl:message name="GetSerialValidationResponse">
+      <wsdl:part name="parameters" element="tns:GetSerialValidationResponse"/>
+   </wsdl:message>
+   <wsdl:message name="LoadGTNDetailsRequest">
+      <wsdl:part name="parameters" element="tns:LoadGTNDetailsRequest"/>
+   </wsdl:message>
+   <wsdl:message name="LoadGTNDetailsResponse">
+      <wsdl:part name="parameters" element="tns:LoadGTNDetailsResponse"/>
+   </wsdl:message>
+   <wsdl:message name="BinCardInvBalanaceRequest">
+      <wsdl:part name="parameters" element="tns:BinCardInvBalanaceRequest"/>
+   </wsdl:message>
+   <wsdl:message name="BinCardInvBalanceResponse">
+      <wsdl:part name="parameters" element="tns:BinCardInvBalanceResponse"/>
+   </wsdl:message>
+   <wsdl:message name="BinLocationItemFlowResponse">
+      <wsdl:part name="parameters" element="tns:BinLocationItemFlowResponse"/>
+   </wsdl:message>
+   <wsdl:message name="AcceptGoodsRequest">
+      <wsdl:part name="parameters" element="tns:AcceptGoodsRequest"/>
+   </wsdl:message>
+   <wsdl:message name="AcceptGoodsResponse">
+      <wsdl:part name="parameters" element="tns:AcceptGoodsResponse"/>
+   </wsdl:message>
+   <wsdl:message name="IDMSPOSService_STOCancelation_InputMessage">
+      <wsdl:part name="parameters" element="tns:STOCancelation"/>
+   </wsdl:message>
+   <wsdl:message name="IDMSPOSService_STOCancelation_OutputMessage">
+      <wsdl:part name="parameters" element="tns:STOCancelationResponse"/>
+   </wsdl:message>
+   <wsdl:message name="IDMSPOSService_WherehouseReturn_InputMessage">
+      <wsdl:part name="parameters" element="tns:WherehouseReturn"/>
+   </wsdl:message>
+   <wsdl:message name="IDMSPOSService_WherehouseReturn_OutputMessage">
+      <wsdl:part name="parameters" element="tns:WherehouseReturnResponse"/>
+   </wsdl:message>
+   <wsdl:message name="IDMSPOSService_GetGICancelSTOList_InputMessage">
+      <wsdl:part name="parameters" element="tns:GetGICancelSTOList"/>
+   </wsdl:message>
+   <wsdl:message name="IDMSPOSService_GetGICancelSTOList_OutputMessage">
+      <wsdl:part name="parameters" element="tns:GetGICancelSTOListResponse"/>
+   </wsdl:message>
+   <wsdl:message name="GetWarehouseReturnInfoRequest">
+      <wsdl:part name="parameters" element="tns:GetWarehouseReturnInfoRequest"/>
+   </wsdl:message>
+   <wsdl:message name="GetWarehouseReturnInfoResponse">
+      <wsdl:part name="parameters" element="tns:GetWarehouseReturnInfoResponse"/>
+   </wsdl:message>
+   <wsdl:message name="GetWarehouseReturnDetailInfoRequest">
+      <wsdl:part name="parameters" element="tns:GetWarehouseReturnDetailInfoRequest"/>
+   </wsdl:message>
+   <wsdl:message name="GetWarehouseReturnDetailInfoResponse">
+      <wsdl:part name="parameters" element="tns:GetWarehouseReturnDetailInfoResponse"/>
+   </wsdl:message>
+   <wsdl:message name="LazyPayMessageRequest">
+      <wsdl:part name="parameters" element="tns:LazyPayMessageRequest"/>
+   </wsdl:message>
+   <wsdl:message name="LazyPayMessageResponse">
+      <wsdl:part name="parameters" element="tns:LazyPayMessageResponse"/>
+   </wsdl:message>
+   <wsdl:message name="IDMSPOSService_GetDirectGoodsTransferSTO_InputMessage">
+      <wsdl:part name="parameters" element="tns:GetDirectGoodsTransferSTO"/>
+   </wsdl:message>
+   <wsdl:message name="IDMSPOSService_GetDirectGoodsTransferSTO_OutputMessage">
+      <wsdl:part name="parameters" element="tns:GetDirectGoodsTransferSTOResponse"/>
+   </wsdl:message>
+   <wsdl:message name="LoadDirectGTNDetailsRequest">
+      <wsdl:part name="parameters" element="tns:LoadDirectGTNDetailsRequest"/>
+   </wsdl:message>
+   <wsdl:message name="AcceptDirectGoodsRequest">
+      <wsdl:part name="parameters" element="tns:AcceptDirectGoodsRequest"/>
+   </wsdl:message>
+   <wsdl:message name="BundleSerialValidaterRequest">
+      <wsdl:part name="parameters" element="tns:BundleSerialValidaterRequest"/>
+   </wsdl:message>
+   <wsdl:message name="BundleSerialValidaterResponse">
+      <wsdl:part name="parameters" element="tns:BundleSerialValidaterResponse"/>
+   </wsdl:message>
+   <wsdl:message name="BranchToBranchTransferRequest">
+      <wsdl:part name="parameters" element="tns:BranchToBranchTransferRequest"/>
+   </wsdl:message>
+   <wsdl:message name="BranchToBranchTransferResponse">
+      <wsdl:part name="parameters" element="tns:BranchToBranchTransferResponse"/>
+   </wsdl:message>
+   <wsdl:message name="GetMaterilRequest">
+      <wsdl:part name="parameters" element="tns:GetMaterilRequest"/>
+   </wsdl:message>
+   <wsdl:message name="GetMaterilResponse">
+      <wsdl:part name="parameters" element="tns:GetMaterilResponse"/>
+   </wsdl:message>
+   <wsdl:portType name="IDMSPOSService">
+      <wsdl:operation name="GetPendingItemRequest">
+         <wsdl:input wsaw:Action="lk.dialog.DMSPOSIntegration/IDMSPOSService/GetPendingItemRequest" name="PendingPosItemRequest" message="tns:PendingPosItemRequest"/>
+         <wsdl:output wsaw:Action="lk.dialog.DMSPOSIntegration/IDMSPOSService/GetPendingItemRequestResponse" name="PendingPosItemResponse" message="tns:PendingPosItemResponse"/>
+      </wsdl:operation>
+      <wsdl:operation name="CheckMaterialAvailability">
+         <wsdl:input wsaw:Action="lk.dialog.DMSPOSIntegration/IDMSPOSService/CheckMaterialAvailability" name="GetMaterialAvailableRequest" message="tns:GetMaterialAvailableRequest"/>
+         <wsdl:output wsaw:Action="lk.dialog.DMSPOSIntegration/IDMSPOSService/CheckMaterialAvailabilityResponse" name="GetMaterialAvailableResponse" message="tns:GetMaterialAvailableResponse"/>
+      </wsdl:operation>
+      <wsdl:operation name="CheckMaterialReservation">
+         <wsdl:input wsaw:Action="lk.dialog.DMSPOSIntegration/IDMSPOSService/CheckMaterialReservation" name="MaterialCheckReserveRequest" message="tns:MaterialCheckReserveRequest"/>
+         <wsdl:output wsaw:Action="lk.dialog.DMSPOSIntegration/IDMSPOSService/CheckMaterialReservationResponse" name="MaterialCheckReserveResponse" message="tns:MaterialCheckReserveResponse"/>
+      </wsdl:operation>
+      <wsdl:operation name="ConfirmReservation">
+         <wsdl:input wsaw:Action="lk.dialog.DMSPOSIntegration/IDMSPOSService/ConfirmReservation" name="ReservationConfirmRequest" message="tns:ReservationConfirmRequest"/>
+         <wsdl:output wsaw:Action="lk.dialog.DMSPOSIntegration/IDMSPOSService/ConfirmReservationResponse" name="ReservationConfirmResponse" message="tns:ReservationConfirmResponse"/>
+      </wsdl:operation>
+      <wsdl:operation name="CancelReservation">
+         <wsdl:input wsaw:Action="lk.dialog.DMSPOSIntegration/IDMSPOSService/CancelReservation" name="ReservationCancelRequest" message="tns:ReservationCancelRequest"/>
+         <wsdl:output wsaw:Action="lk.dialog.DMSPOSIntegration/IDMSPOSService/CancelReservationResponse" name="ReservationCancelResponse" message="tns:ReservationCancelResponse"/>
+      </wsdl:operation>
+      <wsdl:operation name="GetSTORequestInfo">
+         <wsdl:input wsaw:Action="lk.dialog.DMSPOSIntegration/IDMSPOSService/GetSTORequestInfo" name="GetStoByIDRequest" message="tns:GetStoByIDRequest"/>
+         <wsdl:output wsaw:Action="lk.dialog.DMSPOSIntegration/IDMSPOSService/GetSTORequestInfoResponse" name="GetSTODetailResponse" message="tns:GetSTODetailResponse"/>
+      </wsdl:operation>
+      <wsdl:operation name="GetAvailableItemQtyfromOutLet">
+         <wsdl:input wsaw:Action="lk.dialog.DMSPOSIntegration/IDMSPOSService/GetAvailableItemQtyfromOutLet" name="CheckOutletItemBalanceRequest" message="tns:CheckOutletItemBalanceRequest"/>
+         <wsdl:output wsaw:Action="lk.dialog.DMSPOSIntegration/IDMSPOSService/GetAvailableItemQtyfromOutLetResponse" name="CheckOutletItemBalanceResponse" message="tns:CheckOutletItemBalanceResponse"/>
+      </wsdl:operation>
+      <wsdl:operation name="CreatePOSSto">
+         <wsdl:input wsaw:Action="lk.dialog.DMSPOSIntegration/IDMSPOSService/CreatePOSSto" name="CreatePOSSTOItemRequest" message="tns:CreatePOSSTOItemRequest"/>
+         <wsdl:output wsaw:Action="lk.dialog.DMSPOSIntegration/IDMSPOSService/CreatePOSStoResponse" name="CreatePOSSTOItemResponse" message="tns:CreatePOSSTOItemResponse"/>
+      </wsdl:operation>
+      <wsdl:operation name="ApprovalSTORequest">
+         <wsdl:input wsaw:Action="lk.dialog.DMSPOSIntegration/IDMSPOSService/ApprovalSTORequest" message="tns:IDMSPOSService_ApprovalSTORequest_InputMessage"/>
+         <wsdl:output wsaw:Action="lk.dialog.DMSPOSIntegration/IDMSPOSService/ApprovalSTORequestResponse" message="tns:IDMSPOSService_ApprovalSTORequest_OutputMessage"/>
+      </wsdl:operation>
+      <wsdl:operation name="GetPendingGoodsTransferSTO">
+         <wsdl:input wsaw:Action="lk.dialog.DMSPOSIntegration/IDMSPOSService/GetPendingGoodsTransferSTO" message="tns:IDMSPOSService_GetPendingGoodsTransferSTO_InputMessage"/>
+         <wsdl:output wsaw:Action="lk.dialog.DMSPOSIntegration/IDMSPOSService/GetPendingGoodsTransferSTOResponse" message="tns:IDMSPOSService_GetPendingGoodsTransferSTO_OutputMessage"/>
+      </wsdl:operation>
+      <wsdl:operation name="CreateReturnRequest">
+         <wsdl:input wsaw:Action="lk.dialog.DMSPOSIntegration/IDMSPOSService/CreateReturnRequest" message="tns:IDMSPOSService_CreateReturnRequest_InputMessage"/>
+         <wsdl:output wsaw:Action="lk.dialog.DMSPOSIntegration/IDMSPOSService/CreateReturnRequestResponse" message="tns:IDMSPOSService_CreateReturnRequest_OutputMessage"/>
+      </wsdl:operation>
+      <wsdl:operation name="GetReturnRequestAcceptanceDetail">
+         <wsdl:input wsaw:Action="lk.dialog.DMSPOSIntegration/IDMSPOSService/GetReturnRequestAcceptanceDetail" message="tns:IDMSPOSService_GetReturnRequestAcceptanceDetail_InputMessage"/>
+         <wsdl:output wsaw:Action="lk.dialog.DMSPOSIntegration/IDMSPOSService/GetReturnRequestAcceptanceDetailResponse" message="tns:IDMSPOSService_GetReturnRequestAcceptanceDetail_OutputMessage"/>
+      </wsdl:operation>
+      <wsdl:operation name="UpdateGoodsIssue">
+         <wsdl:input wsaw:Action="lk.dialog.DMSPOSIntegration/IDMSPOSService/UpdateGoodsIssue" name="UpdateGoodIssueRequest" message="tns:UpdateGoodIssueRequest"/>
+         <wsdl:output wsaw:Action="lk.dialog.DMSPOSIntegration/IDMSPOSService/UpdateGoodsIssueResponse" name="UpdateGoodIssueResponse" message="tns:UpdateGoodIssueResponse"/>
+      </wsdl:operation>
+      <wsdl:operation name="ValidateSerialNumbers">
+         <wsdl:input wsaw:Action="lk.dialog.DMSPOSIntegration/IDMSPOSService/ValidateSerialNumbers" name="GetSerialValidationRequest" message="tns:GetSerialValidationRequest"/>
+         <wsdl:output wsaw:Action="lk.dialog.DMSPOSIntegration/IDMSPOSService/ValidateSerialNumbersResponse" name="GetSerialValidationResponse" message="tns:GetSerialValidationResponse"/>
+      </wsdl:operation>
+      <wsdl:operation name="LoadGTNDetails">
+         <wsdl:input wsaw:Action="lk.dialog.DMSPOSIntegration/IDMSPOSService/LoadGTNDetails" name="LoadGTNDetailsRequest" message="tns:LoadGTNDetailsRequest"/>
+         <wsdl:output wsaw:Action="lk.dialog.DMSPOSIntegration/IDMSPOSService/LoadGTNDetailsResponse" name="LoadGTNDetailsResponse" message="tns:LoadGTNDetailsResponse"/>
+      </wsdl:operation>
+      <wsdl:operation name="GetInventoryBinBalance">
+         <wsdl:input wsaw:Action="lk.dialog.DMSPOSIntegration/IDMSPOSService/GetInventoryBinBalance" name="BinCardInvBalanaceRequest" message="tns:BinCardInvBalanaceRequest"/>
+         <wsdl:output wsaw:Action="lk.dialog.DMSPOSIntegration/IDMSPOSService/GetInventoryBinBalanceResponse" name="BinCardInvBalanceResponse" message="tns:BinCardInvBalanceResponse"/>
+      </wsdl:operation>
+      <wsdl:operation name="GetInventoryBinItemFlow">
+         <wsdl:input wsaw:Action="lk.dialog.DMSPOSIntegration/IDMSPOSService/GetInventoryBinItemFlow" name="BinCardInvBalanaceRequest" message="tns:BinCardInvBalanaceRequest"/>
+         <wsdl:output wsaw:Action="lk.dialog.DMSPOSIntegration/IDMSPOSService/GetInventoryBinItemFlowResponse" name="BinLocationItemFlowResponse" message="tns:BinLocationItemFlowResponse"/>
+      </wsdl:operation>
+      <wsdl:operation name="AcceptGoodsTranferNote">
+         <wsdl:input wsaw:Action="lk.dialog.DMSPOSIntegration/IDMSPOSService/AcceptGoodsTranferNote" name="AcceptGoodsRequest" message="tns:AcceptGoodsRequest"/>
+         <wsdl:output wsaw:Action="lk.dialog.DMSPOSIntegration/IDMSPOSService/AcceptGoodsTranferNoteResponse" name="AcceptGoodsResponse" message="tns:AcceptGoodsResponse"/>
+      </wsdl:operation>
+      <wsdl:operation name="STOCancelation">
+         <wsdl:input wsaw:Action="lk.dialog.DMSPOSIntegration/IDMSPOSService/STOCancelation" message="tns:IDMSPOSService_STOCancelation_InputMessage"/>
+         <wsdl:output wsaw:Action="lk.dialog.DMSPOSIntegration/IDMSPOSService/STOCancelationResponse" message="tns:IDMSPOSService_STOCancelation_OutputMessage"/>
+      </wsdl:operation>
+      <wsdl:operation name="WherehouseReturn">
+         <wsdl:input wsaw:Action="lk.dialog.DMSPOSIntegration/IDMSPOSService/WherehouseReturn" message="tns:IDMSPOSService_WherehouseReturn_InputMessage"/>
+         <wsdl:output wsaw:Action="lk.dialog.DMSPOSIntegration/IDMSPOSService/WherehouseReturnResponse" message="tns:IDMSPOSService_WherehouseReturn_OutputMessage"/>
+      </wsdl:operation>
+      <wsdl:operation name="GetGICancelSTOList">
+         <wsdl:input wsaw:Action="lk.dialog.DMSPOSIntegration/IDMSPOSService/GetGICancelSTOList" message="tns:IDMSPOSService_GetGICancelSTOList_InputMessage"/>
+         <wsdl:output wsaw:Action="lk.dialog.DMSPOSIntegration/IDMSPOSService/GetGICancelSTOListResponse" message="tns:IDMSPOSService_GetGICancelSTOList_OutputMessage"/>
+      </wsdl:operation>
+      <wsdl:operation name="GetSTOWarehouseReturnInfo">
+         <wsdl:input wsaw:Action="lk.dialog.DMSPOSIntegration/IDMSPOSService/GetSTOWarehouseReturnInfo" name="GetWarehouseReturnInfoRequest" message="tns:GetWarehouseReturnInfoRequest"/>
+         <wsdl:output wsaw:Action="lk.dialog.DMSPOSIntegration/IDMSPOSService/GetSTOWarehouseReturnInfoResponse" name="GetWarehouseReturnInfoResponse" message="tns:GetWarehouseReturnInfoResponse"/>
+      </wsdl:operation>
+      <wsdl:operation name="GetWarehouseReturnDetailsInfo">
+         <wsdl:input wsaw:Action="lk.dialog.DMSPOSIntegration/IDMSPOSService/GetWarehouseReturnDetailsInfo" name="GetWarehouseReturnDetailInfoRequest" message="tns:GetWarehouseReturnDetailInfoRequest"/>
+         <wsdl:output wsaw:Action="lk.dialog.DMSPOSIntegration/IDMSPOSService/GetWarehouseReturnDetailsInfoResponse" name="GetWarehouseReturnDetailInfoResponse" message="tns:GetWarehouseReturnDetailInfoResponse"/>
+      </wsdl:operation>
+      <wsdl:operation name="StockMovement">
+         <wsdl:input wsaw:Action="lk.dialog.DMSPOSIntegration/IDMSPOSService/StockMovement" name="LazyPayMessageRequest" message="tns:LazyPayMessageRequest"/>
+         <wsdl:output wsaw:Action="lk.dialog.DMSPOSIntegration/IDMSPOSService/StockMovementResponse" name="LazyPayMessageResponse" message="tns:LazyPayMessageResponse"/>
+      </wsdl:operation>
+      <wsdl:operation name="GetDirectGoodsTransferSTO">
+         <wsdl:input wsaw:Action="lk.dialog.DMSPOSIntegration/IDMSPOSService/GetDirectGoodsTransferSTO" message="tns:IDMSPOSService_GetDirectGoodsTransferSTO_InputMessage"/>
+         <wsdl:output wsaw:Action="lk.dialog.DMSPOSIntegration/IDMSPOSService/GetDirectGoodsTransferSTOResponse" message="tns:IDMSPOSService_GetDirectGoodsTransferSTO_OutputMessage"/>
+      </wsdl:operation>
+      <wsdl:operation name="LoadDirectGTNDetails">
+         <wsdl:input wsaw:Action="lk.dialog.DMSPOSIntegration/IDMSPOSService/LoadDirectGTNDetails" name="LoadDirectGTNDetailsRequest" message="tns:LoadDirectGTNDetailsRequest"/>
+         <wsdl:output wsaw:Action="lk.dialog.DMSPOSIntegration/IDMSPOSService/LoadDirectGTNDetailsResponse" name="LoadGTNDetailsResponse" message="tns:LoadGTNDetailsResponse"/>
+      </wsdl:operation>
+      <wsdl:operation name="AcceptDirectGoodsTranferNote">
+         <wsdl:input wsaw:Action="lk.dialog.DMSPOSIntegration/IDMSPOSService/AcceptDirectGoodsTranferNote" name="AcceptDirectGoodsRequest" message="tns:AcceptDirectGoodsRequest"/>
+         <wsdl:output wsaw:Action="lk.dialog.DMSPOSIntegration/IDMSPOSService/AcceptDirectGoodsTranferNoteResponse" name="AcceptGoodsResponse" message="tns:AcceptGoodsResponse"/>
+      </wsdl:operation>
+      <wsdl:operation name="BundleSerialValidater">
+         <wsdl:input wsaw:Action="lk.dialog.DMSPOSIntegration/IDMSPOSService/BundleSerialValidater" name="BundleSerialValidaterRequest" message="tns:BundleSerialValidaterRequest"/>
+         <wsdl:output wsaw:Action="lk.dialog.DMSPOSIntegration/IDMSPOSService/BundleSerialValidaterResponse" name="BundleSerialValidaterResponse" message="tns:BundleSerialValidaterResponse"/>
+      </wsdl:operation>
+      <wsdl:operation name="BranchToBranchTransfer">
+         <wsdl:input wsaw:Action="lk.dialog.DMSPOSIntegration/IDMSPOSService/BranchToBranchTransfer" name="BranchToBranchTransferRequest" message="tns:BranchToBranchTransferRequest"/>
+         <wsdl:output wsaw:Action="lk.dialog.DMSPOSIntegration/IDMSPOSService/BranchToBranchTransferResponse" name="BranchToBranchTransferResponse" message="tns:BranchToBranchTransferResponse"/>
+      </wsdl:operation>
+      <wsdl:operation name="GetMaterilList">
+         <wsdl:input wsaw:Action="lk.dialog.DMSPOSIntegration/IDMSPOSService/GetMaterilList" name="GetMaterilRequest" message="tns:GetMaterilRequest"/>
+         <wsdl:output wsaw:Action="lk.dialog.DMSPOSIntegration/IDMSPOSService/GetMaterilListResponse" name="GetMaterilResponse" message="tns:GetMaterilResponse"/>
+      </wsdl:operation>
+   </wsdl:portType>
+</wsdl:definitions>

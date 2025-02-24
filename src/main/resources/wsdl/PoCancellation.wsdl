@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions
+        xmlns:tns="http://dms.purchaseorder.cancel.sap/"
+        xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl"
+        xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+        xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="POCancellation"
+        targetNamespace="http://dms.purchaseorder.cancel.sap/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    <wsdl:types>
+        <xsd:schema targetNamespace="http://dms.purchaseorder.cancel.sap/Imports">
+            <xsd:import schemaLocation="../xsd/PoCancellationService.xsd" namespace="http://dms.purchaseorder.cancel.sap/"/>
+            <xsd:import schemaLocation="../schema/DMSService1.xsd"
+                        namespace="http://schemas.microsoft.com/2003/10/Serialization/"/>
+        </xsd:schema>
+    </wsdl:types>
+    <wsdl:message name="CancelPurchaseOrderRequest">
+        <wsdl:part name="parameters" element="tns:CancelPurchaseOrderRequest"/>
+    </wsdl:message>
+    <wsdl:message name="CancelPurchaseOrderResponse">
+        <wsdl:part name="parameters" element="tns:CancelPurchaseOrderResponse"/>
+    </wsdl:message>
+    <wsdl:portType name="IPOCancellation">
+        <wsdl:operation name="CancelPurchaseOrder">
+            <wsdl:input wsaw:Action="http://dms.purchaseorder.cancel.sap/IPOCancellation/CancelPurchaseOrder"
+                        name="CancelPurchaseOrderRequest" message="tns:CancelPurchaseOrderRequest"/>
+            <wsdl:output wsaw:Action="http://dms.purchaseorder.cancel.sap/IPOCancellation/CancelPurchaseOrderResponse"
+                         name="CancelPurchaseOrderResponse" message="tns:CancelPurchaseOrderResponse"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="BasicHttpBinding_IPOCancellation" type="tns:IPOCancellation">
+        <soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="CancelPurchaseOrder">
+            <soap:operation soapAction="http://dms.purchaseorder.cancel.sap/IPOCancellation/CancelPurchaseOrder" style="document"/>
+            <wsdl:input name="CancelPurchaseOrderRequest">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="CancelPurchaseOrderResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="POCancellation">
+        <wsdl:port name="BasicHttpBinding_IPOCancellation" binding="tns:BasicHttpBinding_IPOCancellation">
+            <soap:address location="http://localhost:57098/PO/POCancellation.svc"/>
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>

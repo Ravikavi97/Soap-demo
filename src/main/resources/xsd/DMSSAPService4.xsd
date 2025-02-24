@@ -1,0 +1,347 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/DMSSAPIntegrationService" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           elementFormDefault="qualified"
+           targetNamespace="http://schemas.datacontract.org/2004/07/DMSSAPIntegrationService">
+    <xs:import schemaLocation="./DMSSAPService3.xsd" namespace="http://schemas.microsoft.com/2003/10/Serialization/"/>
+    <xs:simpleType name="SapOrderType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="PurchaseOrder"/>
+            <xs:enumeration value="STO"/>
+            <xs:enumeration value="Return"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:element name="SapOrderType" nillable="true" type="tns:SapOrderType"/>
+    <xs:complexType name="STOItemIssueRequestHeader">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="ItemStatusFlag" type="tns:ItemStatus"/>
+            <xs:element minOccurs="0" name="MovementID" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="PIMessageID" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="RequestID" type="xs:int"/>
+            <xs:element minOccurs="0" name="SAPRefNo" nillable="true" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="STOItemIssueRequestHeader" nillable="true" type="tns:STOItemIssueRequestHeader"/>
+    <xs:simpleType name="ItemStatus">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="New">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1
+                        </EnumerationValue>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="Used">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">2
+                        </EnumerationValue>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:element name="ItemStatus" nillable="true" type="tns:ItemStatus"/>
+    <xs:complexType name="ArrayOfSTOItemIssueRequestDetail">
+        <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="STOItemIssueRequestDetail" nillable="true"
+                        type="tns:STOItemIssueRequestDetail"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="ArrayOfSTOItemIssueRequestDetail" nillable="true" type="tns:ArrayOfSTOItemIssueRequestDetail"/>
+    <xs:complexType name="STOItemIssueRequestDetail">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="ItemSerials" nillable="true" type="tns:ArrayOfSerials"/>
+            <xs:element minOccurs="0" name="Qty" type="xs:double"/>
+            <xs:element minOccurs="0" name="SAPMaterialCode" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="SeqNum" type="xs:int"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="STOItemIssueRequestDetail" nillable="true" type="tns:STOItemIssueRequestDetail"/>
+    <xs:complexType name="ArrayOfSerials">
+        <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="Serials" nillable="true" type="tns:Serials"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="ArrayOfSerials" nillable="true" type="tns:ArrayOfSerials"/>
+    <xs:complexType name="Serials">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="BundleSerial" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="FromSerial" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="ToSerial" nillable="true" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="Serials" nillable="true" type="tns:Serials"/>
+    <xs:complexType name="ActionResponce">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="RequestID" type="xs:int"/>
+            <xs:element minOccurs="0" name="ResponseDesc" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="ResponseStatus" type="xs:int"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="ActionResponce" nillable="true" type="tns:ActionResponce"/>
+    <xs:complexType name="DirectIssuenceReqHeader">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="ItemStatusFlag" type="tns:ItemStatus"/>
+            <xs:element minOccurs="0" name="MovementID" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="PIMessageID" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="RequestId" type="xs:int"/>
+            <xs:element minOccurs="0" name="SapRefNo" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="ToProfileID" type="xs:int"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="DirectIssuenceReqHeader" nillable="true" type="tns:DirectIssuenceReqHeader"/>
+    <xs:complexType name="ArrayOfDirectIssuenceReqDetail">
+        <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="DirectIssuenceReqDetail" nillable="true"
+                        type="tns:DirectIssuenceReqDetail"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="ArrayOfDirectIssuenceReqDetail" nillable="true" type="tns:ArrayOfDirectIssuenceReqDetail"/>
+    <xs:complexType name="DirectIssuenceReqDetail">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="ItemSerials" nillable="true" type="tns:ArrayOfSerials"/>
+            <xs:element minOccurs="0" name="Qty" type="xs:double"/>
+            <xs:element minOccurs="0" name="SAPMaterialCode" nillable="true" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="DirectIssuenceReqDetail" nillable="true" type="tns:DirectIssuenceReqDetail"/>
+    <xs:complexType name="StoUnsoldReturnAccepRequestHeader">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="PIMessageID" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="ReturnReqID" type="xs:int"/>
+            <xs:element minOccurs="0" name="SAPRefNo" nillable="true" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="StoUnsoldReturnAccepRequestHeader" nillable="true" type="tns:StoUnsoldReturnAccepRequestHeader"/>
+    <xs:complexType name="ArrayOfStoUnsoldReturnAccepRequestDetail">
+        <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="StoUnsoldReturnAccepRequestDetail" nillable="true"
+                        type="tns:StoUnsoldReturnAccepRequestDetail"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="ArrayOfStoUnsoldReturnAccepRequestDetail" nillable="true"
+                type="tns:ArrayOfStoUnsoldReturnAccepRequestDetail"/>
+    <xs:complexType name="StoUnsoldReturnAccepRequestDetail">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="ItemSerials" nillable="true" type="tns:ArrayOfSerials"/>
+            <xs:element minOccurs="0" name="Qty" type="xs:double"/>
+            <xs:element minOccurs="0" name="SAPMaterialCode" nillable="true" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="StoUnsoldReturnAccepRequestDetail" nillable="true" type="tns:StoUnsoldReturnAccepRequestDetail"/>
+    <xs:complexType name="InvoiceItemIssueHeaderReq">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="InvoiceNumber" type="xs:long"/>
+            <xs:element minOccurs="0" name="PONumber" type="xs:int"/>
+            <xs:element minOccurs="0" name="SuccessStatus" type="xs:int"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="InvoiceItemIssueHeaderReq" nillable="true" type="tns:InvoiceItemIssueHeaderReq"/>
+    <xs:complexType name="ArrayOfInvoiceItemIssueDetailReq">
+        <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="InvoiceItemIssueDetailReq" nillable="true"
+                        type="tns:InvoiceItemIssueDetailReq"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="ArrayOfInvoiceItemIssueDetailReq" nillable="true" type="tns:ArrayOfInvoiceItemIssueDetailReq"/>
+    <xs:complexType name="InvoiceItemIssueDetailReq">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="Discount" type="xs:double"/>
+            <xs:element minOccurs="0" name="ItemSerials" nillable="true" type="tns:ArrayOfSerials"/>
+            <xs:element minOccurs="0" name="Qty" type="xs:int"/>
+            <xs:element minOccurs="0" name="RecordID" type="xs:int"/>
+            <xs:element minOccurs="0" name="SAPMaterialCode" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="UnitPrice" type="xs:double"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="InvoiceItemIssueDetailReq" nillable="true" type="tns:InvoiceItemIssueDetailReq"/>
+    <xs:complexType name="InvoiceItemIssueResponse">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="PIMessageID" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="PONumber" type="xs:int"/>
+            <xs:element minOccurs="0" name="ResponseDesc" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="ResponseStatus" type="xs:int"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="InvoiceItemIssueResponse" nillable="true" type="tns:InvoiceItemIssueResponse"/>
+    <xs:complexType name="ReceiptCreationRequest">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="PONumber" type="xs:int"/>
+            <xs:element minOccurs="0" name="ReceiptDesc" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="ReceiptNumber" type="xs:int"/>
+            <xs:element minOccurs="0" name="ReceiptStatus" type="xs:int"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="ReceiptCreationRequest" nillable="true" type="tns:ReceiptCreationRequest"/>
+    <xs:complexType name="ReceiptCreationResponse">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="PIMessageID" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="ReceiptNumber" type="xs:int"/>
+            <xs:element minOccurs="0" name="ResponseDesc" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="ResponseStatus" type="xs:int"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="ReceiptCreationResponse" nillable="true" type="tns:ReceiptCreationResponse"/>
+    <xs:complexType name="ArrayOfConsignResponseHeader">
+        <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="ConsignResponseHeader" nillable="true"
+                        type="tns:ConsignResponseHeader"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="ArrayOfConsignResponseHeader" nillable="true" type="tns:ArrayOfConsignResponseHeader"/>
+    <xs:complexType name="ConsignResponseHeader">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="DMSTransactionID" type="xs:long"/>
+            <xs:element minOccurs="0" name="DisChannel" type="xs:int"/>
+            <xs:element minOccurs="0" name="Division" type="xs:int"/>
+            <xs:element minOccurs="0" name="FromSerial" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="IsFOC" type="xs:int"/>
+            <xs:element minOccurs="0" name="PaymentMode" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="PaymentTerm" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="PlantCode" type="xs:int"/>
+            <xs:element minOccurs="0" name="QTY" type="xs:int"/>
+            <xs:element minOccurs="0" name="ReferencePO" type="xs:long"/>
+            <xs:element minOccurs="0" name="RequestedProfileID" type="xs:long"/>
+            <xs:element minOccurs="0" name="SAPMaterialCode" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="SalesOrderId" type="xs:long"/>
+            <xs:element minOccurs="0" name="SalesOrderIdentifier" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="SalesOrg" type="xs:int"/>
+            <xs:element minOccurs="0" name="ToSerial" nillable="true" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="ConsignResponseHeader" nillable="true" type="tns:ConsignResponseHeader"/>
+    <xs:complexType name="ArrayOfConsignmentStatusUpdateReq">
+        <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="ConsignmentStatusUpdateReq" nillable="true"
+                        type="tns:ConsignmentStatusUpdateReq"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="ArrayOfConsignmentStatusUpdateReq" nillable="true" type="tns:ArrayOfConsignmentStatusUpdateReq"/>
+    <xs:complexType name="ConsignmentStatusUpdateReq">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="DMSTransactionID" type="xs:long"/>
+            <xs:element minOccurs="0" name="FromSerial" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="SAPMaterialCode" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="Status" type="xs:int"/>
+            <xs:element minOccurs="0" name="StatusDesc" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="ToSerial" nillable="true" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="ConsignmentStatusUpdateReq" nillable="true" type="tns:ConsignmentStatusUpdateReq"/>
+    <xs:complexType name="ConsignUpdateResponse">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="PIMessageID" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="ResponseDesc" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="ResponseStatus" type="xs:int"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="ConsignUpdateResponse" nillable="true" type="tns:ConsignUpdateResponse"/>
+    <xs:simpleType name="SBUList">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="DTTL">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1
+                        </EnumerationValue>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="DBN">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">2
+                        </EnumerationValue>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="DTVPostPaid">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">3
+                        </EnumerationValue>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="NBD">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">4
+                        </EnumerationValue>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="DTVPrePaid">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">5
+                        </EnumerationValue>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="GSM">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">6
+                        </EnumerationValue>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:element name="SBUList" nillable="true" type="tns:SBUList"/>
+    <xs:complexType name="ConFillUpInvoiceItemIssueHeaderReq">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="InvoiceNumber" type="xs:long"/>
+            <xs:element minOccurs="0" name="PONumber" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="SuccessStatus" type="xs:int"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="ConFillUpInvoiceItemIssueHeaderReq" nillable="true"
+                type="tns:ConFillUpInvoiceItemIssueHeaderReq"/>
+    <xs:complexType name="ArrayOfConFillUpInvoiceItemIssueDetailReq">
+        <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="ConFillUpInvoiceItemIssueDetailReq" nillable="true"
+                        type="tns:ConFillUpInvoiceItemIssueDetailReq"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="ArrayOfConFillUpInvoiceItemIssueDetailReq" nillable="true"
+                type="tns:ArrayOfConFillUpInvoiceItemIssueDetailReq"/>
+    <xs:complexType name="ConFillUpInvoiceItemIssueDetailReq">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="ItemSerials" nillable="true" type="tns:ArrayOfSerials"/>
+            <xs:element minOccurs="0" name="Qty" type="xs:int"/>
+            <xs:element minOccurs="0" name="RecordID" type="xs:int"/>
+            <xs:element minOccurs="0" name="SAPMaterialCode" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="UnitPrice" type="xs:double"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="ConFillUpInvoiceItemIssueDetailReq" nillable="true"
+                type="tns:ConFillUpInvoiceItemIssueDetailReq"/>
+    <xs:complexType name="ConFillUpInvoiceItemIssueResponse">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="PIMessageID" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="PONumber" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="ResponseDesc" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="ResponseStatus" type="xs:int"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="ConFillUpInvoiceItemIssueResponse" nillable="true" type="tns:ConFillUpInvoiceItemIssueResponse"/>
+    <xs:complexType name="ConsignmentFillUpPOCancelRequest">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="Comment" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="PONumber" nillable="true" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="ConsignmentFillUpPOCancelRequest" nillable="true" type="tns:ConsignmentFillUpPOCancelRequest"/>
+    <xs:complexType name="ConsignmentFillUpPOCancelResponse">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="PONumber" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="ResponseDesc" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="ResponseStatusID" type="xs:int"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="ConsignmentFillUpPOCancelResponse" nillable="true" type="tns:ConsignmentFillUpPOCancelResponse"/>
+</xs:schema>

@@ -1,0 +1,170 @@
+<xs:schema elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/DMSSalesAppIntegrationService" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://schemas.datacontract.org/2004/07/DMSSalesAppIntegrationService">
+    <xs:import schemaLocation="../xsd/DMSSalesAppService2.xsd" namespace="http://schemas.datacontract.org/2004/07/DMSSalesAppIntegrationService.Contact"/>
+    <xs:complexType name="SapMaterialValidationResponse">
+        <xs:complexContent mixed="false">
+            <xs:extension base="tns:ResponseBase">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="DefaultWarranty" type="xs:int"/>
+                    <xs:element minOccurs="0" name="FailReason" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="IndividualMaterials" nillable="true" type="tns:ArrayOfMaterials"/>
+                    <xs:element minOccurs="0" name="IswarrantyClaimByDialog" type="xs:boolean"/>
+                    <xs:element minOccurs="0" name="StatusDesc" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="StatusID" type="xs:int"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:element name="SapMaterialValidationResponse" nillable="true" type="tns:SapMaterialValidationResponse"/>
+    <xs:complexType name="ResponseBase">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="RequestId" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="Success" type="xs:boolean"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="ResponseBase" nillable="true" type="tns:ResponseBase"/>
+    <xs:complexType name="ArrayOfMaterials">
+        <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="Materials" nillable="true" type="tns:Materials"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="ArrayOfMaterials" nillable="true" type="tns:ArrayOfMaterials"/>
+    <xs:complexType name="Materials">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="MaterialDescription" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="MaterialSerialNumber" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="Price" type="xs:float"/>
+            <xs:element minOccurs="0" name="SAPIndividualMaterialCode" nillable="true" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="Materials" nillable="true" type="tns:Materials"/>
+    <xs:complexType name="ArrayOfConsumptionUpdateItems">
+        <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="ConsumptionUpdateItems" nillable="true" type="tns:ConsumptionUpdateItems"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="ArrayOfConsumptionUpdateItems" nillable="true" type="tns:ArrayOfConsumptionUpdateItems"/>
+    <xs:complexType name="ConsumptionUpdateItems">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="MaterialSerialNumber" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="Qty" type="xs:int"/>
+            <xs:element minOccurs="0" name="SAPMaterialCode" nillable="true" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="ConsumptionUpdateItems" nillable="true" type="tns:ConsumptionUpdateItems"/>
+    <xs:complexType name="ArrayOfApprovalsResponse">
+        <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="ApprovalsResponse" nillable="true" type="tns:ApprovalsResponse"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="ArrayOfApprovalsResponse" nillable="true" type="tns:ArrayOfApprovalsResponse"/>
+    <xs:complexType name="ApprovalsResponse">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="STOCreatedDate" type="xs:dateTime"/>
+            <xs:element minOccurs="0" name="STOCreatedUser" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="STORequestID" type="xs:int"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="ApprovalsResponse" nillable="true" type="tns:ApprovalsResponse"/>
+    <xs:complexType name="ArrayOfSTOInfoResponse">
+        <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="STOInfoResponse" nillable="true" type="tns:STOInfoResponse"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="ArrayOfSTOInfoResponse" nillable="true" type="tns:ArrayOfSTOInfoResponse"/>
+    <xs:complexType name="STOInfoResponse">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="STOCreatedDate" type="xs:dateTime"/>
+            <xs:element minOccurs="0" name="STOCreatedUser" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="STORequestID" type="xs:int"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="STOInfoResponse" nillable="true" type="tns:STOInfoResponse"/>
+    <xs:complexType name="SapMateriaItemlValidationResponse">
+        <xs:complexContent mixed="false">
+            <xs:extension base="tns:ResponseBase">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="DefaultWarranty" type="xs:int"/>
+                    <xs:element minOccurs="0" name="FailReason" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="IndividualMaterials" nillable="true" type="tns:ArrayOfChildItems"/>
+                    <xs:element minOccurs="0" name="IswarrantyClaimByDialog" type="xs:boolean"/>
+                    <xs:element minOccurs="0" name="Price" type="xs:float"/>
+                    <xs:element minOccurs="0" name="StatusDesc" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="StatusID" type="xs:int"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:element name="SapMateriaItemlValidationResponse" nillable="true" type="tns:SapMateriaItemlValidationResponse"/>
+    <xs:complexType name="ArrayOfChildItems">
+        <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="ChildItems" nillable="true" type="tns:ChildItems"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="ArrayOfChildItems" nillable="true" type="tns:ArrayOfChildItems"/>
+    <xs:complexType name="ChildItems">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="MaterialDescription" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="MaterialSerialNumber" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="SAPIndividualMaterialCode" nillable="true" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="ChildItems" nillable="true" type="tns:ChildItems"/>
+    <xs:complexType name="ArrayOfAgentMaterialRes">
+        <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="AgentMaterialRes" nillable="true" type="tns:AgentMaterialRes"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="ArrayOfAgentMaterialRes" nillable="true" type="tns:ArrayOfAgentMaterialRes"/>
+    <xs:complexType name="AgentMaterialRes">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="ItemDescription" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="SAPMaterialCode" nillable="true" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="AgentMaterialRes" nillable="true" type="tns:AgentMaterialRes"/>
+    <xs:complexType name="ArrayOfIndividualItems">
+        <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="IndividualItems" nillable="true" type="tns:IndividualItems"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="ArrayOfIndividualItems" nillable="true" type="tns:ArrayOfIndividualItems"/>
+    <xs:complexType name="IndividualItems">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="ChildMaterialDesc" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="ChildSerial" nillable="true" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="IndividualItems" nillable="true" type="tns:IndividualItems"/>
+    <xs:complexType name="Logistics">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="DialogToChannelDate" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="ParentToChildDate" nillable="true" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="Logistics" nillable="true" type="tns:Logistics"/>
+    <xs:complexType name="POInfo">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="InvoiceDate" nillable="true" type="xs:dateTime"/>
+            <xs:element minOccurs="0" name="InvoiceID" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="ReceiptDate" nillable="true" type="xs:dateTime"/>
+            <xs:element minOccurs="0" name="ReceiptID" nillable="true" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="POInfo" nillable="true" type="tns:POInfo"/>
+    <xs:complexType name="ArrayOfMaterialInfo">
+        <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="MaterialInfo" nillable="true" type="tns:MaterialInfo"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="ArrayOfMaterialInfo" nillable="true" type="tns:ArrayOfMaterialInfo"/>
+    <xs:complexType name="MaterialInfo">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="ItemCondition" type="q1:ItemStatus" xmlns:q1="http://schemas.datacontract.org/2004/07/DMSSalesAppIntegrationService.Contact"/>
+            <xs:element minOccurs="0" name="MaterialCode" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="Qty" type="xs:int"/>
+            <xs:element minOccurs="0" name="SerialList" nillable="true" type="q2:ArrayOfItemSerials" xmlns:q2="http://schemas.datacontract.org/2004/07/DMSSalesAppIntegrationService.Contact"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="MaterialInfo" nillable="true" type="tns:MaterialInfo"/>
+</xs:schema>

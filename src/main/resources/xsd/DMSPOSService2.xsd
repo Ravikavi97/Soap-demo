@@ -1,0 +1,819 @@
+<xs:schema elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Dialog.Dms.Business.BusinessObject" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://schemas.datacontract.org/2004/07/Dialog.Dms.Business.BusinessObject">
+    <xs:import schemaLocation="DMSPOSService4.xsd" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays"/>
+    <xs:complexType name="reqPendingPosOrders">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="ApprovalUser" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="IsOutletRequired" type="tns:IsOutletRequired"/>
+            <xs:element minOccurs="0" name="LocationID" type="xs:int"/>
+            <xs:element minOccurs="0" name="SbuCode" type="tns:SBUList"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="reqPendingPosOrders" nillable="true" type="tns:reqPendingPosOrders"/>
+    <xs:simpleType name="IsOutletRequired">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="YES">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1</EnumerationValue>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="NO">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">0</EnumerationValue>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:element name="IsOutletRequired" nillable="true" type="tns:IsOutletRequired"/>
+    <xs:simpleType name="SBUList">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="DTTL">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1</EnumerationValue>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="DBN">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">2</EnumerationValue>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="DTVPostPaid">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">3</EnumerationValue>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="NBD">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">4</EnumerationValue>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="DTVPrePaid">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">5</EnumerationValue>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="GSM">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">6</EnumerationValue>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:element name="SBUList" nillable="true" type="tns:SBUList"/>
+    <xs:complexType name="ArrayOfresPendingPosOrders">
+        <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="resPendingPosOrders" nillable="true" type="tns:resPendingPosOrders"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="ArrayOfresPendingPosOrders" nillable="true" type="tns:ArrayOfresPendingPosOrders"/>
+    <xs:complexType name="resPendingPosOrders">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="ExpectedDat" type="xs:dateTime"/>
+            <xs:element minOccurs="0" name="LocationID" type="xs:int"/>
+            <xs:element minOccurs="0" name="RequestDate" type="xs:dateTime"/>
+            <xs:element minOccurs="0" name="RequestNo" type="xs:int"/>
+            <xs:element minOccurs="0" name="SAPLocationID" type="xs:int"/>
+            <xs:element minOccurs="0" name="WhCode" type="xs:int"/>
+            <xs:element minOccurs="0" name="description" nillable="true" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="resPendingPosOrders" nillable="true" type="tns:resPendingPosOrders"/>
+    <xs:complexType name="PosItemReq">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="IsRequiredNearestLoc" type="tns:SearchNearestLoc"/>
+            <xs:element minOccurs="0" name="ItemInfo" nillable="true" type="tns:ArrayOfPosItemDetailsReq"/>
+            <xs:element minOccurs="0" name="ItemStatus" type="tns:ItemStatus"/>
+            <xs:element minOccurs="0" name="OutletCode" type="xs:int"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="PosItemReq" nillable="true" type="tns:PosItemReq"/>
+    <xs:simpleType name="SearchNearestLoc">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="YES">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1</EnumerationValue>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="NO">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">0</EnumerationValue>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:element name="SearchNearestLoc" nillable="true" type="tns:SearchNearestLoc"/>
+    <xs:complexType name="ArrayOfPosItemDetailsReq">
+        <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="PosItemDetailsReq" nillable="true" type="tns:PosItemDetailsReq"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="ArrayOfPosItemDetailsReq" nillable="true" type="tns:ArrayOfPosItemDetailsReq"/>
+    <xs:complexType name="PosItemDetailsReq">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="ItemCode" nillable="true" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="PosItemDetailsReq" nillable="true" type="tns:PosItemDetailsReq"/>
+    <xs:simpleType name="ItemStatus">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="NEW">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1</EnumerationValue>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="USED">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">2</EnumerationValue>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="FAULTY">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">3</EnumerationValue>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:element name="ItemStatus" nillable="true" type="tns:ItemStatus"/>
+    <xs:complexType name="ArrayOfPosMaterial">
+        <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="PosMaterial" nillable="true" type="tns:PosMaterial"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="ArrayOfPosMaterial" nillable="true" type="tns:ArrayOfPosMaterial"/>
+    <xs:complexType name="PosMaterial">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="DefaultWarrantyPeriod" type="xs:int"/>
+            <xs:element minOccurs="0" name="ErrorCode" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="ErrorDescription" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="IsItemFound" type="xs:int"/>
+            <xs:element minOccurs="0" name="ItemCode" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="ItemStatus" type="xs:int"/>
+            <xs:element minOccurs="0" name="MaterialInfo" nillable="true" type="tns:ArrayOfMaterialLocations"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="PosMaterial" nillable="true" type="tns:PosMaterial"/>
+    <xs:complexType name="ArrayOfMaterialLocations">
+        <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="MaterialLocations" nillable="true" type="tns:MaterialLocations"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="ArrayOfMaterialLocations" nillable="true" type="tns:ArrayOfMaterialLocations"/>
+    <xs:complexType name="MaterialLocations">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="MaterialQty" type="xs:int"/>
+            <xs:element minOccurs="0" name="OutletCode" type="xs:int"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="MaterialLocations" nillable="true" type="tns:MaterialLocations"/>
+    <xs:complexType name="posItemReseveReq">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="IsRequiredNearestLoc" type="tns:SearchNearestLoc"/>
+            <xs:element minOccurs="0" name="ItemInfo" nillable="true" type="tns:ArrayOfRequestMaterials"/>
+            <xs:element minOccurs="0" name="ItemStatus" type="tns:ItemStatus"/>
+            <xs:element minOccurs="0" name="OutletCode" type="xs:int"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="posItemReseveReq" nillable="true" type="tns:posItemReseveReq"/>
+    <xs:complexType name="ArrayOfRequestMaterials">
+        <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="RequestMaterials" nillable="true" type="tns:RequestMaterials"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="ArrayOfRequestMaterials" nillable="true" type="tns:ArrayOfRequestMaterials"/>
+    <xs:complexType name="RequestMaterials">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="ItemCode" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="ReqQty" type="xs:int"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="RequestMaterials" nillable="true" type="tns:RequestMaterials"/>
+    <xs:complexType name="ArrayOfposItemReseveRes">
+        <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="posItemReseveRes" nillable="true" type="tns:posItemReseveRes"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="ArrayOfposItemReseveRes" nillable="true" type="tns:ArrayOfposItemReseveRes"/>
+    <xs:complexType name="posItemReseveRes">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="ReservedItemInfo" nillable="true" type="tns:ArrayOfReservationItem"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="posItemReseveRes" nillable="true" type="tns:posItemReseveRes"/>
+    <xs:complexType name="ArrayOfReservationItem">
+        <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="ReservationItem" nillable="true" type="tns:ReservationItem"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="ArrayOfReservationItem" nillable="true" type="tns:ArrayOfReservationItem"/>
+    <xs:complexType name="ReservationItem">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="DefaultWarranty" type="xs:int"/>
+            <xs:element minOccurs="0" name="ErrorCode" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="ErrorDescription" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="ItemCode" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="ItemDetails" nillable="true" type="tns:ArrayOfReservationItemDetials"/>
+            <xs:element minOccurs="0" name="ItemFoundStatus" type="xs:int"/>
+            <xs:element minOccurs="0" name="ItemStatus" type="xs:int"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="ReservationItem" nillable="true" type="tns:ReservationItem"/>
+    <xs:complexType name="ArrayOfReservationItemDetials">
+        <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="ReservationItemDetials" nillable="true" type="tns:ReservationItemDetials"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="ArrayOfReservationItemDetials" nillable="true" type="tns:ArrayOfReservationItemDetials"/>
+    <xs:complexType name="ReservationItemDetials">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="OutletCode" type="xs:int"/>
+            <xs:element minOccurs="0" name="ReservationExpTime" type="xs:dateTime"/>
+            <xs:element minOccurs="0" name="ReservationId" type="xs:int"/>
+            <xs:element minOccurs="0" name="ReservedQty" type="xs:int"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="ReservationItemDetials" nillable="true" type="tns:ReservationItemDetials"/>
+    <xs:complexType name="ArrayOfReservationConfirmRes">
+        <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="ReservationConfirmRes" nillable="true" type="tns:ReservationConfirmRes"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="ArrayOfReservationConfirmRes" nillable="true" type="tns:ArrayOfReservationConfirmRes"/>
+    <xs:complexType name="ReservationConfirmRes">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="Reservationinfo" nillable="true" type="tns:ArrayOfResResponseDetails"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="ReservationConfirmRes" nillable="true" type="tns:ReservationConfirmRes"/>
+    <xs:complexType name="ArrayOfResResponseDetails">
+        <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="ResResponseDetails" nillable="true" type="tns:ResResponseDetails"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="ArrayOfResResponseDetails" nillable="true" type="tns:ArrayOfResResponseDetails"/>
+    <xs:complexType name="ResResponseDetails">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="ErrorCode" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="ErrorDescription" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="ReservationEXPTime" type="xs:dateTime"/>
+            <xs:element minOccurs="0" name="ReservationID" type="xs:int"/>
+            <xs:element minOccurs="0" name="status" nillable="true" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="ResResponseDetails" nillable="true" type="tns:ResResponseDetails"/>
+    <xs:complexType name="ReservationCancelRes">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="ReservationCancelDate" type="xs:dateTime"/>
+            <xs:element minOccurs="0" name="ReservationID" type="xs:int"/>
+            <xs:element minOccurs="0" name="description" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="remarks" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="status" nillable="true" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="ReservationCancelRes" nillable="true" type="tns:ReservationCancelRes"/>
+    <xs:complexType name="PosSto">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="ExpectedDateTime" type="xs:dateTime"/>
+            <xs:element minOccurs="0" name="ItemDetail" nillable="true" type="tns:ArrayOfSTOItemDetail"/>
+            <xs:element minOccurs="0" name="ItemStatus" type="tns:ItemStatus"/>
+            <xs:element minOccurs="0" name="RequestDateTime" type="xs:dateTime"/>
+            <xs:element minOccurs="0" name="RequestOutletProfileID" type="xs:int"/>
+            <xs:element minOccurs="0" name="RequestRemarks" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="RequestStatus" type="tns:RequestStatus"/>
+            <xs:element minOccurs="0" name="STORequestID" type="xs:int"/>
+            <xs:element minOccurs="0" name="WhCode" type="xs:int"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="PosSto" nillable="true" type="tns:PosSto"/>
+    <xs:complexType name="ArrayOfSTOItemDetail">
+        <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="STOItemDetail" nillable="true" type="tns:STOItemDetail"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="ArrayOfSTOItemDetail" nillable="true" type="tns:ArrayOfSTOItemDetail"/>
+    <xs:complexType name="STOItemDetail">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="AcceptedQty" type="xs:double"/>
+            <xs:element minOccurs="0" name="MaterialCode" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="MaterialDesc" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="RequestedQty" type="xs:double"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="STOItemDetail" nillable="true" type="tns:STOItemDetail"/>
+    <xs:simpleType name="RequestStatus">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="PendingRequestApproval"/>
+            <xs:enumeration value="PendingSapRequest"/>
+            <xs:enumeration value="PendingSapResponse"/>
+            <xs:enumeration value="PendingResponseApproval"/>
+            <xs:enumeration value="RejectedRequestApproval"/>
+            <xs:enumeration value="RejectedResponseApproval"/>
+            <xs:enumeration value="RejectedSap"/>
+            <xs:enumeration value="Canceled"/>
+            <xs:enumeration value="SuccessfullyCompleted"/>
+            <xs:enumeration value="Aquired"/>
+            <xs:enumeration value="PartiallyCompleted"/>
+            <xs:enumeration value="FullyCompleted"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:element name="RequestStatus" nillable="true" type="tns:RequestStatus"/>
+    <xs:complexType name="reqItemBalance">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="MaterialCode" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="OutletProfileID" type="xs:int"/>
+            <xs:element minOccurs="0" name="SBUID" type="tns:SBUList"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="reqItemBalance" nillable="true" type="tns:reqItemBalance"/>
+    <xs:complexType name="resItemBalance">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="description" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="qty" type="xs:int"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="resItemBalance" nillable="true" type="tns:resItemBalance"/>
+    <xs:complexType name="STOApprovalReq">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="DetailRequest" nillable="true" type="tns:ArrayOfAppRequestDetailInfo"/>
+            <xs:element minOccurs="0" name="HeaderRequest" nillable="true" type="tns:AppRequestHeaderInfo"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="STOApprovalReq" nillable="true" type="tns:STOApprovalReq"/>
+    <xs:complexType name="ArrayOfAppRequestDetailInfo">
+        <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="AppRequestDetailInfo" nillable="true" type="tns:AppRequestDetailInfo"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="ArrayOfAppRequestDetailInfo" nillable="true" type="tns:ArrayOfAppRequestDetailInfo"/>
+    <xs:complexType name="AppRequestDetailInfo">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="ApprovedQTY" type="xs:double"/>
+            <xs:element minOccurs="0" name="MaterialCode" nillable="true" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="AppRequestDetailInfo" nillable="true" type="tns:AppRequestDetailInfo"/>
+    <xs:complexType name="AppRequestHeaderInfo">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="AcceptedDate" type="xs:dateTime"/>
+            <xs:element minOccurs="0" name="AcceptedStatus" type="tns:AcceptedStatus"/>
+            <xs:element minOccurs="0" name="AcceptedUser" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="FunctionalType" type="xs:int"/>
+            <xs:element minOccurs="0" name="STORequestID" type="xs:int"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="AppRequestHeaderInfo" nillable="true" type="tns:AppRequestHeaderInfo"/>
+    <xs:simpleType name="AcceptedStatus">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Pending"/>
+            <xs:enumeration value="Approved"/>
+            <xs:enumeration value="Rejected"/>
+            <xs:enumeration value="Aquired">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">9</EnumerationValue>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:element name="AcceptedStatus" nillable="true" type="tns:AcceptedStatus"/>
+    <xs:complexType name="STOItemRes">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="ErrorMessage" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="RequestStatusDesc" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="RequestStatusID" type="xs:int"/>
+            <xs:element minOccurs="0" name="STORequestID" type="xs:int"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="STOItemRes" nillable="true" type="tns:STOItemRes"/>
+    <xs:complexType name="ArrayOfAllOutletSTOInfoResponse">
+        <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="AllOutletSTOInfoResponse" nillable="true" type="tns:AllOutletSTOInfoResponse"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="ArrayOfAllOutletSTOInfoResponse" nillable="true" type="tns:ArrayOfAllOutletSTOInfoResponse"/>
+    <xs:complexType name="AllOutletSTOInfoResponse">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="OutletProfileID" type="xs:int"/>
+            <xs:element minOccurs="0" name="STOExpectedDate" type="xs:dateTime"/>
+            <xs:element minOccurs="0" name="STORequestID" type="xs:int"/>
+            <xs:element minOccurs="0" name="STORequestStatus" type="tns:RequestStatus"/>
+            <xs:element minOccurs="0" name="STORequestedDate" type="xs:dateTime"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="AllOutletSTOInfoResponse" nillable="true" type="tns:AllOutletSTOInfoResponse"/>
+    <xs:complexType name="ReturnRequestReq">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="ReturnRequestDetail" nillable="true" type="tns:ArrayOfReturnRequestDetail"/>
+            <xs:element minOccurs="0" name="ReturnRequestHeader" nillable="true" type="tns:ReturnRequestHeader"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="ReturnRequestReq" nillable="true" type="tns:ReturnRequestReq"/>
+    <xs:complexType name="ArrayOfReturnRequestDetail">
+        <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="ReturnRequestDetail" nillable="true" type="tns:ReturnRequestDetail"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="ArrayOfReturnRequestDetail" nillable="true" type="tns:ArrayOfReturnRequestDetail"/>
+    <xs:complexType name="ReturnRequestDetail">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="MaterialCode" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="RequestedQty" type="xs:double"/>
+            <xs:element minOccurs="0" name="SerialNumber" nillable="true" type="q1:ArrayOfstring" xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="ReturnRequestDetail" nillable="true" type="tns:ReturnRequestDetail"/>
+    <xs:complexType name="ReturnRequestHeader">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="CreatedUser" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="OutletProfileID" type="xs:int"/>
+            <xs:element minOccurs="0" name="ReturnDate" type="xs:dateTime"/>
+            <xs:element minOccurs="0" name="ReturnRemarks" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="ReturnRequestID" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="ReturnTypeID" type="tns:ReturnType"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="ReturnRequestHeader" nillable="true" type="tns:ReturnRequestHeader"/>
+    <xs:simpleType name="ReturnType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="New">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1</EnumerationValue>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="Used">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">2</EnumerationValue>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="Faulty">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">3</EnumerationValue>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="Damage">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">4</EnumerationValue>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="CustomerReturn">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">5</EnumerationValue>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:element name="ReturnType" nillable="true" type="tns:ReturnType"/>
+    <xs:complexType name="ReturnRequestRes">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="ErrorMessage" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="RequestStatusDesc" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="RequestStatusID" type="tns:RequestStatus"/>
+            <xs:element minOccurs="0" name="ReturnRequestID" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="TransactionID" type="xs:int"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="ReturnRequestRes" nillable="true" type="tns:ReturnRequestRes"/>
+    <xs:complexType name="goodIssueReq">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="ItemDetails" nillable="true" type="tns:ArrayOfgoodIssueItemsDetail"/>
+            <xs:element minOccurs="0" name="OutletCode" type="xs:int"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="goodIssueReq" nillable="true" type="tns:goodIssueReq"/>
+    <xs:complexType name="ArrayOfgoodIssueItemsDetail">
+        <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="goodIssueItemsDetail" nillable="true" type="tns:goodIssueItemsDetail"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="ArrayOfgoodIssueItemsDetail" nillable="true" type="tns:ArrayOfgoodIssueItemsDetail"/>
+    <xs:complexType name="goodIssueItemsDetail">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="ItemCode" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="ItemSerials" nillable="true" type="tns:ArrayOfgoodIssueSerials"/>
+            <xs:element minOccurs="0" name="ItemStatus" type="tns:ItemStatus"/>
+            <xs:element minOccurs="0" name="QTYIssued" type="xs:int"/>
+            <xs:element minOccurs="0" name="Reservation_Ref" type="xs:int"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="goodIssueItemsDetail" nillable="true" type="tns:goodIssueItemsDetail"/>
+    <xs:complexType name="ArrayOfgoodIssueSerials">
+        <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="goodIssueSerials" nillable="true" type="tns:goodIssueSerials"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="ArrayOfgoodIssueSerials" nillable="true" type="tns:ArrayOfgoodIssueSerials"/>
+    <xs:complexType name="goodIssueSerials">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="MaterialSerialNumber" nillable="true" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="goodIssueSerials" nillable="true" type="tns:goodIssueSerials"/>
+    <xs:complexType name="ArrayOfgoodIssueres">
+        <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="goodIssueres" nillable="true" type="tns:goodIssueres"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="ArrayOfgoodIssueres" nillable="true" type="tns:ArrayOfgoodIssueres"/>
+    <xs:complexType name="goodIssueres">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="ErrorDescription" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="Reservation_ref" type="xs:int"/>
+            <xs:element minOccurs="0" name="Status" type="xs:int"/>
+            <xs:element minOccurs="0" name="StatusDesc" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="TransactionID" type="xs:int"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="goodIssueres" nillable="true" type="tns:goodIssueres"/>
+    <xs:complexType name="validateSerialNumbersposReq">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="ItemDetail" nillable="true" type="tns:ArrayOfvalidateItemDetail"/>
+            <xs:element minOccurs="0" name="OutletCode" type="xs:int"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="validateSerialNumbersposReq" nillable="true" type="tns:validateSerialNumbersposReq"/>
+    <xs:complexType name="ArrayOfvalidateItemDetail">
+        <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="validateItemDetail" nillable="true" type="tns:validateItemDetail"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="ArrayOfvalidateItemDetail" nillable="true" type="tns:ArrayOfvalidateItemDetail"/>
+    <xs:complexType name="validateItemDetail">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="InventoryStatus" type="tns:ItemStatus"/>
+            <xs:element minOccurs="0" name="IsBundleMaterial" type="xs:int"/>
+            <xs:element minOccurs="0" name="ItemCode" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="MaterialSerialNumber" nillable="true" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="validateItemDetail" nillable="true" type="tns:validateItemDetail"/>
+    <xs:complexType name="ArrayOfvalidateSerialNumbersposres">
+        <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="validateSerialNumbersposres" nillable="true" type="tns:validateSerialNumbersposres"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="ArrayOfvalidateSerialNumbersposres" nillable="true" type="tns:ArrayOfvalidateSerialNumbersposres"/>
+    <xs:complexType name="validateSerialNumbersposres">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="FailReason" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="IndividualMaterials" nillable="true" type="tns:ArrayOfChildItemspos"/>
+            <xs:element minOccurs="0" name="OutletCode" type="xs:int"/>
+            <xs:element minOccurs="0" name="StatusDesc" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="StatusID" type="xs:int"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="validateSerialNumbersposres" nillable="true" type="tns:validateSerialNumbersposres"/>
+    <xs:complexType name="ArrayOfChildItemspos">
+        <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="ChildItemspos" nillable="true" type="tns:ChildItemspos"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="ArrayOfChildItemspos" nillable="true" type="tns:ArrayOfChildItemspos"/>
+    <xs:complexType name="ChildItemspos">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="MaterialSerialNumber" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="SAPIndividualMaterialCode" nillable="true" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="ChildItemspos" nillable="true" type="tns:ChildItemspos"/>
+    <xs:complexType name="BinLocationItemFlowRes">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="ItemIssuedToBin" nillable="true" type="tns:IssuedBalanceInfo"/>
+            <xs:element minOccurs="0" name="ItemReceivedToBin" nillable="true" type="tns:ReceivedBalanceInfo"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="BinLocationItemFlowRes" nillable="true" type="tns:BinLocationItemFlowRes"/>
+    <xs:complexType name="IssuedBalanceInfo">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="IssuedTotalQty" type="xs:int"/>
+            <xs:element minOccurs="0" name="ItemIssuedEntries" nillable="true" type="tns:ArrayOfIssuedDetail"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="IssuedBalanceInfo" nillable="true" type="tns:IssuedBalanceInfo"/>
+    <xs:complexType name="ArrayOfIssuedDetail">
+        <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="IssuedDetail" nillable="true" type="tns:IssuedDetail"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="ArrayOfIssuedDetail" nillable="true" type="tns:ArrayOfIssuedDetail"/>
+    <xs:complexType name="IssuedDetail">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="ItemConditionDesc" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="ItemQty" type="xs:int"/>
+            <xs:element minOccurs="0" name="TransactionID" type="xs:int"/>
+            <xs:element minOccurs="0" name="TransactionTypeDesc" nillable="true" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="IssuedDetail" nillable="true" type="tns:IssuedDetail"/>
+    <xs:complexType name="ReceivedBalanceInfo">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="ItemReceievedEntries" nillable="true" type="tns:ArrayOfReceivedDetail"/>
+            <xs:element minOccurs="0" name="ReceivedTotalQty" type="xs:int"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="ReceivedBalanceInfo" nillable="true" type="tns:ReceivedBalanceInfo"/>
+    <xs:complexType name="ArrayOfReceivedDetail">
+        <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="ReceivedDetail" nillable="true" type="tns:ReceivedDetail"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="ArrayOfReceivedDetail" nillable="true" type="tns:ArrayOfReceivedDetail"/>
+    <xs:complexType name="ReceivedDetail">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="ItemConditionDesc" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="ItemQty" type="xs:int"/>
+            <xs:element minOccurs="0" name="TransactionID" type="xs:int"/>
+            <xs:element minOccurs="0" name="TransactionTypeDesc" nillable="true" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="ReceivedDetail" nillable="true" type="tns:ReceivedDetail"/>
+    <xs:complexType name="ArrayOfWarehouseReturn">
+        <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="WarehouseReturn" nillable="true" type="tns:WarehouseReturn"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="ArrayOfWarehouseReturn" nillable="true" type="tns:ArrayOfWarehouseReturn"/>
+    <xs:complexType name="WarehouseReturn">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="AgentName" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="Comments" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="CreatedDate" type="xs:dateTime"/>
+            <xs:element minOccurs="0" name="CreatedUser" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="FromAgentID" type="xs:int"/>
+            <xs:element minOccurs="0" name="ModifiedDate" type="xs:dateTime"/>
+            <xs:element minOccurs="0" name="ModifiedUser" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="ReferenceID" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="ReturnInfoList" nillable="true" type="tns:ArrayOfWarehouseReturnDetail"/>
+            <xs:element minOccurs="0" name="SalesType" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="Status" type="xs:int"/>
+            <xs:element minOccurs="0" name="ToAgentID" type="xs:int"/>
+            <xs:element minOccurs="0" name="TransactionDate" type="xs:dateTime"/>
+            <xs:element minOccurs="0" name="TransactionID" type="xs:int"/>
+            <xs:element minOccurs="0" name="TransactionType" type="xs:int"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="WarehouseReturn" nillable="true" type="tns:WarehouseReturn"/>
+    <xs:complexType name="ArrayOfWarehouseReturnDetail">
+        <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="WarehouseReturnDetail" nillable="true" type="tns:WarehouseReturnDetail"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="ArrayOfWarehouseReturnDetail" nillable="true" type="tns:ArrayOfWarehouseReturnDetail"/>
+    <xs:complexType name="WarehouseReturnDetail">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="ConStatus" type="xs:int"/>
+            <xs:element minOccurs="0" name="FromSerial" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="ItemID" type="xs:int"/>
+            <xs:element minOccurs="0" name="ItemName" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="Quantity" type="xs:int"/>
+            <xs:element minOccurs="0" name="SAPMaterialCode" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="ToSerial" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="TransactionID" type="xs:int"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="WarehouseReturnDetail" nillable="true" type="tns:WarehouseReturnDetail"/>
+    <xs:complexType name="ArrayOfMaterialInfo">
+        <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="MaterialInfo" nillable="true" type="tns:MaterialInfo"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="ArrayOfMaterialInfo" nillable="true" type="tns:ArrayOfMaterialInfo"/>
+    <xs:complexType name="MaterialInfo">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="ItemCondition" type="tns:ItemStatus"/>
+            <xs:element minOccurs="0" name="MaterialCode" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="Qty" type="xs:int"/>
+            <xs:element minOccurs="0" name="Serilas" nillable="true" type="tns:ArrayOfItemSerilas"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="MaterialInfo" nillable="true" type="tns:MaterialInfo"/>
+    <xs:complexType name="ArrayOfItemSerilas">
+        <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="ItemSerilas" nillable="true" type="tns:ItemSerilas"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="ArrayOfItemSerilas" nillable="true" type="tns:ArrayOfItemSerilas"/>
+    <xs:complexType name="ItemSerilas">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="Serial" nillable="true" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="ItemSerilas" nillable="true" type="tns:ItemSerilas"/>
+    <xs:simpleType name="MovementType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="MoveToCurrier">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1</EnumerationValue>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="StockUpdate">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">2</EnumerationValue>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="RetunToBranch">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">3</EnumerationValue>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:element name="MovementType" nillable="true" type="tns:MovementType"/>
+    <xs:complexType name="ArrayOfAllDirectOutletSTOInfoResponse">
+        <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="AllDirectOutletSTOInfoResponse" nillable="true" type="tns:AllDirectOutletSTOInfoResponse"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="ArrayOfAllDirectOutletSTOInfoResponse" nillable="true" type="tns:ArrayOfAllDirectOutletSTOInfoResponse"/>
+    <xs:complexType name="AllDirectOutletSTOInfoResponse">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="OutletProfileID" type="xs:int"/>
+            <xs:element minOccurs="0" name="STOExpectedDate" type="xs:dateTime"/>
+            <xs:element minOccurs="0" name="STORequestID" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="STORequestStatus" type="tns:STOResponse"/>
+            <xs:element minOccurs="0" name="STORequestedDate" type="xs:dateTime"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="AllDirectOutletSTOInfoResponse" nillable="true" type="tns:AllDirectOutletSTOInfoResponse"/>
+    <xs:simpleType name="STOResponse">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="SAP_ISSUED"/>
+            <xs:enumeration value="GOODSINTRANS"/>
+            <xs:enumeration value="AQUIRED"/>
+            <xs:enumeration value="ERROR"/>
+            <xs:enumeration value="CONDIERROR"/>
+            <xs:enumeration value="UTILIZABLE"/>
+            <xs:enumeration value="REMOVED"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:element name="STOResponse" nillable="true" type="tns:STOResponse"/>
+    <xs:complexType name="ArrayOfChildItems">
+        <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="ChildItems" nillable="true" type="tns:ChildItems"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="ArrayOfChildItems" nillable="true" type="tns:ArrayOfChildItems"/>
+    <xs:complexType name="ChildItems">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="MaterialSerialNumber" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="SAPIndividualMaterialCode" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="SAPMaterialDes" nillable="true" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="ChildItems" nillable="true" type="tns:ChildItems"/>
+    <xs:complexType name="ArrayOfItemInfoRes">
+        <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="ItemInfoRes" nillable="true" type="tns:ItemInfoRes"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="ArrayOfItemInfoRes" nillable="true" type="tns:ArrayOfItemInfoRes"/>
+    <xs:complexType name="ItemInfoRes">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="SapMatCode" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="description" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="errorCode" type="xs:int"/>
+            <xs:element minOccurs="0" name="qty" type="xs:int"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="ItemInfoRes" nillable="true" type="tns:ItemInfoRes"/>
+</xs:schema>

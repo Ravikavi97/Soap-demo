@@ -1,0 +1,144 @@
+<wsdl:definitions xmlns:p1="http://DMS_Material_Availability" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy"
+                  xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd"
+                  xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="SI_DMS_MAT_AVLB_OB"
+                  targetNamespace="http://DMS_Material_Availability">
+    <wsdl:documentation/>
+    <wsp:UsingPolicy wsdl:required="true"/>
+    <wsp:Policy wsu:Id="OP_SI_DMS_MAT_AVLB_OB"/>
+    <wsdl:types>
+        <xsd:schema xmlns="http://DMS_Material_Availability" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                    targetNamespace="http://DMS_Material_Availability">
+            <xsd:element name="MT_DMS_Mat_AVLB_Req" type="DT_DMS_Material_AVLB_Req"/>
+            <xsd:element name="MT_DMS_Mat_AVLB_Res" type="DT_DMS_Material_AVLB_Res"/>
+            <xsd:complexType name="DT_DMS_Mat_Items_Req">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="EN">DMS Material Items</xsd:documentation>
+                    <xsd:appinfo source="http://sap.com/xi/VersionID">8fb47f901ced11eb9e71001125e7e82a</xsd:appinfo>
+                </xsd:annotation>
+                <xsd:sequence>
+                    <xsd:element name="Order_Qty" type="xsd:decimal"/>
+                    <xsd:element name="Storage_Loc" type="xsd:string"/>
+                    <xsd:element name="Plant" type="xsd:string"/>
+                    <xsd:element name="Material" type="xsd:string"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="DT_DMS_Mat_Items_Res">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="EN">DMS Material Availability Response</xsd:documentation>
+                    <xsd:appinfo source="http://sap.com/xi/VersionID">f141ddc01d1011eb85cd001125e7e82a</xsd:appinfo>
+                </xsd:annotation>
+                <xsd:sequence>
+                    <xsd:element name="Stock_Availability" type="xsd:string">
+                        <xsd:annotation>
+                            <xsd:appinfo source="http://sap.com/xi/TextID">f12b48801d1011eb843d00059a3c7a00
+                            </xsd:appinfo>
+                        </xsd:annotation>
+                    </xsd:element>
+                    <xsd:element name="Storage_Loc" type="xsd:string">
+                        <xsd:annotation>
+                            <xsd:appinfo source="http://sap.com/xi/TextID">f12b48811d1011ebb25400059a3c7a00
+                            </xsd:appinfo>
+                        </xsd:annotation>
+                    </xsd:element>
+                    <xsd:element name="Plant" type="xsd:string">
+                        <xsd:annotation>
+                            <xsd:appinfo source="http://sap.com/xi/TextID">f12b48821d1011eb889f00059a3c7a00
+                            </xsd:appinfo>
+                        </xsd:annotation>
+                    </xsd:element>
+                    <xsd:element name="Material" type="xsd:string">
+                        <xsd:annotation>
+                            <xsd:appinfo source="http://sap.com/xi/TextID">f12b48831d1011eb858000059a3c7a00
+                            </xsd:appinfo>
+                        </xsd:annotation>
+                    </xsd:element>
+                    <xsd:element name="Message" type="xsd:string"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="DT_DMS_Material_AVLB_Req">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="EN">DMS Material Availability Request</xsd:documentation>
+                    <xsd:appinfo source="http://sap.com/xi/VersionID">8c396d201cee11ebcc27001125e7e82a</xsd:appinfo>
+                </xsd:annotation>
+                <xsd:sequence>
+                    <xsd:element name="Stock_Avlb_Type" type="xsd:string">
+                        <xsd:annotation>
+                            <xsd:appinfo source="http://sap.com/xi/TextID">db4b15901ced11eba08700059a3c7a00
+                            </xsd:appinfo>
+                        </xsd:annotation>
+                    </xsd:element>
+                    <xsd:element name="Items" type="DT_DMS_Mat_Items_Req" maxOccurs="unbounded">
+                        <xsd:annotation>
+                            <xsd:appinfo source="http://sap.com/xi/TextID">db4b15911ced11ebaab100059a3c7a00
+                            </xsd:appinfo>
+                        </xsd:annotation>
+                    </xsd:element>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="DT_DMS_Material_AVLB_Res">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="EN">DMS Material Availability Response</xsd:documentation>
+                    <xsd:appinfo source="http://sap.com/xi/VersionID">5a57cdb11cee11ebab52001125e7e82a</xsd:appinfo>
+                </xsd:annotation>
+                <xsd:sequence>
+                    <xsd:element name="PI_Number" type="xsd:string"/>
+                    <xsd:element name="Stock_Avlb_Type" type="xsd:string">
+                        <xsd:annotation>
+                            <xsd:appinfo source="http://sap.com/xi/TextID">db4b15901ced11eba08700059a3c7a00
+                            </xsd:appinfo>
+                        </xsd:annotation>
+                    </xsd:element>
+                    <xsd:element name="Items" type="DT_DMS_Mat_Items_Res" maxOccurs="unbounded">
+                        <xsd:annotation>
+                            <xsd:appinfo source="http://sap.com/xi/TextID">db4b15911ced11ebaab100059a3c7a00
+                            </xsd:appinfo>
+                        </xsd:annotation>
+                    </xsd:element>
+                </xsd:sequence>
+            </xsd:complexType>
+        </xsd:schema>
+    </wsdl:types>
+    <wsdl:message name="MT_DMS_Mat_AVLB_Req">
+        <wsdl:documentation/>
+        <wsdl:part name="MT_DMS_Mat_AVLB_Req" element="p1:MT_DMS_Mat_AVLB_Req"/>
+    </wsdl:message>
+    <wsdl:message name="MT_DMS_Mat_AVLB_Res">
+        <wsdl:documentation/>
+        <wsdl:part name="MT_DMS_Mat_AVLB_Res" element="p1:MT_DMS_Mat_AVLB_Res"/>
+    </wsdl:message>
+    <wsdl:portType name="SI_DMS_MAT_AVLB_OB">
+        <wsdl:documentation/>
+        <wsdl:operation name="SI_DMS_MAT_AVLB_OB">
+            <wsdl:documentation/>
+            <wsp:Policy>
+                <wsp:PolicyReference URI="#OP_SI_DMS_MAT_AVLB_OB"/>
+            </wsp:Policy>
+            <wsdl:input message="p1:MT_DMS_Mat_AVLB_Req"/>
+            <wsdl:output message="p1:MT_DMS_Mat_AVLB_Res"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="SI_DMS_MAT_AVLB_OBBinding" type="p1:SI_DMS_MAT_AVLB_OB">
+        <soap:binding xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" style="document"
+                      transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="SI_DMS_MAT_AVLB_OB">
+            <soap:operation xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+                            soapAction="http://sap.com/xi/WebService/soap1.1"/>
+            <wsdl:input>
+                <soap:body xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="XI_7108e3a5d6153bf3a7e3ca979faf48cc_Service">
+        <wsdl:port name="HTTP_Port" binding="p1:SI_DMS_MAT_AVLB_OBBinding">
+            <soap:address xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+                          location="http://SAPPED:50000/XISOAPAdapter/MessageServlet?senderParty=&amp;senderService=DMS&amp;receiverParty=&amp;receiverService=&amp;interface=SI_DMS_MAT_AVLB_OB&amp;interfaceNamespace=http%3A%2F%2FDMS_Material_Availability"/>
+        </wsdl:port>
+        <wsdl:port name="HTTPS_Port" binding="p1:SI_DMS_MAT_AVLB_OBBinding">
+            <soap:address xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+                          location="https://SAPPED:50001/XISOAPAdapter/MessageServlet?senderParty=&amp;senderService=DMS&amp;receiverParty=&amp;receiverService=&amp;interface=SI_DMS_MAT_AVLB_OB&amp;interfaceNamespace=http%3A%2F%2FDMS_Material_Availability"/>
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>

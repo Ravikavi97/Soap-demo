@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Dialog.Dms.Business.BusinessObject"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           elementFormDefault="qualified"
+           targetNamespace="http://schemas.datacontract.org/2004/07/Dialog.Dms.Business.BusinessObject">
+    <xs:complexType name="ArrayOfPoReceiptRes">
+        <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="PoReceiptRes" nillable="true"
+                        type="tns:PoReceiptRes"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="ArrayOfPoReceiptRes" nillable="true" type="tns:ArrayOfPoReceiptRes"/>
+    <xs:complexType name="PoReceiptRes">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="BankAmount" nillable="true" type="xs:decimal"/>
+            <xs:element minOccurs="0" name="BankDepositDate" type="xs:dateTime"/>
+            <xs:element minOccurs="0" name="BankDepositMode" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="BankName" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="BankReferenceNo" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="CommisionValue" nillable="true" type="xs:decimal"/>
+            <xs:element minOccurs="0" name="GrossInvoiceValue" nillable="true" type="xs:decimal"/>
+            <xs:element minOccurs="0" name="PO_Id" type="xs:int"/>
+            <xs:element minOccurs="0" name="SAP_Invoice_ID" nillable="true" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="PoReceiptRes" nillable="true" type="tns:PoReceiptRes"/>
+</xs:schema>
