@@ -3,42 +3,47 @@
                   xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl"
                   xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
                   xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                  xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
                   name="PurchaseOrderService"
-                  targetNamespace="http://dms.purchaseorder.update.sap/"
-                  xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
-  <wsdl:types>
-    <xsd:schema targetNamespace="http://dms.purchaseorder.update.sap/Imports">
-      <xsd:import schemaLocation="../xsd/PurchaseOrderService1.xsd" namespace="http://dms.purchaseorder.update.sap/" />
-      <xsd:import schemaLocation="../schema/DMSService1.xsd" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
-    </xsd:schema>
-  </wsdl:types>
-  <wsdl:message name="UpdatePOStatusRequest">
-    <wsdl:part name="parameters" element="tns:UpdatePOStatusRequest" />
-  </wsdl:message>
-  <wsdl:message name="UpdatePOStatusResponse">
-    <wsdl:part name="parameters" element="tns:UpdatePOStatusResponse" />
-  </wsdl:message>
-  <wsdl:portType name="IPurchaseOrderService">
-    <wsdl:operation name="UpdatePOStatus">
-      <wsdl:input wsaw:Action="http://dms.purchaseorder.update.sap/IPurchaseOrderService/UpdatePOStatus" name="UpdatePOStatusRequest" message="tns:UpdatePOStatusRequest" />
-      <wsdl:output wsaw:Action="http://dms.purchaseorder.update.sap/IPurchaseOrderService/UpdatePOStatusResponse" name="UpdatePOStatusResponse" message="tns:UpdatePOStatusResponse" />
-    </wsdl:operation>
-  </wsdl:portType>
-  <wsdl:binding name="BasicHttpBinding_IPurchaseOrderService" type="tns:IPurchaseOrderService">
-    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <wsdl:operation name="UpdatePOStatus">
-      <soap:operation soapAction="http://dms.purchaseorder.update.sap/IPurchaseOrderService/UpdatePOStatus" style="document" />
-      <wsdl:input name="UpdatePOStatusRequest">
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output name="UpdatePOStatusResponse">
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-  </wsdl:binding>
-  <wsdl:service name="PurchaseOrderService">
-    <wsdl:port name="BasicHttpBinding_IPurchaseOrderService" binding="tns:BasicHttpBinding_IPurchaseOrderService">
-      <soap:address location="http://localhost:57098/POService/PurchaseOrderService.svc" />
-    </wsdl:port>
-  </wsdl:service>
+                  targetNamespace="http://dms.purchaseorder.update.sap/">
+    <wsdl:types>
+        <xsd:schema targetNamespace="http://dms.purchaseorder.update.sap/Imports">
+            <xsd:import schemaLocation="../xsd/PurchaseOrderService1.xsd"
+                        namespace="http://dms.purchaseorder.update.sap/"/>
+            <xsd:import schemaLocation="../schema/DMSService1.xsd"
+                        namespace="http://schemas.microsoft.com/2003/10/Serialization/"/>
+        </xsd:schema>
+    </wsdl:types>
+    <wsdl:message name="UpdatePOStatusRequest">
+        <wsdl:part name="parameters" element="tns:UpdatePOStatusRequest"/>
+    </wsdl:message>
+    <wsdl:message name="UpdatePOStatusResponse">
+        <wsdl:part name="parameters" element="tns:UpdatePOStatusResponse"/>
+    </wsdl:message>
+    <wsdl:portType name="IPurchaseOrderService">
+        <wsdl:operation name="UpdatePOStatus">
+            <wsdl:input wsaw:Action="http://dms.purchaseorder.update.sap/IPurchaseOrderService/UpdatePOStatus"
+                        name="UpdatePOStatusRequest" message="tns:UpdatePOStatusRequest"/>
+            <wsdl:output wsaw:Action="http://dms.purchaseorder.update.sap/IPurchaseOrderService/UpdatePOStatusResponse"
+                         name="UpdatePOStatusResponse" message="tns:UpdatePOStatusResponse"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="BasicHttpBinding_IPurchaseOrderService" type="tns:IPurchaseOrderService">
+        <soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="UpdatePOStatus">
+            <soap:operation soapAction="http://dms.purchaseorder.update.sap/IPurchaseOrderService/UpdatePOStatus"
+                            style="document"/>
+            <wsdl:input name="UpdatePOStatusRequest">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="UpdatePOStatusResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="PurchaseOrderService">
+        <wsdl:port name="BasicHttpBinding_IPurchaseOrderService" binding="tns:BasicHttpBinding_IPurchaseOrderService">
+            <soap:address location="http://localhost:57098/POService/PurchaseOrderService.svc"/>
+        </wsdl:port>
+    </wsdl:service>
 </wsdl:definitions>

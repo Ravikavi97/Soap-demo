@@ -1,95 +1,109 @@
 plugins {
-	id 'java'
-	id 'org.springframework.boot' version '2.7.8'
-	id 'io.spring.dependency-management' version '1.1.7'
+    id 'java'
+    id 'org.springframework.boot' version '3.1.5'
+    id 'io.spring.dependency-management' version '1.1.7'
 }
 
 group = 'com.soap'
 version = '0.0.1-SNAPSHOT'
 
 java {
-	toolchain {
-		languageVersion = JavaLanguageVersion.of(8)
-	}
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(17)
+    }
 }
 
 configurations {
-	compileOnly {
-		extendsFrom annotationProcessor
-	}
-	provided {
-		// This configuration is typically used for dependencies that are provided by the runtime environment
-	}
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+    provided
 }
 
 repositories {
-	mavenCentral()
+    mavenCentral()
+}
+
+bootJar {
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+}
+
+dependencyManagement {
+    dependencies {
+        dependencySet(group: 'com.sun.xml.bind', version: '4.0.3') {
+            entry 'jaxb-impl'
+            entry 'jaxb-xjc'
+        }
+        dependencySet(group: 'org.glassfish.jaxb', version: '4.0.3') {
+            entry 'jaxb-runtime'
+        }
+        dependencySet(group: 'com.sun.xml.ws', version: '4.0.1') {
+            entry 'jaxws-rt'
+        }
+        dependency 'wsdl4j:wsdl4j:1.6.2'
+    }
 }
 
 dependencies {
-	implementation 'org.springframework.boot:spring-boot-starter-web-services'
-	implementation 'org.springframework.ws:spring-ws-core:3.1.1'
-    // Add these 2 dependencies for XJCTask
-    provided 'com.sun.xml.bind:jaxb-impl:2.3.3'
-    provided 'com.sun.xml.bind:jaxb-xjc:2.3.3'
+    implementation 'org.springframework.boot:spring-boot-starter-web-services'
+    implementation 'org.springframework.ws:spring-ws-core:4.0.3'
+    implementation 'org.springframework:spring-webflux:6.0.11'
+    implementation 'com.fasterxml.jackson.dataformat:jackson-dataformat-xml:2.15.3'
 
+    // XJC and WSDL dependencies
+    provided 'com.sun.xml.bind:jaxb-impl'
+    provided 'com.sun.xml.bind:jaxb-xjc'
+    provided 'wsdl4j:wsdl4j'
 
-	// JAXB and JAX-WS dependencies
-	implementation 'javax.xml.bind:jaxb-api:2.3.1'
-	implementation 'org.glassfish.jaxb:jaxb-runtime:2.3.3'
-	implementation 'javax.xml.ws:jaxws-api:2.3.1'
-	implementation 'com.sun.xml.ws:jaxws-rt:2.3.1'
+    // Jakarta EE stack
+    implementation 'jakarta.xml.bind:jakarta.xml.bind-api:4.0.0'
+    implementation 'org.glassfish.jaxb:jaxb-runtime:4.0.3'
+    implementation 'jakarta.xml.ws:jakarta.xml.ws-api:4.0.1'
+    implementation('com.sun.xml.ws:jaxws-rt:4.0.1') {
+        exclude group: 'com.sun.xml.ws', module: 'policy'
+    }
 
-	compileOnly 'org.projectlombok:lombok'
-	annotationProcessor 'org.projectlombok:lombok'
+    compileOnly 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok'
 
-	testImplementation 'org.springframework.boot:spring-boot-starter-test'
-	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 }
 
-
-
-//def generatedSrcDir = file("${buildDir}/generated-src")
 def generatedSrcDir = file("${buildDir}/generated-sources")
-
 
 task jaxb {
     doLast {
         generatedSrcDir.mkdirs()
-        ant.taskdef(name: 'xjc', classname: 'com.sun.tools.xjc.XJCTask', classpath: configurations.provided.asPath)
+        ant.taskdef(
+            name: 'xjc',
+            classname: 'com.sun.tools.xjc.XJCTask',
+            classpath: configurations.provided.asPath
+        )
 
         ant.xjc(destdir: generatedSrcDir) {
             schema(dir: 'src/main/resources/xsd', includes: '**/*.xsd')
         }
 
-        ant.xjc(destdir: generatedSrcDir) { // Use xjc again for WSDL
+        ant.xjc(destdir: generatedSrcDir) {
             schema(dir: 'src/main/resources/wsdl', includes: '**/*.wsdl')
             arg(value: "-wsdl")
         }
     }
 }
 
-// Create the source set for the generated Java files
 task generateSources {
     dependsOn jaxb
 }
 
-// Add the generated source directory to the main source set
-//sourceSets.main.java.srcDirs += generateSources.ext.generatedSrcDir
 sourceSets.main.java.srcDirs += generatedSrcDir
 
-
-// Make sure the generated sources are compiled before other Java sources
 compileJava.dependsOn generateSources
 
 tasks.named('compileJava') {
     dependsOn 'jaxb'
-    // Change this
-    // source += generateSources.ext.generatedSrcDir
-    // To this
     source += fileTree(generatedSrcDir)
 }
-
 
 tasks.named('test') {
     useJUnitPlatform()

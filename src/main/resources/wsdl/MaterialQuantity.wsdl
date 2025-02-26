@@ -6,7 +6,7 @@
     <wsp:UsingPolicy wsdl:required="true"/>
     <wsp:Policy wsu:Id="OP_SI_DMS_MAT_AVLB_OB"/>
     <wsdl:types>
-        <xsd:schema xmlns="http://DMS_Material_Availability" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+        <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://DMS_Material_Availability"
                     targetNamespace="http://DMS_Material_Availability">
             <xsd:element name="MT_DMS_Mat_AVLB_Req" type="DT_DMS_Material_AVLB_Req"/>
             <xsd:element name="MT_DMS_Mat_AVLB_Res" type="DT_DMS_Material_AVLB_Res"/>

@@ -1,5 +1,9 @@
-<xs:schema elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/DMSSalesAppIntegrationService" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://schemas.datacontract.org/2004/07/DMSSalesAppIntegrationService">
-    <xs:import schemaLocation="../xsd/DMSSalesAppService2.xsd" namespace="http://schemas.datacontract.org/2004/07/DMSSalesAppIntegrationService.Contact"/>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:tns="http://schemas.datacontract.org/2004/07/DMSSalesAppIntegrationService"
+           elementFormDefault="qualified"
+           targetNamespace="http://schemas.datacontract.org/2004/07/DMSSalesAppIntegrationService">
+    <xs:import schemaLocation="../xsd/DMSSalesAppService2.xsd"
+               namespace="http://schemas.datacontract.org/2004/07/DMSSalesAppIntegrationService.Contact"/>
     <xs:complexType name="SapMaterialValidationResponse">
         <xs:complexContent mixed="false">
             <xs:extension base="tns:ResponseBase">
@@ -40,7 +44,8 @@
     <xs:element name="Materials" nillable="true" type="tns:Materials"/>
     <xs:complexType name="ArrayOfConsumptionUpdateItems">
         <xs:sequence>
-            <xs:element minOccurs="0" maxOccurs="unbounded" name="ConsumptionUpdateItems" nillable="true" type="tns:ConsumptionUpdateItems"/>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="ConsumptionUpdateItems" nillable="true"
+                        type="tns:ConsumptionUpdateItems"/>
         </xs:sequence>
     </xs:complexType>
     <xs:element name="ArrayOfConsumptionUpdateItems" nillable="true" type="tns:ArrayOfConsumptionUpdateItems"/>
@@ -54,7 +59,8 @@
     <xs:element name="ConsumptionUpdateItems" nillable="true" type="tns:ConsumptionUpdateItems"/>
     <xs:complexType name="ArrayOfApprovalsResponse">
         <xs:sequence>
-            <xs:element minOccurs="0" maxOccurs="unbounded" name="ApprovalsResponse" nillable="true" type="tns:ApprovalsResponse"/>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="ApprovalsResponse" nillable="true"
+                        type="tns:ApprovalsResponse"/>
         </xs:sequence>
     </xs:complexType>
     <xs:element name="ArrayOfApprovalsResponse" nillable="true" type="tns:ArrayOfApprovalsResponse"/>
@@ -68,7 +74,8 @@
     <xs:element name="ApprovalsResponse" nillable="true" type="tns:ApprovalsResponse"/>
     <xs:complexType name="ArrayOfSTOInfoResponse">
         <xs:sequence>
-            <xs:element minOccurs="0" maxOccurs="unbounded" name="STOInfoResponse" nillable="true" type="tns:STOInfoResponse"/>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="STOInfoResponse" nillable="true"
+                        type="tns:STOInfoResponse"/>
         </xs:sequence>
     </xs:complexType>
     <xs:element name="ArrayOfSTOInfoResponse" nillable="true" type="tns:ArrayOfSTOInfoResponse"/>
@@ -112,7 +119,8 @@
     <xs:element name="ChildItems" nillable="true" type="tns:ChildItems"/>
     <xs:complexType name="ArrayOfAgentMaterialRes">
         <xs:sequence>
-            <xs:element minOccurs="0" maxOccurs="unbounded" name="AgentMaterialRes" nillable="true" type="tns:AgentMaterialRes"/>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="AgentMaterialRes" nillable="true"
+                        type="tns:AgentMaterialRes"/>
         </xs:sequence>
     </xs:complexType>
     <xs:element name="ArrayOfAgentMaterialRes" nillable="true" type="tns:ArrayOfAgentMaterialRes"/>
@@ -125,7 +133,8 @@
     <xs:element name="AgentMaterialRes" nillable="true" type="tns:AgentMaterialRes"/>
     <xs:complexType name="ArrayOfIndividualItems">
         <xs:sequence>
-            <xs:element minOccurs="0" maxOccurs="unbounded" name="IndividualItems" nillable="true" type="tns:IndividualItems"/>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="IndividualItems" nillable="true"
+                        type="tns:IndividualItems"/>
         </xs:sequence>
     </xs:complexType>
     <xs:element name="ArrayOfIndividualItems" nillable="true" type="tns:ArrayOfIndividualItems"/>
@@ -154,16 +163,19 @@
     <xs:element name="POInfo" nillable="true" type="tns:POInfo"/>
     <xs:complexType name="ArrayOfMaterialInfo">
         <xs:sequence>
-            <xs:element minOccurs="0" maxOccurs="unbounded" name="MaterialInfo" nillable="true" type="tns:MaterialInfo"/>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="MaterialInfo" nillable="true"
+                        type="tns:MaterialInfo"/>
         </xs:sequence>
     </xs:complexType>
     <xs:element name="ArrayOfMaterialInfo" nillable="true" type="tns:ArrayOfMaterialInfo"/>
     <xs:complexType name="MaterialInfo">
         <xs:sequence>
-            <xs:element minOccurs="0" name="ItemCondition" type="q1:ItemStatus" xmlns:q1="http://schemas.datacontract.org/2004/07/DMSSalesAppIntegrationService.Contact"/>
+            <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/DMSSalesAppIntegrationService.Contact" minOccurs="0" name="ItemCondition"
+                        type="q1:ItemStatus"/>
             <xs:element minOccurs="0" name="MaterialCode" nillable="true" type="xs:string"/>
             <xs:element minOccurs="0" name="Qty" type="xs:int"/>
-            <xs:element minOccurs="0" name="SerialList" nillable="true" type="q2:ArrayOfItemSerials" xmlns:q2="http://schemas.datacontract.org/2004/07/DMSSalesAppIntegrationService.Contact"/>
+            <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/DMSSalesAppIntegrationService.Contact" minOccurs="0" name="SerialList" nillable="true"
+                        type="q2:ArrayOfItemSerials"/>
         </xs:sequence>
     </xs:complexType>
     <xs:element name="MaterialInfo" nillable="true" type="tns:MaterialInfo"/>

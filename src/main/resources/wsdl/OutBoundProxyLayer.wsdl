@@ -1,14 +1,17 @@
-<wsdl:definitions name="OutBoundProxyLayer" targetNamespace="http://tempuri.org/"
-                  xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
-                  xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://tempuri.org/"
-                  xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
-                  xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl">
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                  xmlns:tns="http://tempuri.org/"
+                  xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl"
+                  name="OutBoundProxyLayer"
+                  targetNamespace="http://tempuri.org/">
     <wsdl:types>
         <xsd:schema targetNamespace="http://tempuri.org/Imports">
             <xsd:import schemaLocation="../xsd/OutBoundProxyLayer0.xsd" namespace="http://tempuri.org/"/>
-            <xsd:import schemaLocation="../xsd/OutBoundProxyLayer2.xsd" namespace="http://schemas.datacontract.org/2004/07/OutBoundProxyService"/>
-            <xsd:import schemaLocation="../xsd/OutBoundProxyLayer3.xsd" namespace="http://schemas.datacontract.org/2004/07/Dialog.Dms.Business.BusinessObject"/>
-            <xsd:import schemaLocation="../xsd/OutBoundProxyLayer4.xsd" namespace="http://schemas.datacontract.org/2004/07/DmsService.Inventory"/>
+            <xsd:import schemaLocation="../xsd/OutBoundProxyLayer2.xsd"
+                        namespace="http://schemas.datacontract.org/2004/07/OutBoundProxyService"/>
+            <xsd:import schemaLocation="../xsd/OutBoundProxyLayer3.xsd"
+                        namespace="http://schemas.datacontract.org/2004/07/Dialog.Dms.Business.BusinessObject"/>
+            <xsd:import schemaLocation="../xsd/OutBoundProxyLayer4.xsd"
+                        namespace="http://schemas.datacontract.org/2004/07/DmsService.Inventory"/>
         </xsd:schema>
     </wsdl:types>
     <wsdl:message name="InvAdjustmentRequest">
@@ -79,54 +82,78 @@
     </wsdl:message>
     <wsdl:portType name="IOutBoundProxyLayer">
         <wsdl:operation name="AgentInventoryAdjustmentCPOS">
-            <wsdl:input wsaw:Action="http://tempuri.org/IOutBoundProxyLayer/AgentInventoryAdjustmentCPOS" name="InvAdjustmentRequest" message="tns:InvAdjustmentRequest"/>
-            <wsdl:output wsaw:Action="http://tempuri.org/IOutBoundProxyLayer/AgentInventoryAdjustmentCPOSResponse" name="AgentInventoryAdjustmentResponse" message="tns:AgentInventoryAdjustmentResponse"/>
+            <wsdl:input wsaw:Action="http://tempuri.org/IOutBoundProxyLayer/AgentInventoryAdjustmentCPOS"
+                        name="InvAdjustmentRequest" message="tns:InvAdjustmentRequest"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/IOutBoundProxyLayer/AgentInventoryAdjustmentCPOSResponse"
+                         name="AgentInventoryAdjustmentResponse" message="tns:AgentInventoryAdjustmentResponse"/>
         </wsdl:operation>
         <wsdl:operation name="DoItemTransfer">
-            <wsdl:input wsaw:Action="http://tempuri.org/IOutBoundProxyLayer/DoItemTransfer" name="DoItemTransferRequest" message="tns:DoItemTransferRequest"/>
-            <wsdl:output wsaw:Action="http://tempuri.org/IOutBoundProxyLayer/DoItemTransferResponse" name="DoItemTransferResponse" message="tns:DoItemTransferResponse"/>
+            <wsdl:input wsaw:Action="http://tempuri.org/IOutBoundProxyLayer/DoItemTransfer" name="DoItemTransferRequest"
+                        message="tns:DoItemTransferRequest"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/IOutBoundProxyLayer/DoItemTransferResponse"
+                         name="DoItemTransferResponse" message="tns:DoItemTransferResponse"/>
         </wsdl:operation>
         <wsdl:operation name="GetItemTransferInfo">
-            <wsdl:input wsaw:Action="http://tempuri.org/IOutBoundProxyLayer/GetItemTransferInfo" name="GetItemTransferInfoRequest" message="tns:GetItemTransferInfoRequest"/>
-            <wsdl:output wsaw:Action="http://tempuri.org/IOutBoundProxyLayer/GetItemTransferInfoResponse" name="GetItemTransferInfoResponse" message="tns:GetItemTransferInfoResponse"/>
+            <wsdl:input wsaw:Action="http://tempuri.org/IOutBoundProxyLayer/GetItemTransferInfo"
+                        name="GetItemTransferInfoRequest" message="tns:GetItemTransferInfoRequest"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/IOutBoundProxyLayer/GetItemTransferInfoResponse"
+                         name="GetItemTransferInfoResponse" message="tns:GetItemTransferInfoResponse"/>
         </wsdl:operation>
         <wsdl:operation name="AcceptTransfer">
-            <wsdl:input wsaw:Action="http://tempuri.org/IOutBoundProxyLayer/AcceptTransfer" name="AcceptItemTransferRequest" message="tns:AcceptItemTransferRequest"/>
-            <wsdl:output wsaw:Action="http://tempuri.org/IOutBoundProxyLayer/AcceptTransferResponse" name="AcceptItemTransferResponse" message="tns:AcceptItemTransferResponse"/>
+            <wsdl:input wsaw:Action="http://tempuri.org/IOutBoundProxyLayer/AcceptTransfer"
+                        name="AcceptItemTransferRequest" message="tns:AcceptItemTransferRequest"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/IOutBoundProxyLayer/AcceptTransferResponse"
+                         name="AcceptItemTransferResponse" message="tns:AcceptItemTransferResponse"/>
         </wsdl:operation>
         <wsdl:operation name="SearchSerialHistory">
-            <wsdl:input wsaw:Action="http://tempuri.org/IOutBoundProxyLayer/SearchSerialHistory" name="SearchSerialHistoryRequest" message="tns:SearchSerialHistoryRequest"/>
-            <wsdl:output wsaw:Action="http://tempuri.org/IOutBoundProxyLayer/SearchSerialHistoryResponse" name="SearchSerialHistoryProxyResponse" message="tns:SearchSerialHistoryProxyResponse"/>
+            <wsdl:input wsaw:Action="http://tempuri.org/IOutBoundProxyLayer/SearchSerialHistory"
+                        name="SearchSerialHistoryRequest" message="tns:SearchSerialHistoryRequest"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/IOutBoundProxyLayer/SearchSerialHistoryResponse"
+                         name="SearchSerialHistoryProxyResponse" message="tns:SearchSerialHistoryProxyResponse"/>
         </wsdl:operation>
         <wsdl:operation name="GetWearhouseReturnHeader">
-            <wsdl:input wsaw:Action="http://tempuri.org/IOutBoundProxyLayer/GetWearhouseReturnHeader" name="GetWearhouseReturnHeaderRequest" message="tns:GetWearhouseReturnHeaderRequest"/>
-            <wsdl:output wsaw:Action="http://tempuri.org/IOutBoundProxyLayer/GetWearhouseReturnHeaderResponse" name="GetWearhouseReturnHeaderResponse" message="tns:GetWearhouseReturnHeaderResponse"/>
+            <wsdl:input wsaw:Action="http://tempuri.org/IOutBoundProxyLayer/GetWearhouseReturnHeader"
+                        name="GetWearhouseReturnHeaderRequest" message="tns:GetWearhouseReturnHeaderRequest"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/IOutBoundProxyLayer/GetWearhouseReturnHeaderResponse"
+                         name="GetWearhouseReturnHeaderResponse" message="tns:GetWearhouseReturnHeaderResponse"/>
         </wsdl:operation>
         <wsdl:operation name="GetWearhouseReturnDetails">
-            <wsdl:input wsaw:Action="http://tempuri.org/IOutBoundProxyLayer/GetWearhouseReturnDetails" name="GetWearhouseReturnDetailRequest" message="tns:GetWearhouseReturnDetailRequest"/>
-            <wsdl:output wsaw:Action="http://tempuri.org/IOutBoundProxyLayer/GetWearhouseReturnDetailsResponse" name="GetWearhouseReturnDetailResponse" message="tns:GetWearhouseReturnDetailResponse"/>
+            <wsdl:input wsaw:Action="http://tempuri.org/IOutBoundProxyLayer/GetWearhouseReturnDetails"
+                        name="GetWearhouseReturnDetailRequest" message="tns:GetWearhouseReturnDetailRequest"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/IOutBoundProxyLayer/GetWearhouseReturnDetailsResponse"
+                         name="GetWearhouseReturnDetailResponse" message="tns:GetWearhouseReturnDetailResponse"/>
         </wsdl:operation>
         <wsdl:operation name="GetGantonMaterialStatus">
-            <wsdl:input wsaw:Action="http://tempuri.org/IOutBoundProxyLayer/GetGantonMaterialStatus" name="GetGantonMaterialPOSRequest" message="tns:GetGantonMaterialPOSRequest"/>
-            <wsdl:output wsaw:Action="http://tempuri.org/IOutBoundProxyLayer/GetGantonMaterialStatusResponse" name="GetGantonMaterialResponse" message="tns:GetGantonMaterialResponse"/>
+            <wsdl:input wsaw:Action="http://tempuri.org/IOutBoundProxyLayer/GetGantonMaterialStatus"
+                        name="GetGantonMaterialPOSRequest" message="tns:GetGantonMaterialPOSRequest"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/IOutBoundProxyLayer/GetGantonMaterialStatusResponse"
+                         name="GetGantonMaterialResponse" message="tns:GetGantonMaterialResponse"/>
         </wsdl:operation>
         <wsdl:operation name="ValidateMaterialSerials">
-            <wsdl:input wsaw:Action="http://tempuri.org/IOutBoundProxyLayer/ValidateMaterialSerials" name="ValidateMaterialSerialsRequest" message="tns:ValidateMaterialSerialsRequest"/>
-            <wsdl:output wsaw:Action="http://tempuri.org/IOutBoundProxyLayer/ValidateMaterialSerialsResponse" name="ValidateMaterialSerialsResponse" message="tns:ValidateMaterialSerialsResponse"/>
+            <wsdl:input wsaw:Action="http://tempuri.org/IOutBoundProxyLayer/ValidateMaterialSerials"
+                        name="ValidateMaterialSerialsRequest" message="tns:ValidateMaterialSerialsRequest"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/IOutBoundProxyLayer/ValidateMaterialSerialsResponse"
+                         name="ValidateMaterialSerialsResponse" message="tns:ValidateMaterialSerialsResponse"/>
         </wsdl:operation>
         <wsdl:operation name="WarehouseReturnSAPValidateSerial">
-            <wsdl:input wsaw:Action="http://tempuri.org/IOutBoundProxyLayer/WarehouseReturnSAPValidateSerial" name="WarehouseReturnValidateSerialRequest" message="tns:WarehouseReturnValidateSerialRequest"/>
-            <wsdl:output wsaw:Action="http://tempuri.org/IOutBoundProxyLayer/WarehouseReturnSAPValidateSerialResponse" name="WarehouseReturnValidateSerialResponse" message="tns:WarehouseReturnValidateSerialResponse"/>
+            <wsdl:input wsaw:Action="http://tempuri.org/IOutBoundProxyLayer/WarehouseReturnSAPValidateSerial"
+                        name="WarehouseReturnValidateSerialRequest" message="tns:WarehouseReturnValidateSerialRequest"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/IOutBoundProxyLayer/WarehouseReturnSAPValidateSerialResponse"
+                         name="WarehouseReturnValidateSerialResponse"
+                         message="tns:WarehouseReturnValidateSerialResponse"/>
         </wsdl:operation>
         <wsdl:operation name="GetSerialWiseAgentInventory">
-            <wsdl:input wsaw:Action="http://tempuri.org/IOutBoundProxyLayer/GetSerialWiseAgentInventory" name="GetSerialWiseAgentInventoryRequest" message="tns:GetSerialWiseAgentInventoryRequest"/>
-            <wsdl:output wsaw:Action="http://tempuri.org/IOutBoundProxyLayer/GetSerialWiseAgentInventoryResponse" name="GetSerialWiseAgentInventoryResponse" message="tns:GetSerialWiseAgentInventoryResponse"/>
+            <wsdl:input wsaw:Action="http://tempuri.org/IOutBoundProxyLayer/GetSerialWiseAgentInventory"
+                        name="GetSerialWiseAgentInventoryRequest" message="tns:GetSerialWiseAgentInventoryRequest"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/IOutBoundProxyLayer/GetSerialWiseAgentInventoryResponse"
+                         name="GetSerialWiseAgentInventoryResponse" message="tns:GetSerialWiseAgentInventoryResponse"/>
         </wsdl:operation>
     </wsdl:portType>
     <wsdl:binding name="BasicHttpBinding_IOutBoundProxyLayer" type="tns:IOutBoundProxyLayer">
         <soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
         <wsdl:operation name="AgentInventoryAdjustmentCPOS">
-            <soap:operation soapAction="http://tempuri.org/IOutBoundProxyLayer/AgentInventoryAdjustmentCPOS" style="document"/>
+            <soap:operation soapAction="http://tempuri.org/IOutBoundProxyLayer/AgentInventoryAdjustmentCPOS"
+                            style="document"/>
             <wsdl:input name="InvAdjustmentRequest">
                 <soap:body use="literal"/>
             </wsdl:input>
@@ -171,7 +198,8 @@
             </wsdl:output>
         </wsdl:operation>
         <wsdl:operation name="GetWearhouseReturnHeader">
-            <soap:operation soapAction="http://tempuri.org/IOutBoundProxyLayer/GetWearhouseReturnHeader" style="document"/>
+            <soap:operation soapAction="http://tempuri.org/IOutBoundProxyLayer/GetWearhouseReturnHeader"
+                            style="document"/>
             <wsdl:input name="GetWearhouseReturnHeaderRequest">
                 <soap:body use="literal"/>
             </wsdl:input>
@@ -180,7 +208,8 @@
             </wsdl:output>
         </wsdl:operation>
         <wsdl:operation name="GetWearhouseReturnDetails">
-            <soap:operation soapAction="http://tempuri.org/IOutBoundProxyLayer/GetWearhouseReturnDetails" style="document"/>
+            <soap:operation soapAction="http://tempuri.org/IOutBoundProxyLayer/GetWearhouseReturnDetails"
+                            style="document"/>
             <wsdl:input name="GetWearhouseReturnDetailRequest">
                 <soap:body use="literal"/>
             </wsdl:input>
@@ -189,7 +218,8 @@
             </wsdl:output>
         </wsdl:operation>
         <wsdl:operation name="GetGantonMaterialStatus">
-            <soap:operation soapAction="http://tempuri.org/IOutBoundProxyLayer/GetGantonMaterialStatus" style="document"/>
+            <soap:operation soapAction="http://tempuri.org/IOutBoundProxyLayer/GetGantonMaterialStatus"
+                            style="document"/>
             <wsdl:input name="GetGantonMaterialPOSRequest">
                 <soap:body use="literal"/>
             </wsdl:input>
@@ -198,7 +228,8 @@
             </wsdl:output>
         </wsdl:operation>
         <wsdl:operation name="ValidateMaterialSerials">
-            <soap:operation soapAction="http://tempuri.org/IOutBoundProxyLayer/ValidateMaterialSerials" style="document"/>
+            <soap:operation soapAction="http://tempuri.org/IOutBoundProxyLayer/ValidateMaterialSerials"
+                            style="document"/>
             <wsdl:input name="ValidateMaterialSerialsRequest">
                 <soap:body use="literal"/>
             </wsdl:input>
@@ -207,7 +238,8 @@
             </wsdl:output>
         </wsdl:operation>
         <wsdl:operation name="WarehouseReturnSAPValidateSerial">
-            <soap:operation soapAction="http://tempuri.org/IOutBoundProxyLayer/WarehouseReturnSAPValidateSerial" style="document"/>
+            <soap:operation soapAction="http://tempuri.org/IOutBoundProxyLayer/WarehouseReturnSAPValidateSerial"
+                            style="document"/>
             <wsdl:input name="WarehouseReturnValidateSerialRequest">
                 <soap:body use="literal"/>
             </wsdl:input>
@@ -216,7 +248,8 @@
             </wsdl:output>
         </wsdl:operation>
         <wsdl:operation name="GetSerialWiseAgentInventory">
-            <soap:operation soapAction="http://tempuri.org/IOutBoundProxyLayer/GetSerialWiseAgentInventory" style="document"/>
+            <soap:operation soapAction="http://tempuri.org/IOutBoundProxyLayer/GetSerialWiseAgentInventory"
+                            style="document"/>
             <wsdl:input name="GetSerialWiseAgentInventoryRequest">
                 <soap:body use="literal"/>
             </wsdl:input>

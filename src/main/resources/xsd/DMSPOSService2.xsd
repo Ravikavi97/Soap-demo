@@ -1,5 +1,9 @@
-<xs:schema elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Dialog.Dms.Business.BusinessObject" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://schemas.datacontract.org/2004/07/Dialog.Dms.Business.BusinessObject">
-    <xs:import schemaLocation="DMSPOSService4.xsd" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays"/>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:tns="http://schemas.datacontract.org/2004/07/Dialog.Dms.Business.BusinessObject"
+           elementFormDefault="qualified"
+           targetNamespace="http://schemas.datacontract.org/2004/07/Dialog.Dms.Business.BusinessObject">
+    <xs:import schemaLocation="DMSPOSService4.xsd"
+               namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays"/>
     <xs:complexType name="reqPendingPosOrders">
         <xs:sequence>
             <xs:element minOccurs="0" name="ApprovalUser" nillable="true" type="xs:string"/>
@@ -14,14 +18,16 @@
             <xs:enumeration value="YES">
                 <xs:annotation>
                     <xs:appinfo>
-                        <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1</EnumerationValue>
+                        <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1
+                        </EnumerationValue>
                     </xs:appinfo>
                 </xs:annotation>
             </xs:enumeration>
             <xs:enumeration value="NO">
                 <xs:annotation>
                     <xs:appinfo>
-                        <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">0</EnumerationValue>
+                        <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">0
+                        </EnumerationValue>
                     </xs:appinfo>
                 </xs:annotation>
             </xs:enumeration>
@@ -33,42 +39,48 @@
             <xs:enumeration value="DTTL">
                 <xs:annotation>
                     <xs:appinfo>
-                        <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1</EnumerationValue>
+                        <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1
+                        </EnumerationValue>
                     </xs:appinfo>
                 </xs:annotation>
             </xs:enumeration>
             <xs:enumeration value="DBN">
                 <xs:annotation>
                     <xs:appinfo>
-                        <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">2</EnumerationValue>
+                        <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">2
+                        </EnumerationValue>
                     </xs:appinfo>
                 </xs:annotation>
             </xs:enumeration>
             <xs:enumeration value="DTVPostPaid">
                 <xs:annotation>
                     <xs:appinfo>
-                        <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">3</EnumerationValue>
+                        <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">3
+                        </EnumerationValue>
                     </xs:appinfo>
                 </xs:annotation>
             </xs:enumeration>
             <xs:enumeration value="NBD">
                 <xs:annotation>
                     <xs:appinfo>
-                        <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">4</EnumerationValue>
+                        <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">4
+                        </EnumerationValue>
                     </xs:appinfo>
                 </xs:annotation>
             </xs:enumeration>
             <xs:enumeration value="DTVPrePaid">
                 <xs:annotation>
                     <xs:appinfo>
-                        <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">5</EnumerationValue>
+                        <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">5
+                        </EnumerationValue>
                     </xs:appinfo>
                 </xs:annotation>
             </xs:enumeration>
             <xs:enumeration value="GSM">
                 <xs:annotation>
                     <xs:appinfo>
-                        <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">6</EnumerationValue>
+                        <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">6
+                        </EnumerationValue>
                     </xs:appinfo>
                 </xs:annotation>
             </xs:enumeration>
@@ -77,7 +89,8 @@
     <xs:element name="SBUList" nillable="true" type="tns:SBUList"/>
     <xs:complexType name="ArrayOfresPendingPosOrders">
         <xs:sequence>
-            <xs:element minOccurs="0" maxOccurs="unbounded" name="resPendingPosOrders" nillable="true" type="tns:resPendingPosOrders"/>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="resPendingPosOrders" nillable="true"
+                        type="tns:resPendingPosOrders"/>
         </xs:sequence>
     </xs:complexType>
     <xs:element name="ArrayOfresPendingPosOrders" nillable="true" type="tns:ArrayOfresPendingPosOrders"/>
@@ -107,14 +120,16 @@
             <xs:enumeration value="YES">
                 <xs:annotation>
                     <xs:appinfo>
-                        <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1</EnumerationValue>
+                        <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1
+                        </EnumerationValue>
                     </xs:appinfo>
                 </xs:annotation>
             </xs:enumeration>
             <xs:enumeration value="NO">
                 <xs:annotation>
                     <xs:appinfo>
-                        <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">0</EnumerationValue>
+                        <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">0
+                        </EnumerationValue>
                     </xs:appinfo>
                 </xs:annotation>
             </xs:enumeration>
@@ -123,7 +138,8 @@
     <xs:element name="SearchNearestLoc" nillable="true" type="tns:SearchNearestLoc"/>
     <xs:complexType name="ArrayOfPosItemDetailsReq">
         <xs:sequence>
-            <xs:element minOccurs="0" maxOccurs="unbounded" name="PosItemDetailsReq" nillable="true" type="tns:PosItemDetailsReq"/>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="PosItemDetailsReq" nillable="true"
+                        type="tns:PosItemDetailsReq"/>
         </xs:sequence>
     </xs:complexType>
     <xs:element name="ArrayOfPosItemDetailsReq" nillable="true" type="tns:ArrayOfPosItemDetailsReq"/>
@@ -138,21 +154,24 @@
             <xs:enumeration value="NEW">
                 <xs:annotation>
                     <xs:appinfo>
-                        <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1</EnumerationValue>
+                        <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1
+                        </EnumerationValue>
                     </xs:appinfo>
                 </xs:annotation>
             </xs:enumeration>
             <xs:enumeration value="USED">
                 <xs:annotation>
                     <xs:appinfo>
-                        <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">2</EnumerationValue>
+                        <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">2
+                        </EnumerationValue>
                     </xs:appinfo>
                 </xs:annotation>
             </xs:enumeration>
             <xs:enumeration value="FAULTY">
                 <xs:annotation>
                     <xs:appinfo>
-                        <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">3</EnumerationValue>
+                        <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">3
+                        </EnumerationValue>
                     </xs:appinfo>
                 </xs:annotation>
             </xs:enumeration>
@@ -179,7 +198,8 @@
     <xs:element name="PosMaterial" nillable="true" type="tns:PosMaterial"/>
     <xs:complexType name="ArrayOfMaterialLocations">
         <xs:sequence>
-            <xs:element minOccurs="0" maxOccurs="unbounded" name="MaterialLocations" nillable="true" type="tns:MaterialLocations"/>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="MaterialLocations" nillable="true"
+                        type="tns:MaterialLocations"/>
         </xs:sequence>
     </xs:complexType>
     <xs:element name="ArrayOfMaterialLocations" nillable="true" type="tns:ArrayOfMaterialLocations"/>
@@ -201,7 +221,8 @@
     <xs:element name="posItemReseveReq" nillable="true" type="tns:posItemReseveReq"/>
     <xs:complexType name="ArrayOfRequestMaterials">
         <xs:sequence>
-            <xs:element minOccurs="0" maxOccurs="unbounded" name="RequestMaterials" nillable="true" type="tns:RequestMaterials"/>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="RequestMaterials" nillable="true"
+                        type="tns:RequestMaterials"/>
         </xs:sequence>
     </xs:complexType>
     <xs:element name="ArrayOfRequestMaterials" nillable="true" type="tns:ArrayOfRequestMaterials"/>
@@ -214,7 +235,8 @@
     <xs:element name="RequestMaterials" nillable="true" type="tns:RequestMaterials"/>
     <xs:complexType name="ArrayOfposItemReseveRes">
         <xs:sequence>
-            <xs:element minOccurs="0" maxOccurs="unbounded" name="posItemReseveRes" nillable="true" type="tns:posItemReseveRes"/>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="posItemReseveRes" nillable="true"
+                        type="tns:posItemReseveRes"/>
         </xs:sequence>
     </xs:complexType>
     <xs:element name="ArrayOfposItemReseveRes" nillable="true" type="tns:ArrayOfposItemReseveRes"/>
@@ -226,7 +248,8 @@
     <xs:element name="posItemReseveRes" nillable="true" type="tns:posItemReseveRes"/>
     <xs:complexType name="ArrayOfReservationItem">
         <xs:sequence>
-            <xs:element minOccurs="0" maxOccurs="unbounded" name="ReservationItem" nillable="true" type="tns:ReservationItem"/>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="ReservationItem" nillable="true"
+                        type="tns:ReservationItem"/>
         </xs:sequence>
     </xs:complexType>
     <xs:element name="ArrayOfReservationItem" nillable="true" type="tns:ArrayOfReservationItem"/>
@@ -244,7 +267,8 @@
     <xs:element name="ReservationItem" nillable="true" type="tns:ReservationItem"/>
     <xs:complexType name="ArrayOfReservationItemDetials">
         <xs:sequence>
-            <xs:element minOccurs="0" maxOccurs="unbounded" name="ReservationItemDetials" nillable="true" type="tns:ReservationItemDetials"/>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="ReservationItemDetials" nillable="true"
+                        type="tns:ReservationItemDetials"/>
         </xs:sequence>
     </xs:complexType>
     <xs:element name="ArrayOfReservationItemDetials" nillable="true" type="tns:ArrayOfReservationItemDetials"/>
@@ -259,7 +283,8 @@
     <xs:element name="ReservationItemDetials" nillable="true" type="tns:ReservationItemDetials"/>
     <xs:complexType name="ArrayOfReservationConfirmRes">
         <xs:sequence>
-            <xs:element minOccurs="0" maxOccurs="unbounded" name="ReservationConfirmRes" nillable="true" type="tns:ReservationConfirmRes"/>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="ReservationConfirmRes" nillable="true"
+                        type="tns:ReservationConfirmRes"/>
         </xs:sequence>
     </xs:complexType>
     <xs:element name="ArrayOfReservationConfirmRes" nillable="true" type="tns:ArrayOfReservationConfirmRes"/>
@@ -271,7 +296,8 @@
     <xs:element name="ReservationConfirmRes" nillable="true" type="tns:ReservationConfirmRes"/>
     <xs:complexType name="ArrayOfResResponseDetails">
         <xs:sequence>
-            <xs:element minOccurs="0" maxOccurs="unbounded" name="ResResponseDetails" nillable="true" type="tns:ResResponseDetails"/>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="ResResponseDetails" nillable="true"
+                        type="tns:ResResponseDetails"/>
         </xs:sequence>
     </xs:complexType>
     <xs:element name="ArrayOfResResponseDetails" nillable="true" type="tns:ArrayOfResResponseDetails"/>
@@ -311,7 +337,8 @@
     <xs:element name="PosSto" nillable="true" type="tns:PosSto"/>
     <xs:complexType name="ArrayOfSTOItemDetail">
         <xs:sequence>
-            <xs:element minOccurs="0" maxOccurs="unbounded" name="STOItemDetail" nillable="true" type="tns:STOItemDetail"/>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="STOItemDetail" nillable="true"
+                        type="tns:STOItemDetail"/>
         </xs:sequence>
     </xs:complexType>
     <xs:element name="ArrayOfSTOItemDetail" nillable="true" type="tns:ArrayOfSTOItemDetail"/>
@@ -365,7 +392,8 @@
     <xs:element name="STOApprovalReq" nillable="true" type="tns:STOApprovalReq"/>
     <xs:complexType name="ArrayOfAppRequestDetailInfo">
         <xs:sequence>
-            <xs:element minOccurs="0" maxOccurs="unbounded" name="AppRequestDetailInfo" nillable="true" type="tns:AppRequestDetailInfo"/>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="AppRequestDetailInfo" nillable="true"
+                        type="tns:AppRequestDetailInfo"/>
         </xs:sequence>
     </xs:complexType>
     <xs:element name="ArrayOfAppRequestDetailInfo" nillable="true" type="tns:ArrayOfAppRequestDetailInfo"/>
@@ -394,7 +422,8 @@
             <xs:enumeration value="Aquired">
                 <xs:annotation>
                     <xs:appinfo>
-                        <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">9</EnumerationValue>
+                        <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">9
+                        </EnumerationValue>
                     </xs:appinfo>
                 </xs:annotation>
             </xs:enumeration>
@@ -412,7 +441,8 @@
     <xs:element name="STOItemRes" nillable="true" type="tns:STOItemRes"/>
     <xs:complexType name="ArrayOfAllOutletSTOInfoResponse">
         <xs:sequence>
-            <xs:element minOccurs="0" maxOccurs="unbounded" name="AllOutletSTOInfoResponse" nillable="true" type="tns:AllOutletSTOInfoResponse"/>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="AllOutletSTOInfoResponse" nillable="true"
+                        type="tns:AllOutletSTOInfoResponse"/>
         </xs:sequence>
     </xs:complexType>
     <xs:element name="ArrayOfAllOutletSTOInfoResponse" nillable="true" type="tns:ArrayOfAllOutletSTOInfoResponse"/>
@@ -435,7 +465,8 @@
     <xs:element name="ReturnRequestReq" nillable="true" type="tns:ReturnRequestReq"/>
     <xs:complexType name="ArrayOfReturnRequestDetail">
         <xs:sequence>
-            <xs:element minOccurs="0" maxOccurs="unbounded" name="ReturnRequestDetail" nillable="true" type="tns:ReturnRequestDetail"/>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="ReturnRequestDetail" nillable="true"
+                        type="tns:ReturnRequestDetail"/>
         </xs:sequence>
     </xs:complexType>
     <xs:element name="ArrayOfReturnRequestDetail" nillable="true" type="tns:ArrayOfReturnRequestDetail"/>
@@ -443,7 +474,8 @@
         <xs:sequence>
             <xs:element minOccurs="0" name="MaterialCode" nillable="true" type="xs:string"/>
             <xs:element minOccurs="0" name="RequestedQty" type="xs:double"/>
-            <xs:element minOccurs="0" name="SerialNumber" nillable="true" type="q1:ArrayOfstring" xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays"/>
+            <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="SerialNumber" nillable="true"
+                        type="q1:ArrayOfstring"/>
         </xs:sequence>
     </xs:complexType>
     <xs:element name="ReturnRequestDetail" nillable="true" type="tns:ReturnRequestDetail"/>
@@ -463,35 +495,40 @@
             <xs:enumeration value="New">
                 <xs:annotation>
                     <xs:appinfo>
-                        <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1</EnumerationValue>
+                        <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1
+                        </EnumerationValue>
                     </xs:appinfo>
                 </xs:annotation>
             </xs:enumeration>
             <xs:enumeration value="Used">
                 <xs:annotation>
                     <xs:appinfo>
-                        <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">2</EnumerationValue>
+                        <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">2
+                        </EnumerationValue>
                     </xs:appinfo>
                 </xs:annotation>
             </xs:enumeration>
             <xs:enumeration value="Faulty">
                 <xs:annotation>
                     <xs:appinfo>
-                        <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">3</EnumerationValue>
+                        <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">3
+                        </EnumerationValue>
                     </xs:appinfo>
                 </xs:annotation>
             </xs:enumeration>
             <xs:enumeration value="Damage">
                 <xs:annotation>
                     <xs:appinfo>
-                        <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">4</EnumerationValue>
+                        <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">4
+                        </EnumerationValue>
                     </xs:appinfo>
                 </xs:annotation>
             </xs:enumeration>
             <xs:enumeration value="CustomerReturn">
                 <xs:annotation>
                     <xs:appinfo>
-                        <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">5</EnumerationValue>
+                        <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">5
+                        </EnumerationValue>
                     </xs:appinfo>
                 </xs:annotation>
             </xs:enumeration>
@@ -517,7 +554,8 @@
     <xs:element name="goodIssueReq" nillable="true" type="tns:goodIssueReq"/>
     <xs:complexType name="ArrayOfgoodIssueItemsDetail">
         <xs:sequence>
-            <xs:element minOccurs="0" maxOccurs="unbounded" name="goodIssueItemsDetail" nillable="true" type="tns:goodIssueItemsDetail"/>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="goodIssueItemsDetail" nillable="true"
+                        type="tns:goodIssueItemsDetail"/>
         </xs:sequence>
     </xs:complexType>
     <xs:element name="ArrayOfgoodIssueItemsDetail" nillable="true" type="tns:ArrayOfgoodIssueItemsDetail"/>
@@ -533,7 +571,8 @@
     <xs:element name="goodIssueItemsDetail" nillable="true" type="tns:goodIssueItemsDetail"/>
     <xs:complexType name="ArrayOfgoodIssueSerials">
         <xs:sequence>
-            <xs:element minOccurs="0" maxOccurs="unbounded" name="goodIssueSerials" nillable="true" type="tns:goodIssueSerials"/>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="goodIssueSerials" nillable="true"
+                        type="tns:goodIssueSerials"/>
         </xs:sequence>
     </xs:complexType>
     <xs:element name="ArrayOfgoodIssueSerials" nillable="true" type="tns:ArrayOfgoodIssueSerials"/>
@@ -545,7 +584,8 @@
     <xs:element name="goodIssueSerials" nillable="true" type="tns:goodIssueSerials"/>
     <xs:complexType name="ArrayOfgoodIssueres">
         <xs:sequence>
-            <xs:element minOccurs="0" maxOccurs="unbounded" name="goodIssueres" nillable="true" type="tns:goodIssueres"/>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="goodIssueres" nillable="true"
+                        type="tns:goodIssueres"/>
         </xs:sequence>
     </xs:complexType>
     <xs:element name="ArrayOfgoodIssueres" nillable="true" type="tns:ArrayOfgoodIssueres"/>
@@ -568,7 +608,8 @@
     <xs:element name="validateSerialNumbersposReq" nillable="true" type="tns:validateSerialNumbersposReq"/>
     <xs:complexType name="ArrayOfvalidateItemDetail">
         <xs:sequence>
-            <xs:element minOccurs="0" maxOccurs="unbounded" name="validateItemDetail" nillable="true" type="tns:validateItemDetail"/>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="validateItemDetail" nillable="true"
+                        type="tns:validateItemDetail"/>
         </xs:sequence>
     </xs:complexType>
     <xs:element name="ArrayOfvalidateItemDetail" nillable="true" type="tns:ArrayOfvalidateItemDetail"/>
@@ -583,10 +624,12 @@
     <xs:element name="validateItemDetail" nillable="true" type="tns:validateItemDetail"/>
     <xs:complexType name="ArrayOfvalidateSerialNumbersposres">
         <xs:sequence>
-            <xs:element minOccurs="0" maxOccurs="unbounded" name="validateSerialNumbersposres" nillable="true" type="tns:validateSerialNumbersposres"/>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="validateSerialNumbersposres" nillable="true"
+                        type="tns:validateSerialNumbersposres"/>
         </xs:sequence>
     </xs:complexType>
-    <xs:element name="ArrayOfvalidateSerialNumbersposres" nillable="true" type="tns:ArrayOfvalidateSerialNumbersposres"/>
+    <xs:element name="ArrayOfvalidateSerialNumbersposres" nillable="true"
+                type="tns:ArrayOfvalidateSerialNumbersposres"/>
     <xs:complexType name="validateSerialNumbersposres">
         <xs:sequence>
             <xs:element minOccurs="0" name="FailReason" nillable="true" type="xs:string"/>
@@ -599,7 +642,8 @@
     <xs:element name="validateSerialNumbersposres" nillable="true" type="tns:validateSerialNumbersposres"/>
     <xs:complexType name="ArrayOfChildItemspos">
         <xs:sequence>
-            <xs:element minOccurs="0" maxOccurs="unbounded" name="ChildItemspos" nillable="true" type="tns:ChildItemspos"/>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="ChildItemspos" nillable="true"
+                        type="tns:ChildItemspos"/>
         </xs:sequence>
     </xs:complexType>
     <xs:element name="ArrayOfChildItemspos" nillable="true" type="tns:ArrayOfChildItemspos"/>
@@ -626,7 +670,8 @@
     <xs:element name="IssuedBalanceInfo" nillable="true" type="tns:IssuedBalanceInfo"/>
     <xs:complexType name="ArrayOfIssuedDetail">
         <xs:sequence>
-            <xs:element minOccurs="0" maxOccurs="unbounded" name="IssuedDetail" nillable="true" type="tns:IssuedDetail"/>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="IssuedDetail" nillable="true"
+                        type="tns:IssuedDetail"/>
         </xs:sequence>
     </xs:complexType>
     <xs:element name="ArrayOfIssuedDetail" nillable="true" type="tns:ArrayOfIssuedDetail"/>
@@ -648,7 +693,8 @@
     <xs:element name="ReceivedBalanceInfo" nillable="true" type="tns:ReceivedBalanceInfo"/>
     <xs:complexType name="ArrayOfReceivedDetail">
         <xs:sequence>
-            <xs:element minOccurs="0" maxOccurs="unbounded" name="ReceivedDetail" nillable="true" type="tns:ReceivedDetail"/>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="ReceivedDetail" nillable="true"
+                        type="tns:ReceivedDetail"/>
         </xs:sequence>
     </xs:complexType>
     <xs:element name="ArrayOfReceivedDetail" nillable="true" type="tns:ArrayOfReceivedDetail"/>
@@ -663,7 +709,8 @@
     <xs:element name="ReceivedDetail" nillable="true" type="tns:ReceivedDetail"/>
     <xs:complexType name="ArrayOfWarehouseReturn">
         <xs:sequence>
-            <xs:element minOccurs="0" maxOccurs="unbounded" name="WarehouseReturn" nillable="true" type="tns:WarehouseReturn"/>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="WarehouseReturn" nillable="true"
+                        type="tns:WarehouseReturn"/>
         </xs:sequence>
     </xs:complexType>
     <xs:element name="ArrayOfWarehouseReturn" nillable="true" type="tns:ArrayOfWarehouseReturn"/>
@@ -689,7 +736,8 @@
     <xs:element name="WarehouseReturn" nillable="true" type="tns:WarehouseReturn"/>
     <xs:complexType name="ArrayOfWarehouseReturnDetail">
         <xs:sequence>
-            <xs:element minOccurs="0" maxOccurs="unbounded" name="WarehouseReturnDetail" nillable="true" type="tns:WarehouseReturnDetail"/>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="WarehouseReturnDetail" nillable="true"
+                        type="tns:WarehouseReturnDetail"/>
         </xs:sequence>
     </xs:complexType>
     <xs:element name="ArrayOfWarehouseReturnDetail" nillable="true" type="tns:ArrayOfWarehouseReturnDetail"/>
@@ -708,7 +756,8 @@
     <xs:element name="WarehouseReturnDetail" nillable="true" type="tns:WarehouseReturnDetail"/>
     <xs:complexType name="ArrayOfMaterialInfo">
         <xs:sequence>
-            <xs:element minOccurs="0" maxOccurs="unbounded" name="MaterialInfo" nillable="true" type="tns:MaterialInfo"/>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="MaterialInfo" nillable="true"
+                        type="tns:MaterialInfo"/>
         </xs:sequence>
     </xs:complexType>
     <xs:element name="ArrayOfMaterialInfo" nillable="true" type="tns:ArrayOfMaterialInfo"/>
@@ -738,21 +787,24 @@
             <xs:enumeration value="MoveToCurrier">
                 <xs:annotation>
                     <xs:appinfo>
-                        <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1</EnumerationValue>
+                        <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1
+                        </EnumerationValue>
                     </xs:appinfo>
                 </xs:annotation>
             </xs:enumeration>
             <xs:enumeration value="StockUpdate">
                 <xs:annotation>
                     <xs:appinfo>
-                        <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">2</EnumerationValue>
+                        <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">2
+                        </EnumerationValue>
                     </xs:appinfo>
                 </xs:annotation>
             </xs:enumeration>
             <xs:enumeration value="RetunToBranch">
                 <xs:annotation>
                     <xs:appinfo>
-                        <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">3</EnumerationValue>
+                        <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">3
+                        </EnumerationValue>
                     </xs:appinfo>
                 </xs:annotation>
             </xs:enumeration>
@@ -761,10 +813,12 @@
     <xs:element name="MovementType" nillable="true" type="tns:MovementType"/>
     <xs:complexType name="ArrayOfAllDirectOutletSTOInfoResponse">
         <xs:sequence>
-            <xs:element minOccurs="0" maxOccurs="unbounded" name="AllDirectOutletSTOInfoResponse" nillable="true" type="tns:AllDirectOutletSTOInfoResponse"/>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="AllDirectOutletSTOInfoResponse" nillable="true"
+                        type="tns:AllDirectOutletSTOInfoResponse"/>
         </xs:sequence>
     </xs:complexType>
-    <xs:element name="ArrayOfAllDirectOutletSTOInfoResponse" nillable="true" type="tns:ArrayOfAllDirectOutletSTOInfoResponse"/>
+    <xs:element name="ArrayOfAllDirectOutletSTOInfoResponse" nillable="true"
+                type="tns:ArrayOfAllDirectOutletSTOInfoResponse"/>
     <xs:complexType name="AllDirectOutletSTOInfoResponse">
         <xs:sequence>
             <xs:element minOccurs="0" name="OutletProfileID" type="xs:int"/>

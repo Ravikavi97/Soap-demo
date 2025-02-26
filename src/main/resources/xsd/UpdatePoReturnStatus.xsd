@@ -1,30 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://dms.purchaseorder.return.updatestatus.sap/"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema"
            elementFormDefault="qualified"
-           targetNamespace="http://dms.purchaseorder.return.updatestatus.sap/"
-           xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:simpleType name="ReturnStatus">
-    <xs:restriction base="xs:string">
-      <xs:enumeration value="REJECTED" />
-      <xs:enumeration value="MAPPING_APPROVED" />
-      <xs:enumeration value="MAPPING_REJECTED" />
-    </xs:restriction>
-  </xs:simpleType>
+           targetNamespace="http://dms.purchaseorder.return.updatestatus.sap/">
+    <xs:simpleType name="ReturnStatus">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="REJECTED"/>
+            <xs:enumeration value="MAPPING_APPROVED"/>
+            <xs:enumeration value="MAPPING_REJECTED"/>
+        </xs:restriction>
+    </xs:simpleType>
 
-  <xs:element name="UpdatePoReturnStatusRequest">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="1" name="ReturnRequestId" type="xs:long" />
-        <xs:element minOccurs="1" name="Status" type="tns:ReturnStatus" />
-        </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="UpdatePoReturnStatusResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="StatusDesc" type="xs:string" />
-        <xs:element minOccurs="0" name="StatusId" type="xs:int" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
+    <xs:element name="UpdatePoReturnStatusRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="1" name="ReturnRequestId" type="xs:long"/>
+                <xs:element minOccurs="1" name="Status" type="tns:ReturnStatus"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="UpdatePoReturnStatusResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" name="StatusDesc" type="xs:string"/>
+                <xs:element minOccurs="0" name="StatusId" type="xs:int"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
 </xs:schema>

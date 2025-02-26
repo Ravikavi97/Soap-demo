@@ -5,9 +5,12 @@
     <wsdl:types>
         <xsd:schema targetNamespace="http://www.zillione.com/lk/services/Imports">
             <xsd:import schemaLocation="../schema/DMSService0.xsd" namespace="http://www.zillione.com/lk/services/"/>
-            <xsd:import schemaLocation="../schema/DMSService1.xsd" namespace="http://schemas.microsoft.com/2003/10/Serialization/"/>
-            <xsd:import schemaLocation="../schema/DMSService2.xsd" namespace="http://schemas.datacontract.org/2004/07/Zbs.Dcpos.DataContract.Dms"/>
-            <xsd:import schemaLocation="../schema/DMSService3.xsd" namespace="http://schemas.datacontract.org/2004/07/Zbs.Dcpos.DataContract.Warehouse"/>
+            <xsd:import schemaLocation="../schema/DMSService1.xsd"
+                        namespace="http://schemas.microsoft.com/2003/10/Serialization/"/>
+            <xsd:import schemaLocation="../schema/DMSService2.xsd"
+                        namespace="http://schemas.datacontract.org/2004/07/Zbs.Dcpos.DataContract.Dms"/>
+            <xsd:import schemaLocation="../schema/DMSService3.xsd"
+                        namespace="http://schemas.datacontract.org/2004/07/Zbs.Dcpos.DataContract.Warehouse"/>
         </xsd:schema>
     </wsdl:types>
     <wsdl:message name="IDmsServices_CreateMaterialCategory_InputMessage">

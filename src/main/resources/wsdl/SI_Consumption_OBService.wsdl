@@ -1,72 +1,98 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<wsdl:definitions name="SI_Consumption_OB" targetNamespace="http://DMS_Consumption_update" xmlns:p1="http://DMS_Consumption_update" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+<wsdl:definitions xmlns:p1="http://DMS_Consumption_update" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy"
+                  xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+                  name="SI_Consumption_OB"
+                  targetNamespace="http://DMS_Consumption_update">
     <wsdl:documentation/>
     <wsp:UsingPolicy wsdl:required="true"/>
     <wsp:Policy wsu:Id="OP_SI_Consumption_OB"/>
     <wsdl:types>
-        <xsd:schema targetNamespace="http://DMS_Consumption_update" xmlns="http://DMS_Consumption_update" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+        <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://DMS_Consumption_update"
+                    xmlns="http://DMS_Consumption_update">
             <xsd:element name="MT_Consumption_update_res" type="DT_Consumption_update_res"/>
             <xsd:element name="MT_Consumption_Update" type="DT_Consumption_update_req"/>
             <xsd:complexType name="DT_Consumption_update_req">
                 <xsd:annotation>
-                    <xsd:documentation xml:lang="EN">Data type for  consumption update request</xsd:documentation>
+                    <xsd:documentation xml:lang="EN">Data type for consumption update request</xsd:documentation>
                     <xsd:appinfo source="http://sap.com/xi/VersionID">32306fb07a2011ecaea90000003e4e96</xsd:appinfo>
                 </xsd:annotation>
                 <xsd:sequence>
                     <xsd:element name="Consumption_Update_details">
                         <xsd:annotation>
-                            <xsd:appinfo source="http://sap.com/xi/TextID">8a1dc6e4f09611eb8be000059a3c7a00</xsd:appinfo>
+                            <xsd:appinfo source="http://sap.com/xi/TextID">8a1dc6e4f09611eb8be000059a3c7a00
+                            </xsd:appinfo>
                         </xsd:annotation>
                         <xsd:complexType>
                             <xsd:sequence>
                                 <xsd:element name="DMS_REQ_ID" type="xsd:string" minOccurs="0">
                                     <xsd:annotation>
-                                        <xsd:appinfo source="http://sap.com/xi/TextID">8a1d9fd0f09611ebae1900059a3c7a00</xsd:appinfo>
+                                        <xsd:appinfo source="http://sap.com/xi/TextID">
+                                            8a1d9fd0f09611ebae1900059a3c7a00
+                                        </xsd:appinfo>
                                     </xsd:annotation>
                                 </xsd:element>
                                 <xsd:element name="PROFILE_ID" type="xsd:string" minOccurs="0">
                                     <xsd:annotation>
-                                        <xsd:appinfo source="http://sap.com/xi/TextID">8a1d9fd2f09611ebcf7e00059a3c7a00</xsd:appinfo>
+                                        <xsd:appinfo source="http://sap.com/xi/TextID">
+                                            8a1d9fd2f09611ebcf7e00059a3c7a00
+                                        </xsd:appinfo>
                                     </xsd:annotation>
                                 </xsd:element>
                                 <xsd:element name="LINE_OF_BIZ" type="xsd:string" minOccurs="0">
                                     <xsd:annotation>
-                                        <xsd:appinfo source="http://sap.com/xi/TextID">2d9ebdc967ed11ec8f8f00059a3c7a00</xsd:appinfo>
+                                        <xsd:appinfo source="http://sap.com/xi/TextID">
+                                            2d9ebdc967ed11ec8f8f00059a3c7a00
+                                        </xsd:appinfo>
                                     </xsd:annotation>
                                 </xsd:element>
                                 <xsd:element name="TRANS_TYPE" type="xsd:string" minOccurs="0">
                                     <xsd:annotation>
-                                        <xsd:appinfo source="http://sap.com/xi/TextID">2d9ebdca67ed11ecc4a700059a3c7a00</xsd:appinfo>
+                                        <xsd:appinfo source="http://sap.com/xi/TextID">
+                                            2d9ebdca67ed11ecc4a700059a3c7a00
+                                        </xsd:appinfo>
                                     </xsd:annotation>
                                 </xsd:element>
                                 <xsd:element name="ITEM_STAT" type="xsd:string" minOccurs="0">
                                     <xsd:annotation>
-                                        <xsd:appinfo source="http://sap.com/xi/TextID">2d9ebdcb67ed11ec8d3a00059a3c7a00</xsd:appinfo>
+                                        <xsd:appinfo source="http://sap.com/xi/TextID">
+                                            2d9ebdcb67ed11ec8d3a00059a3c7a00
+                                        </xsd:appinfo>
                                     </xsd:annotation>
                                 </xsd:element>
                                 <xsd:element name="MAT_TYPE" type="xsd:string" minOccurs="0">
                                     <xsd:annotation>
-                                        <xsd:appinfo source="http://sap.com/xi/TextID">2d9ebdcc67ed11ec883800059a3c7a00</xsd:appinfo>
+                                        <xsd:appinfo source="http://sap.com/xi/TextID">
+                                            2d9ebdcc67ed11ec883800059a3c7a00
+                                        </xsd:appinfo>
                                     </xsd:annotation>
                                 </xsd:element>
                                 <xsd:element name="ENVELOP_PARAMETER" type="xsd:string" minOccurs="0">
                                     <xsd:annotation>
-                                        <xsd:appinfo source="http://sap.com/xi/TextID">2d9ebdcd67ed11ec85c000059a3c7a00</xsd:appinfo>
+                                        <xsd:appinfo source="http://sap.com/xi/TextID">
+                                            2d9ebdcd67ed11ec85c000059a3c7a00
+                                        </xsd:appinfo>
                                     </xsd:annotation>
                                 </xsd:element>
                                 <xsd:element name="PI_DATE" type="xsd:string" minOccurs="0">
                                     <xsd:annotation>
-                                        <xsd:appinfo source="http://sap.com/xi/TextID">31ce504d7a2011ecb11100059a3c7a00</xsd:appinfo>
+                                        <xsd:appinfo source="http://sap.com/xi/TextID">
+                                            31ce504d7a2011ecb11100059a3c7a00
+                                        </xsd:appinfo>
                                     </xsd:annotation>
                                 </xsd:element>
                                 <xsd:element name="PI_TIME" type="xsd:string" minOccurs="0">
                                     <xsd:annotation>
-                                        <xsd:appinfo source="http://sap.com/xi/TextID">31ce504e7a2011ec9c4600059a3c7a00</xsd:appinfo>
+                                        <xsd:appinfo source="http://sap.com/xi/TextID">
+                                            31ce504e7a2011ec9c4600059a3c7a00
+                                        </xsd:appinfo>
                                     </xsd:annotation>
                                 </xsd:element>
-                                <xsd:element name="ITEM_DATA" type="DT_Consumption_update_item" minOccurs="0" maxOccurs="unbounded">
+                                <xsd:element name="ITEM_DATA" type="DT_Consumption_update_item" minOccurs="0"
+                                             maxOccurs="unbounded">
                                     <xsd:annotation>
-                                        <xsd:appinfo source="http://sap.com/xi/TextID">2d9ebdce67ed11ec8b1a00059a3c7a00</xsd:appinfo>
+                                        <xsd:appinfo source="http://sap.com/xi/TextID">
+                                            2d9ebdce67ed11ec8b1a00059a3c7a00
+                                        </xsd:appinfo>
                                     </xsd:annotation>
                                 </xsd:element>
                             </xsd:sequence>
@@ -81,27 +107,32 @@
                 <xsd:sequence>
                     <xsd:element name="DMS_REQ_ID" type="xsd:string" minOccurs="0">
                         <xsd:annotation>
-                            <xsd:appinfo source="http://sap.com/xi/TextID">13a374908e2811ecbe4400059a3c7a00</xsd:appinfo>
+                            <xsd:appinfo source="http://sap.com/xi/TextID">13a374908e2811ecbe4400059a3c7a00
+                            </xsd:appinfo>
                         </xsd:annotation>
                     </xsd:element>
                     <xsd:element name="CUST_PO" type="xsd:string" minOccurs="0">
                         <xsd:annotation>
-                            <xsd:appinfo source="http://sap.com/xi/TextID">13a374918e2811ecc5dc00059a3c7a00</xsd:appinfo>
+                            <xsd:appinfo source="http://sap.com/xi/TextID">13a374918e2811ecc5dc00059a3c7a00
+                            </xsd:appinfo>
                         </xsd:annotation>
                     </xsd:element>
                     <xsd:element name="STATUS" type="xsd:string" minOccurs="0">
                         <xsd:annotation>
-                            <xsd:appinfo source="http://sap.com/xi/TextID">13a374928e2811ecbcc300059a3c7a00</xsd:appinfo>
+                            <xsd:appinfo source="http://sap.com/xi/TextID">13a374928e2811ecbcc300059a3c7a00
+                            </xsd:appinfo>
                         </xsd:annotation>
                     </xsd:element>
                     <xsd:element name="SALES_ORD" type="xsd:string" minOccurs="0">
                         <xsd:annotation>
-                            <xsd:appinfo source="http://sap.com/xi/TextID">13a380048e2811ecc27000059a3c7a00</xsd:appinfo>
+                            <xsd:appinfo source="http://sap.com/xi/TextID">13a380048e2811ecc27000059a3c7a00
+                            </xsd:appinfo>
                         </xsd:annotation>
                     </xsd:element>
                     <xsd:element name="MESSAGE" type="xsd:string" minOccurs="0">
                         <xsd:annotation>
-                            <xsd:appinfo source="http://sap.com/xi/TextID">13a380058e2811eca4c800059a3c7a00</xsd:appinfo>
+                            <xsd:appinfo source="http://sap.com/xi/TextID">13a380058e2811eca4c800059a3c7a00
+                            </xsd:appinfo>
                         </xsd:annotation>
                     </xsd:element>
                 </xsd:sequence>
@@ -114,22 +145,26 @@
                 <xsd:sequence>
                     <xsd:element name="ITEM_NO" type="xsd:string" minOccurs="0">
                         <xsd:annotation>
-                            <xsd:appinfo source="http://sap.com/xi/TextID">6e01212367ed11ec998600059a3c7a00</xsd:appinfo>
+                            <xsd:appinfo source="http://sap.com/xi/TextID">6e01212367ed11ec998600059a3c7a00
+                            </xsd:appinfo>
                         </xsd:annotation>
                     </xsd:element>
                     <xsd:element name="MATERIAL_CODE" type="xsd:string" minOccurs="0">
                         <xsd:annotation>
-                            <xsd:appinfo source="http://sap.com/xi/TextID">6e01212467ed11ec8e9d00059a3c7a00</xsd:appinfo>
+                            <xsd:appinfo source="http://sap.com/xi/TextID">6e01212467ed11ec8e9d00059a3c7a00
+                            </xsd:appinfo>
                         </xsd:annotation>
                     </xsd:element>
                     <xsd:element name="QUANTITY" type="xsd:string" minOccurs="0">
                         <xsd:annotation>
-                            <xsd:appinfo source="http://sap.com/xi/TextID">6e01212567ed11ec868100059a3c7a00</xsd:appinfo>
+                            <xsd:appinfo source="http://sap.com/xi/TextID">6e01212567ed11ec868100059a3c7a00
+                            </xsd:appinfo>
                         </xsd:annotation>
                     </xsd:element>
                     <xsd:element name="SERIAL_NUMBER" type="xsd:string" minOccurs="0">
                         <xsd:annotation>
-                            <xsd:appinfo source="http://sap.com/xi/TextID">6e01212667ed11ec84a400059a3c7a00</xsd:appinfo>
+                            <xsd:appinfo source="http://sap.com/xi/TextID">6e01212667ed11ec84a400059a3c7a00
+                            </xsd:appinfo>
                         </xsd:annotation>
                     </xsd:element>
                 </xsd:sequence>
@@ -156,23 +191,29 @@
         </wsdl:operation>
     </wsdl:portType>
     <wsdl:binding name="SI_Consumption_OBBinding" type="p1:SI_Consumption_OB">
-        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"/>
+        <soap:binding xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" style="document"
+                      transport="http://schemas.xmlsoap.org/soap/http"/>
         <wsdl:operation name="SI_Consumption_OB">
-            <soap:operation soapAction="http://sap.com/xi/WebService/soap1.1" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"/>
+            <soap:operation xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+                            soapAction="http://sap.com/xi/WebService/soap1.1"/>
             <wsdl:input>
-                <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"/>
+                <soap:body xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" use="literal"/>
             </wsdl:input>
             <wsdl:output>
-                <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"/>
+                <soap:body xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" use="literal"/>
             </wsdl:output>
         </wsdl:operation>
     </wsdl:binding>
     <wsdl:service name="SI_Consumption_OBService">
         <wsdl:port name="HTTP_Port" binding="p1:SI_Consumption_OBBinding">
-            <soap:address location="http://piapp01.dialog.dialoggsm.com:50000/XISOAPAdapter/MessageServlet?senderParty=&amp;senderService=DMS&amp;receiverParty=&amp;receiverService=&amp;interface=SI_Consumption_OB&amp;interfaceNamespace=http%3A%2F%2FDMS_Consumption_update" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"/>
+            <soap:address
+                    xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+                    location="http://piapp01.dialog.dialoggsm.com:50000/XISOAPAdapter/MessageServlet?senderParty=&amp;senderService=DMS&amp;receiverParty=&amp;receiverService=&amp;interface=SI_Consumption_OB&amp;interfaceNamespace=http%3A%2F%2FDMS_Consumption_update"/>
         </wsdl:port>
         <wsdl:port name="HTTPS_Port" binding="p1:SI_Consumption_OBBinding">
-            <soap:address location="https://piapp01.dialog.dialoggsm.com/XISOAPAdapter/MessageServlet?senderParty=&amp;senderService=DMS&amp;receiverParty=&amp;receiverService=&amp;interface=SI_Consumption_OB&amp;interfaceNamespace=http%3A%2F%2FDMS_Consumption_update" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"/>
+            <soap:address
+                    xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+                    location="https://piapp01.dialog.dialoggsm.com/XISOAPAdapter/MessageServlet?senderParty=&amp;senderService=DMS&amp;receiverParty=&amp;receiverService=&amp;interface=SI_Consumption_OB&amp;interfaceNamespace=http%3A%2F%2FDMS_Consumption_update"/>
         </wsdl:port>
     </wsdl:service>
 </wsdl:definitions>

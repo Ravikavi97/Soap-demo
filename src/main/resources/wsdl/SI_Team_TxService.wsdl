@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<wsdl:definitions name="SI_Team_Tx" targetNamespace="http://dms_mm_team_to_tm_tranfer"
-                  xmlns:p1="http://dms_mm_team_to_tm_tranfer" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy"
-                  xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd"
-                  xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+<wsdl:definitions xmlns:p1="http://dms_mm_team_to_tm_tranfer" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy"
+                  xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+                  name="SI_Team_Tx"
+                  targetNamespace="http://dms_mm_team_to_tm_tranfer">
     <wsdl:documentation/>
     <wsp:UsingPolicy wsdl:required="true"/>
     <wsp:Policy wsu:Id="OP_SI_Team_Tx"/>
     <wsdl:types>
-        <xsd:schema targetNamespace="http://dms_mm_team_to_tm_tranfer" xmlns="http://dms_mm_team_to_tm_tranfer"
-                    xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+        <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://dms_mm_team_to_tm_tranfer"
+                    xmlns="http://dms_mm_team_to_tm_tranfer">
             <xsd:element name="MT_Team_Tx_Response" type="DT_STO_Unsold_Return_Response"/>
             <xsd:element name="MT_Team_Tx_Request" type="DT_SRO_Unsold_Return_request"/>
             <xsd:complexType name="DT_Details">
@@ -219,29 +219,29 @@
         </wsdl:operation>
     </wsdl:portType>
     <wsdl:binding name="SI_Team_TxBinding" type="p1:SI_Team_Tx">
-        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"
-                      xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"/>
+        <soap:binding xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" style="document"
+                      transport="http://schemas.xmlsoap.org/soap/http"/>
         <wsdl:operation name="SI_Team_Tx">
-            <soap:operation soapAction="http://sap.com/xi/WebService/soap1.1"
-                            xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"/>
+            <soap:operation xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+                            soapAction="http://sap.com/xi/WebService/soap1.1"/>
             <wsdl:input>
-                <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"/>
+                <soap:body xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" use="literal"/>
             </wsdl:input>
             <wsdl:output>
-                <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"/>
+                <soap:body xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" use="literal"/>
             </wsdl:output>
         </wsdl:operation>
     </wsdl:binding>
     <wsdl:service name="SI_Team_TxService">
         <wsdl:port name="HTTP_Port" binding="p1:SI_Team_TxBinding">
             <soap:address
-                    location="http://pidev.dialog.dialoggsm.com:50000/XISOAPAdapter/MessageServlet?senderParty=&amp;senderService=DMS&amp;receiverParty=&amp;receiverService=&amp;interface=SI_Team_Tx&amp;interfaceNamespace=http%3A%2F%2Fdms_mm_team_to_tm_tranfer"
-                    xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"/>
+                    xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+                    location="http://pidev.dialog.dialoggsm.com:50000/XISOAPAdapter/MessageServlet?senderParty=&amp;senderService=DMS&amp;receiverParty=&amp;receiverService=&amp;interface=SI_Team_Tx&amp;interfaceNamespace=http%3A%2F%2Fdms_mm_team_to_tm_tranfer"/>
         </wsdl:port>
         <wsdl:port name="HTTPS_Port" binding="p1:SI_Team_TxBinding">
             <soap:address
-                    location="https://pidev.dialog.dialoggsm.com:50001/XISOAPAdapter/MessageServlet?senderParty=&amp;senderService=DMS&amp;receiverParty=&amp;receiverService=&amp;interface=SI_Team_Tx&amp;interfaceNamespace=http%3A%2F%2Fdms_mm_team_to_tm_tranfer"
-                    xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"/>
+                    xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+                    location="https://pidev.dialog.dialoggsm.com:50001/XISOAPAdapter/MessageServlet?senderParty=&amp;senderService=DMS&amp;receiverParty=&amp;receiverService=&amp;interface=SI_Team_Tx&amp;interfaceNamespace=http%3A%2F%2Fdms_mm_team_to_tm_tranfer"/>
         </wsdl:port>
     </wsdl:service>
 </wsdl:definitions>

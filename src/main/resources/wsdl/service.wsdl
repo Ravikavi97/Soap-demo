@@ -1,12 +1,12 @@
-<definitions xmlns="http://schemas.xmlsoap.org/wsdl/"
-             xmlns:xs="http://www.w3.org/2001/XMLSchema"
+<definitions xmlns:xs="http://www.w3.org/2001/XMLSchema"
              xmlns:tns="http://www.soap.com/service"
              xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+             xmlns="http://schemas.xmlsoap.org/wsdl/"
              targetNamespace="http://www.soap.com/service">
 
     <!-- Define types and import external XSD -->
     <types>
-        <xs:schema targetNamespace="http://www.soap.com/service" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+        <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.soap.com/service">
             <!-- Fix the namespace in the import element -->
             <xs:import namespace="http://www.soap.com/service" schemaLocation="../xsd/service.xsd"/>
 

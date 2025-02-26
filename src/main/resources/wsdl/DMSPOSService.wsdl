@@ -1,286 +1,307 @@
-<wsdl:definitions name="DMSPOSService" targetNamespace="http://tempuri.org/"
-                  xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
-                  xmlns:i0="lk.dialog.DMSPOSIntegration" xmlns:tns="http://tempuri.org/"
-                  xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:i0="lk.dialog.DMSPOSIntegration"
+                  xmlns:tns="http://tempuri.org/"
+                  xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" name="DMSPOSService"
+                  targetNamespace="http://tempuri.org/"
 >
-   <wsdl:import namespace="lk.dialog.DMSPOSIntegration" location="DMSPOSService.wsdl"/>
-   <wsdl:types/>
-   <wsdl:binding name="BasicHttpBinding_IDMSPOSService" type="i0:IDMSPOSService">
-      <soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
-      <wsdl:operation name="GetPendingItemRequest">
-         <soap:operation soapAction="lk.dialog.DMSPOSIntegration/IDMSPOSService/GetPendingItemRequest" style="document"/>
-         <wsdl:input name="PendingPosItemRequest">
-            <soap:body use="literal"/>
-         </wsdl:input>
-         <wsdl:output name="PendingPosItemResponse">
-            <soap:body use="literal"/>
-         </wsdl:output>
-      </wsdl:operation>
-      <wsdl:operation name="CheckMaterialAvailability">
-         <soap:operation soapAction="lk.dialog.DMSPOSIntegration/IDMSPOSService/CheckMaterialAvailability" style="document"/>
-         <wsdl:input name="GetMaterialAvailableRequest">
-            <soap:body use="literal"/>
-         </wsdl:input>
-         <wsdl:output name="GetMaterialAvailableResponse">
-            <soap:body use="literal"/>
-         </wsdl:output>
-      </wsdl:operation>
-      <wsdl:operation name="CheckMaterialReservation">
-         <soap:operation soapAction="lk.dialog.DMSPOSIntegration/IDMSPOSService/CheckMaterialReservation" style="document"/>
-         <wsdl:input name="MaterialCheckReserveRequest">
-            <soap:body use="literal"/>
-         </wsdl:input>
-         <wsdl:output name="MaterialCheckReserveResponse">
-            <soap:body use="literal"/>
-         </wsdl:output>
-      </wsdl:operation>
-      <wsdl:operation name="ConfirmReservation">
-         <soap:operation soapAction="lk.dialog.DMSPOSIntegration/IDMSPOSService/ConfirmReservation" style="document"/>
-         <wsdl:input name="ReservationConfirmRequest">
-            <soap:body use="literal"/>
-         </wsdl:input>
-         <wsdl:output name="ReservationConfirmResponse">
-            <soap:body use="literal"/>
-         </wsdl:output>
-      </wsdl:operation>
-      <wsdl:operation name="CancelReservation">
-         <soap:operation soapAction="lk.dialog.DMSPOSIntegration/IDMSPOSService/CancelReservation" style="document"/>
-         <wsdl:input name="ReservationCancelRequest">
-            <soap:body use="literal"/>
-         </wsdl:input>
-         <wsdl:output name="ReservationCancelResponse">
-            <soap:body use="literal"/>
-         </wsdl:output>
-      </wsdl:operation>
-      <wsdl:operation name="GetSTORequestInfo">
-         <soap:operation soapAction="lk.dialog.DMSPOSIntegration/IDMSPOSService/GetSTORequestInfo" style="document"/>
-         <wsdl:input name="GetStoByIDRequest">
-            <soap:body use="literal"/>
-         </wsdl:input>
-         <wsdl:output name="GetSTODetailResponse">
-            <soap:body use="literal"/>
-         </wsdl:output>
-      </wsdl:operation>
-      <wsdl:operation name="GetAvailableItemQtyfromOutLet">
-         <soap:operation soapAction="lk.dialog.DMSPOSIntegration/IDMSPOSService/GetAvailableItemQtyfromOutLet" style="document"/>
-         <wsdl:input name="CheckOutletItemBalanceRequest">
-            <soap:body use="literal"/>
-         </wsdl:input>
-         <wsdl:output name="CheckOutletItemBalanceResponse">
-            <soap:body use="literal"/>
-         </wsdl:output>
-      </wsdl:operation>
-      <wsdl:operation name="CreatePOSSto">
-         <soap:operation soapAction="lk.dialog.DMSPOSIntegration/IDMSPOSService/CreatePOSSto" style="document"/>
-         <wsdl:input name="CreatePOSSTOItemRequest">
-            <soap:body use="literal"/>
-         </wsdl:input>
-         <wsdl:output name="CreatePOSSTOItemResponse">
-            <soap:body use="literal"/>
-         </wsdl:output>
-      </wsdl:operation>
-      <wsdl:operation name="ApprovalSTORequest">
-         <soap:operation soapAction="lk.dialog.DMSPOSIntegration/IDMSPOSService/ApprovalSTORequest" style="document"/>
-         <wsdl:input>
-            <soap:body use="literal"/>
-         </wsdl:input>
-         <wsdl:output>
-            <soap:body use="literal"/>
-         </wsdl:output>
-      </wsdl:operation>
-      <wsdl:operation name="GetPendingGoodsTransferSTO">
-         <soap:operation soapAction="lk.dialog.DMSPOSIntegration/IDMSPOSService/GetPendingGoodsTransferSTO" style="document"/>
-         <wsdl:input>
-            <soap:body use="literal"/>
-         </wsdl:input>
-         <wsdl:output>
-            <soap:body use="literal"/>
-         </wsdl:output>
-      </wsdl:operation>
-      <wsdl:operation name="CreateReturnRequest">
-         <soap:operation soapAction="lk.dialog.DMSPOSIntegration/IDMSPOSService/CreateReturnRequest" style="document"/>
-         <wsdl:input>
-            <soap:body use="literal"/>
-         </wsdl:input>
-         <wsdl:output>
-            <soap:body use="literal"/>
-         </wsdl:output>
-      </wsdl:operation>
-      <wsdl:operation name="GetReturnRequestAcceptanceDetail">
-         <soap:operation soapAction="lk.dialog.DMSPOSIntegration/IDMSPOSService/GetReturnRequestAcceptanceDetail" style="document"/>
-         <wsdl:input>
-            <soap:body use="literal"/>
-         </wsdl:input>
-         <wsdl:output>
-            <soap:body use="literal"/>
-         </wsdl:output>
-      </wsdl:operation>
-      <wsdl:operation name="UpdateGoodsIssue">
-         <soap:operation soapAction="lk.dialog.DMSPOSIntegration/IDMSPOSService/UpdateGoodsIssue" style="document"/>
-         <wsdl:input name="UpdateGoodIssueRequest">
-            <soap:body use="literal"/>
-         </wsdl:input>
-         <wsdl:output name="UpdateGoodIssueResponse">
-            <soap:body use="literal"/>
-         </wsdl:output>
-      </wsdl:operation>
-      <wsdl:operation name="ValidateSerialNumbers">
-         <soap:operation soapAction="lk.dialog.DMSPOSIntegration/IDMSPOSService/ValidateSerialNumbers" style="document"/>
-         <wsdl:input name="GetSerialValidationRequest">
-            <soap:body use="literal"/>
-         </wsdl:input>
-         <wsdl:output name="GetSerialValidationResponse">
-            <soap:body use="literal"/>
-         </wsdl:output>
-      </wsdl:operation>
-      <wsdl:operation name="LoadGTNDetails">
-         <soap:operation soapAction="lk.dialog.DMSPOSIntegration/IDMSPOSService/LoadGTNDetails" style="document"/>
-         <wsdl:input name="LoadGTNDetailsRequest">
-            <soap:body use="literal"/>
-         </wsdl:input>
-         <wsdl:output name="LoadGTNDetailsResponse">
-            <soap:body use="literal"/>
-         </wsdl:output>
-      </wsdl:operation>
-      <wsdl:operation name="GetInventoryBinBalance">
-         <soap:operation soapAction="lk.dialog.DMSPOSIntegration/IDMSPOSService/GetInventoryBinBalance" style="document"/>
-         <wsdl:input name="BinCardInvBalanaceRequest">
-            <soap:body use="literal"/>
-         </wsdl:input>
-         <wsdl:output name="BinCardInvBalanceResponse">
-            <soap:body use="literal"/>
-         </wsdl:output>
-      </wsdl:operation>
-      <wsdl:operation name="GetInventoryBinItemFlow">
-         <soap:operation soapAction="lk.dialog.DMSPOSIntegration/IDMSPOSService/GetInventoryBinItemFlow" style="document"/>
-         <wsdl:input name="BinCardInvBalanaceRequest">
-            <soap:body use="literal"/>
-         </wsdl:input>
-         <wsdl:output name="BinLocationItemFlowResponse">
-            <soap:body use="literal"/>
-         </wsdl:output>
-      </wsdl:operation>
-      <wsdl:operation name="AcceptGoodsTranferNote">
-         <soap:operation soapAction="lk.dialog.DMSPOSIntegration/IDMSPOSService/AcceptGoodsTranferNote" style="document"/>
-         <wsdl:input name="AcceptGoodsRequest">
-            <soap:body use="literal"/>
-         </wsdl:input>
-         <wsdl:output name="AcceptGoodsResponse">
-            <soap:body use="literal"/>
-         </wsdl:output>
-      </wsdl:operation>
-      <wsdl:operation name="STOCancelation">
-         <soap:operation soapAction="lk.dialog.DMSPOSIntegration/IDMSPOSService/STOCancelation" style="document"/>
-         <wsdl:input>
-            <soap:body use="literal"/>
-         </wsdl:input>
-         <wsdl:output>
-            <soap:body use="literal"/>
-         </wsdl:output>
-      </wsdl:operation>
-      <wsdl:operation name="WherehouseReturn">
-         <soap:operation soapAction="lk.dialog.DMSPOSIntegration/IDMSPOSService/WherehouseReturn" style="document"/>
-         <wsdl:input>
-            <soap:body use="literal"/>
-         </wsdl:input>
-         <wsdl:output>
-            <soap:body use="literal"/>
-         </wsdl:output>
-      </wsdl:operation>
-      <wsdl:operation name="GetGICancelSTOList">
-         <soap:operation soapAction="lk.dialog.DMSPOSIntegration/IDMSPOSService/GetGICancelSTOList" style="document"/>
-         <wsdl:input>
-            <soap:body use="literal"/>
-         </wsdl:input>
-         <wsdl:output>
-            <soap:body use="literal"/>
-         </wsdl:output>
-      </wsdl:operation>
-      <wsdl:operation name="GetSTOWarehouseReturnInfo">
-         <soap:operation soapAction="lk.dialog.DMSPOSIntegration/IDMSPOSService/GetSTOWarehouseReturnInfo" style="document"/>
-         <wsdl:input name="GetWarehouseReturnInfoRequest">
-            <soap:body use="literal"/>
-         </wsdl:input>
-         <wsdl:output name="GetWarehouseReturnInfoResponse">
-            <soap:body use="literal"/>
-         </wsdl:output>
-      </wsdl:operation>
-      <wsdl:operation name="GetWarehouseReturnDetailsInfo">
-         <soap:operation soapAction="lk.dialog.DMSPOSIntegration/IDMSPOSService/GetWarehouseReturnDetailsInfo" style="document"/>
-         <wsdl:input name="GetWarehouseReturnDetailInfoRequest">
-            <soap:body use="literal"/>
-         </wsdl:input>
-         <wsdl:output name="GetWarehouseReturnDetailInfoResponse">
-            <soap:body use="literal"/>
-         </wsdl:output>
-      </wsdl:operation>
-      <wsdl:operation name="StockMovement">
-         <soap:operation soapAction="lk.dialog.DMSPOSIntegration/IDMSPOSService/StockMovement" style="document"/>
-         <wsdl:input name="LazyPayMessageRequest">
-            <soap:body use="literal"/>
-         </wsdl:input>
-         <wsdl:output name="LazyPayMessageResponse">
-            <soap:body use="literal"/>
-         </wsdl:output>
-      </wsdl:operation>
-      <wsdl:operation name="GetDirectGoodsTransferSTO">
-         <soap:operation soapAction="lk.dialog.DMSPOSIntegration/IDMSPOSService/GetDirectGoodsTransferSTO" style="document"/>
-         <wsdl:input>
-            <soap:body use="literal"/>
-         </wsdl:input>
-         <wsdl:output>
-            <soap:body use="literal"/>
-         </wsdl:output>
-      </wsdl:operation>
-      <wsdl:operation name="LoadDirectGTNDetails">
-         <soap:operation soapAction="lk.dialog.DMSPOSIntegration/IDMSPOSService/LoadDirectGTNDetails" style="document"/>
-         <wsdl:input name="LoadDirectGTNDetailsRequest">
-            <soap:body use="literal"/>
-         </wsdl:input>
-         <wsdl:output name="LoadGTNDetailsResponse">
-            <soap:body use="literal"/>
-         </wsdl:output>
-      </wsdl:operation>
-      <wsdl:operation name="AcceptDirectGoodsTranferNote">
-         <soap:operation soapAction="lk.dialog.DMSPOSIntegration/IDMSPOSService/AcceptDirectGoodsTranferNote" style="document"/>
-         <wsdl:input name="AcceptDirectGoodsRequest">
-            <soap:body use="literal"/>
-         </wsdl:input>
-         <wsdl:output name="AcceptGoodsResponse">
-            <soap:body use="literal"/>
-         </wsdl:output>
-      </wsdl:operation>
-      <wsdl:operation name="BundleSerialValidater">
-         <soap:operation soapAction="lk.dialog.DMSPOSIntegration/IDMSPOSService/BundleSerialValidater" style="document"/>
-         <wsdl:input name="BundleSerialValidaterRequest">
-            <soap:body use="literal"/>
-         </wsdl:input>
-         <wsdl:output name="BundleSerialValidaterResponse">
-            <soap:body use="literal"/>
-         </wsdl:output>
-      </wsdl:operation>
-      <wsdl:operation name="BranchToBranchTransfer">
-         <soap:operation soapAction="lk.dialog.DMSPOSIntegration/IDMSPOSService/BranchToBranchTransfer" style="document"/>
-         <wsdl:input name="BranchToBranchTransferRequest">
-            <soap:body use="literal"/>
-         </wsdl:input>
-         <wsdl:output name="BranchToBranchTransferResponse">
-            <soap:body use="literal"/>
-         </wsdl:output>
-      </wsdl:operation>
-      <wsdl:operation name="GetMaterilList">
-         <soap:operation soapAction="lk.dialog.DMSPOSIntegration/IDMSPOSService/GetMaterilList" style="document"/>
-         <wsdl:input name="GetMaterilRequest">
-            <soap:body use="literal"/>
-         </wsdl:input>
-         <wsdl:output name="GetMaterilResponse">
-            <soap:body use="literal"/>
-         </wsdl:output>
-      </wsdl:operation>
-   </wsdl:binding>
-   <wsdl:service name="DMSPOSService">
-      <wsdl:port name="BasicHttpBinding_IDMSPOSService" binding="tns:BasicHttpBinding_IDMSPOSService">
-         <soap:address location="http://172.26.30.210/QAR2_DMSPOSIntegration/DMSPOSService.svc"/>
-      </wsdl:port>
-   </wsdl:service>
+    <wsdl:import namespace="lk.dialog.DMSPOSIntegration" location="DMSPOSService.wsdl"/>
+    <wsdl:types/>
+    <wsdl:binding name="BasicHttpBinding_IDMSPOSService" type="i0:IDMSPOSService">
+        <soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="GetPendingItemRequest">
+            <soap:operation soapAction="lk.dialog.DMSPOSIntegration/IDMSPOSService/GetPendingItemRequest"
+                            style="document"/>
+            <wsdl:input name="PendingPosItemRequest">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="PendingPosItemResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="CheckMaterialAvailability">
+            <soap:operation soapAction="lk.dialog.DMSPOSIntegration/IDMSPOSService/CheckMaterialAvailability"
+                            style="document"/>
+            <wsdl:input name="GetMaterialAvailableRequest">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="GetMaterialAvailableResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="CheckMaterialReservation">
+            <soap:operation soapAction="lk.dialog.DMSPOSIntegration/IDMSPOSService/CheckMaterialReservation"
+                            style="document"/>
+            <wsdl:input name="MaterialCheckReserveRequest">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="MaterialCheckReserveResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="ConfirmReservation">
+            <soap:operation soapAction="lk.dialog.DMSPOSIntegration/IDMSPOSService/ConfirmReservation"
+                            style="document"/>
+            <wsdl:input name="ReservationConfirmRequest">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="ReservationConfirmResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="CancelReservation">
+            <soap:operation soapAction="lk.dialog.DMSPOSIntegration/IDMSPOSService/CancelReservation" style="document"/>
+            <wsdl:input name="ReservationCancelRequest">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="ReservationCancelResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetSTORequestInfo">
+            <soap:operation soapAction="lk.dialog.DMSPOSIntegration/IDMSPOSService/GetSTORequestInfo" style="document"/>
+            <wsdl:input name="GetStoByIDRequest">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="GetSTODetailResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetAvailableItemQtyfromOutLet">
+            <soap:operation soapAction="lk.dialog.DMSPOSIntegration/IDMSPOSService/GetAvailableItemQtyfromOutLet"
+                            style="document"/>
+            <wsdl:input name="CheckOutletItemBalanceRequest">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="CheckOutletItemBalanceResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="CreatePOSSto">
+            <soap:operation soapAction="lk.dialog.DMSPOSIntegration/IDMSPOSService/CreatePOSSto" style="document"/>
+            <wsdl:input name="CreatePOSSTOItemRequest">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="CreatePOSSTOItemResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="ApprovalSTORequest">
+            <soap:operation soapAction="lk.dialog.DMSPOSIntegration/IDMSPOSService/ApprovalSTORequest"
+                            style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetPendingGoodsTransferSTO">
+            <soap:operation soapAction="lk.dialog.DMSPOSIntegration/IDMSPOSService/GetPendingGoodsTransferSTO"
+                            style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="CreateReturnRequest">
+            <soap:operation soapAction="lk.dialog.DMSPOSIntegration/IDMSPOSService/CreateReturnRequest"
+                            style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetReturnRequestAcceptanceDetail">
+            <soap:operation soapAction="lk.dialog.DMSPOSIntegration/IDMSPOSService/GetReturnRequestAcceptanceDetail"
+                            style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="UpdateGoodsIssue">
+            <soap:operation soapAction="lk.dialog.DMSPOSIntegration/IDMSPOSService/UpdateGoodsIssue" style="document"/>
+            <wsdl:input name="UpdateGoodIssueRequest">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="UpdateGoodIssueResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="ValidateSerialNumbers">
+            <soap:operation soapAction="lk.dialog.DMSPOSIntegration/IDMSPOSService/ValidateSerialNumbers"
+                            style="document"/>
+            <wsdl:input name="GetSerialValidationRequest">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="GetSerialValidationResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="LoadGTNDetails">
+            <soap:operation soapAction="lk.dialog.DMSPOSIntegration/IDMSPOSService/LoadGTNDetails" style="document"/>
+            <wsdl:input name="LoadGTNDetailsRequest">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="LoadGTNDetailsResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetInventoryBinBalance">
+            <soap:operation soapAction="lk.dialog.DMSPOSIntegration/IDMSPOSService/GetInventoryBinBalance"
+                            style="document"/>
+            <wsdl:input name="BinCardInvBalanaceRequest">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="BinCardInvBalanceResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetInventoryBinItemFlow">
+            <soap:operation soapAction="lk.dialog.DMSPOSIntegration/IDMSPOSService/GetInventoryBinItemFlow"
+                            style="document"/>
+            <wsdl:input name="BinCardInvBalanaceRequest">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="BinLocationItemFlowResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="AcceptGoodsTranferNote">
+            <soap:operation soapAction="lk.dialog.DMSPOSIntegration/IDMSPOSService/AcceptGoodsTranferNote"
+                            style="document"/>
+            <wsdl:input name="AcceptGoodsRequest">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="AcceptGoodsResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="STOCancelation">
+            <soap:operation soapAction="lk.dialog.DMSPOSIntegration/IDMSPOSService/STOCancelation" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="WherehouseReturn">
+            <soap:operation soapAction="lk.dialog.DMSPOSIntegration/IDMSPOSService/WherehouseReturn" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetGICancelSTOList">
+            <soap:operation soapAction="lk.dialog.DMSPOSIntegration/IDMSPOSService/GetGICancelSTOList"
+                            style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetSTOWarehouseReturnInfo">
+            <soap:operation soapAction="lk.dialog.DMSPOSIntegration/IDMSPOSService/GetSTOWarehouseReturnInfo"
+                            style="document"/>
+            <wsdl:input name="GetWarehouseReturnInfoRequest">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="GetWarehouseReturnInfoResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetWarehouseReturnDetailsInfo">
+            <soap:operation soapAction="lk.dialog.DMSPOSIntegration/IDMSPOSService/GetWarehouseReturnDetailsInfo"
+                            style="document"/>
+            <wsdl:input name="GetWarehouseReturnDetailInfoRequest">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="GetWarehouseReturnDetailInfoResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="StockMovement">
+            <soap:operation soapAction="lk.dialog.DMSPOSIntegration/IDMSPOSService/StockMovement" style="document"/>
+            <wsdl:input name="LazyPayMessageRequest">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="LazyPayMessageResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetDirectGoodsTransferSTO">
+            <soap:operation soapAction="lk.dialog.DMSPOSIntegration/IDMSPOSService/GetDirectGoodsTransferSTO"
+                            style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="LoadDirectGTNDetails">
+            <soap:operation soapAction="lk.dialog.DMSPOSIntegration/IDMSPOSService/LoadDirectGTNDetails"
+                            style="document"/>
+            <wsdl:input name="LoadDirectGTNDetailsRequest">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="LoadGTNDetailsResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="AcceptDirectGoodsTranferNote">
+            <soap:operation soapAction="lk.dialog.DMSPOSIntegration/IDMSPOSService/AcceptDirectGoodsTranferNote"
+                            style="document"/>
+            <wsdl:input name="AcceptDirectGoodsRequest">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="AcceptGoodsResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="BundleSerialValidater">
+            <soap:operation soapAction="lk.dialog.DMSPOSIntegration/IDMSPOSService/BundleSerialValidater"
+                            style="document"/>
+            <wsdl:input name="BundleSerialValidaterRequest">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="BundleSerialValidaterResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="BranchToBranchTransfer">
+            <soap:operation soapAction="lk.dialog.DMSPOSIntegration/IDMSPOSService/BranchToBranchTransfer"
+                            style="document"/>
+            <wsdl:input name="BranchToBranchTransferRequest">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="BranchToBranchTransferResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetMaterilList">
+            <soap:operation soapAction="lk.dialog.DMSPOSIntegration/IDMSPOSService/GetMaterilList" style="document"/>
+            <wsdl:input name="GetMaterilRequest">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="GetMaterilResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="DMSPOSService">
+        <wsdl:port name="BasicHttpBinding_IDMSPOSService" binding="tns:BasicHttpBinding_IDMSPOSService">
+            <soap:address location="http://172.26.30.210/QAR2_DMSPOSIntegration/DMSPOSService.svc"/>
+        </wsdl:port>
+    </wsdl:service>
 </wsdl:definitions>

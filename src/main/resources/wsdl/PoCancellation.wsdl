@@ -3,11 +3,12 @@
         xmlns:tns="http://dms.purchaseorder.cancel.sap/"
         xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl"
         xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
-        xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="POCancellation"
-        targetNamespace="http://dms.purchaseorder.cancel.sap/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+        xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+        name="POCancellation" targetNamespace="http://dms.purchaseorder.cancel.sap/">
     <wsdl:types>
         <xsd:schema targetNamespace="http://dms.purchaseorder.cancel.sap/Imports">
-            <xsd:import schemaLocation="../xsd/PoCancellationService.xsd" namespace="http://dms.purchaseorder.cancel.sap/"/>
+            <xsd:import schemaLocation="../xsd/PoCancellationService.xsd"
+                        namespace="http://dms.purchaseorder.cancel.sap/"/>
             <xsd:import schemaLocation="../schema/DMSService1.xsd"
                         namespace="http://schemas.microsoft.com/2003/10/Serialization/"/>
         </xsd:schema>
@@ -29,7 +30,8 @@
     <wsdl:binding name="BasicHttpBinding_IPOCancellation" type="tns:IPOCancellation">
         <soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
         <wsdl:operation name="CancelPurchaseOrder">
-            <soap:operation soapAction="http://dms.purchaseorder.cancel.sap/IPOCancellation/CancelPurchaseOrder" style="document"/>
+            <soap:operation soapAction="http://dms.purchaseorder.cancel.sap/IPOCancellation/CancelPurchaseOrder"
+                            style="document"/>
             <wsdl:input name="CancelPurchaseOrderRequest">
                 <soap:body use="literal"/>
             </wsdl:input>

@@ -1,16 +1,20 @@
-<wsdl:definitions name="DMSSalesAppService"
-                  targetNamespace="http://tempuri.org/"
-                  xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
-                  xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://tempuri.org/"
-                  xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
-                  xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl">
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+                  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                  xmlns:tns="http://tempuri.org/"
+                  xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl"
+                  name="DMSSalesAppService"
+                  targetNamespace="http://tempuri.org/">
     <wsdl:types>
         <xsd:schema targetNamespace="http://tempuri.org/Imports">
             <xsd:import schemaLocation="../xsd/DMSSalesAppService0.xsd" namespace="http://tempuri.org/"/>
-            <xsd:import schemaLocation="../xsd/DMSSalesAppService2.xsd" namespace="http://schemas.datacontract.org/2004/07/DMSSalesAppIntegrationService.Contact"/>
-            <xsd:import schemaLocation="../xsd/DMSSalesAppService3.xsd" namespace="http://schemas.datacontract.org/2004/07/DMSSalesAppIntegrationService"/>
-            <xsd:import schemaLocation="../xsd/DMSSalesAppService4.xsd" namespace="http://schemas.datacontract.org/2004/07/Dialog.Dms.SalesBusinessObject"/>
-            <xsd:import schemaLocation="../xsd/DMSSalesAppService5.xsd" namespace="http://schemas.datacontract.org/2004/07/DmsService.Inventory"/>
+            <xsd:import schemaLocation="../xsd/DMSSalesAppService2.xsd"
+                        namespace="http://schemas.datacontract.org/2004/07/DMSSalesAppIntegrationService.Contact"/>
+            <xsd:import schemaLocation="../xsd/DMSSalesAppService3.xsd"
+                        namespace="http://schemas.datacontract.org/2004/07/DMSSalesAppIntegrationService"/>
+            <xsd:import schemaLocation="../xsd/DMSSalesAppService4.xsd"
+                        namespace="http://schemas.datacontract.org/2004/07/Dialog.Dms.SalesBusinessObject"/>
+            <xsd:import schemaLocation="../xsd/DMSSalesAppService5.xsd"
+                        namespace="http://schemas.datacontract.org/2004/07/DmsService.Inventory"/>
             <xsd:import schemaLocation="../xsd/CommonObjects.xsd" namespace="http://common.org/"/>
         </xsd:schema>
     </wsdl:types>
@@ -172,108 +176,162 @@
     </wsdl:message>
     <wsdl:portType name="IDMSSalesAppService">
         <wsdl:operation name="ValidateMaterial">
-            <wsdl:input wsaw:Action="http://tempuri.org/IDMSSalesAppService/ValidateMaterial" name="MaterialValidationRequest" message="tns:MaterialValidationRequest"/>
-            <wsdl:output wsaw:Action="http://tempuri.org/IDMSSalesAppService/ValidateMaterialResponse" name="MaterialValidationResponse" message="tns:MaterialValidationResponse"/>
+            <wsdl:input wsaw:Action="http://tempuri.org/IDMSSalesAppService/ValidateMaterial"
+                        name="MaterialValidationRequest" message="tns:MaterialValidationRequest"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/IDMSSalesAppService/ValidateMaterialResponse"
+                         name="MaterialValidationResponse" message="tns:MaterialValidationResponse"/>
         </wsdl:operation>
         <wsdl:operation name="ConsumptionUpdate">
-            <wsdl:input wsaw:Action="http://tempuri.org/IDMSSalesAppService/ConsumptionUpdate" name="ConsumptionUpdateRequest" message="tns:ConsumptionUpdateRequest"/>
-            <wsdl:output wsaw:Action="http://tempuri.org/IDMSSalesAppService/ConsumptionUpdateResponse" name="ConsumptionUpdateResponse" message="tns:ConsumptionUpdateResponse"/>
+            <wsdl:input wsaw:Action="http://tempuri.org/IDMSSalesAppService/ConsumptionUpdate"
+                        name="ConsumptionUpdateRequest" message="tns:ConsumptionUpdateRequest"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/IDMSSalesAppService/ConsumptionUpdateResponse"
+                         name="ConsumptionUpdateResponse" message="tns:ConsumptionUpdateResponse"/>
         </wsdl:operation>
         <wsdl:operation name="CancelConsumptionUpdate">
-            <wsdl:input wsaw:Action="http://tempuri.org/IDMSSalesAppService/CancelConsumptionUpdate" name="CancelConsumptionUpdateRequest" message="tns:CancelConsumptionUpdateRequest"/>
-            <wsdl:output wsaw:Action="http://tempuri.org/IDMSSalesAppService/CancelConsumptionUpdateResponse" name="CancelConsumptionUpdateResponse" message="tns:CancelConsumptionUpdateResponse"/>
+            <wsdl:input wsaw:Action="http://tempuri.org/IDMSSalesAppService/CancelConsumptionUpdate"
+                        name="CancelConsumptionUpdateRequest" message="tns:CancelConsumptionUpdateRequest"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/IDMSSalesAppService/CancelConsumptionUpdateResponse"
+                         name="CancelConsumptionUpdateResponse" message="tns:CancelConsumptionUpdateResponse"/>
         </wsdl:operation>
         <wsdl:operation name="GetPendingApprovals">
-            <wsdl:input wsaw:Action="http://tempuri.org/IDMSSalesAppService/GetPendingApprovals" name="GetPendingApprovalsRequest" message="tns:GetPendingApprovalsRequest"/>
-            <wsdl:output wsaw:Action="http://tempuri.org/IDMSSalesAppService/GetPendingApprovalsResponse" name="GetPendingApprovalsResponse" message="tns:GetPendingApprovalsResponse"/>
+            <wsdl:input wsaw:Action="http://tempuri.org/IDMSSalesAppService/GetPendingApprovals"
+                        name="GetPendingApprovalsRequest" message="tns:GetPendingApprovalsRequest"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/IDMSSalesAppService/GetPendingApprovalsResponse"
+                         name="GetPendingApprovalsResponse" message="tns:GetPendingApprovalsResponse"/>
         </wsdl:operation>
         <wsdl:operation name="CreateSTO">
-            <wsdl:input wsaw:Action="http://tempuri.org/IDMSSalesAppService/CreateSTO" name="CreateSTORequest" message="tns:CreateSTORequest"/>
-            <wsdl:output wsaw:Action="http://tempuri.org/IDMSSalesAppService/CreateSTOResponse" name="CreateSTOResponse" message="tns:CreateSTOResponse"/>
+            <wsdl:input wsaw:Action="http://tempuri.org/IDMSSalesAppService/CreateSTO" name="CreateSTORequest"
+                        message="tns:CreateSTORequest"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/IDMSSalesAppService/CreateSTOResponse" name="CreateSTOResponse"
+                         message="tns:CreateSTOResponse"/>
         </wsdl:operation>
         <wsdl:operation name="GetPendingApprovalDetail">
-            <wsdl:input wsaw:Action="http://tempuri.org/IDMSSalesAppService/GetPendingApprovalDetail" name="GetPendingApprovalDetailRequest" message="tns:GetPendingApprovalDetailRequest"/>
-            <wsdl:output wsaw:Action="http://tempuri.org/IDMSSalesAppService/GetPendingApprovalDetailResponse" name="GetPendingApprovalDetailResponse" message="tns:GetPendingApprovalDetailResponse"/>
+            <wsdl:input wsaw:Action="http://tempuri.org/IDMSSalesAppService/GetPendingApprovalDetail"
+                        name="GetPendingApprovalDetailRequest" message="tns:GetPendingApprovalDetailRequest"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/IDMSSalesAppService/GetPendingApprovalDetailResponse"
+                         name="GetPendingApprovalDetailResponse" message="tns:GetPendingApprovalDetailResponse"/>
         </wsdl:operation>
         <wsdl:operation name="StockRequestApprovals">
-            <wsdl:input wsaw:Action="http://tempuri.org/IDMSSalesAppService/StockRequestApprovals" name="StockApprovalsRequest" message="tns:StockApprovalsRequest"/>
-            <wsdl:output wsaw:Action="http://tempuri.org/IDMSSalesAppService/StockRequestApprovalsResponse" name="StockApprovalsResponse" message="tns:StockApprovalsResponse"/>
+            <wsdl:input wsaw:Action="http://tempuri.org/IDMSSalesAppService/StockRequestApprovals"
+                        name="StockApprovalsRequest" message="tns:StockApprovalsRequest"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/IDMSSalesAppService/StockRequestApprovalsResponse"
+                         name="StockApprovalsResponse" message="tns:StockApprovalsResponse"/>
         </wsdl:operation>
         <wsdl:operation name="GetSTOItemsAcquasitionInfo">
-            <wsdl:input wsaw:Action="http://tempuri.org/IDMSSalesAppService/GetSTOItemsAcquasitionInfo" name="GetSTOItemsAcquasitionInfoRequest" message="tns:GetSTOItemsAcquasitionInfoRequest"/>
-            <wsdl:output wsaw:Action="http://tempuri.org/IDMSSalesAppService/GetSTOItemsAcquasitionInfoResponse" name="GetSTOItemsAcquasitionInfoResponse" message="tns:GetSTOItemsAcquasitionInfoResponse"/>
+            <wsdl:input wsaw:Action="http://tempuri.org/IDMSSalesAppService/GetSTOItemsAcquasitionInfo"
+                        name="GetSTOItemsAcquasitionInfoRequest" message="tns:GetSTOItemsAcquasitionInfoRequest"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/IDMSSalesAppService/GetSTOItemsAcquasitionInfoResponse"
+                         name="GetSTOItemsAcquasitionInfoResponse" message="tns:GetSTOItemsAcquasitionInfoResponse"/>
         </wsdl:operation>
         <wsdl:operation name="GetSTOItemsAcquasitionDetailInfo">
-            <wsdl:input wsaw:Action="http://tempuri.org/IDMSSalesAppService/GetSTOItemsAcquasitionDetailInfo" name="GetSTOItemsAcquasitionDetailInfoRequest" message="tns:GetSTOItemsAcquasitionDetailInfoRequest"/>
-            <wsdl:output wsaw:Action="http://tempuri.org/IDMSSalesAppService/GetSTOItemsAcquasitionDetailInfoResponse" name="GetSTOItemsAcquasitionDetailInfoResponse" message="tns:GetSTOItemsAcquasitionDetailInfoResponse"/>
+            <wsdl:input wsaw:Action="http://tempuri.org/IDMSSalesAppService/GetSTOItemsAcquasitionDetailInfo"
+                        name="GetSTOItemsAcquasitionDetailInfoRequest"
+                        message="tns:GetSTOItemsAcquasitionDetailInfoRequest"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/IDMSSalesAppService/GetSTOItemsAcquasitionDetailInfoResponse"
+                         name="GetSTOItemsAcquasitionDetailInfoResponse"
+                         message="tns:GetSTOItemsAcquasitionDetailInfoResponse"/>
         </wsdl:operation>
         <wsdl:operation name="CancelSTO">
-            <wsdl:input wsaw:Action="http://tempuri.org/IDMSSalesAppService/CancelSTO" name="CancelSTORequest" message="tns:CancelSTORequest"/>
-            <wsdl:output wsaw:Action="http://tempuri.org/IDMSSalesAppService/CancelSTOResponse" name="CancelSTOResponse" message="tns:CancelSTOResponse"/>
+            <wsdl:input wsaw:Action="http://tempuri.org/IDMSSalesAppService/CancelSTO" name="CancelSTORequest"
+                        message="tns:CancelSTORequest"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/IDMSSalesAppService/CancelSTOResponse" name="CancelSTOResponse"
+                         message="tns:CancelSTOResponse"/>
         </wsdl:operation>
         <wsdl:operation name="MaterialReturn">
-            <wsdl:input wsaw:Action="http://tempuri.org/IDMSSalesAppService/MaterialReturn" name="MaterialReturnRequest" message="tns:MaterialReturnRequest"/>
-            <wsdl:output wsaw:Action="http://tempuri.org/IDMSSalesAppService/MaterialReturnResponse" name="MaterialReturnResponse" message="tns:MaterialReturnResponse"/>
+            <wsdl:input wsaw:Action="http://tempuri.org/IDMSSalesAppService/MaterialReturn" name="MaterialReturnRequest"
+                        message="tns:MaterialReturnRequest"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/IDMSSalesAppService/MaterialReturnResponse"
+                         name="MaterialReturnResponse" message="tns:MaterialReturnResponse"/>
         </wsdl:operation>
         <wsdl:operation name="AcquisitionSTOItems">
-            <wsdl:input wsaw:Action="http://tempuri.org/IDMSSalesAppService/AcquisitionSTOItems" name="AcquisitionSTOItemsRequest" message="tns:AcquisitionSTOItemsRequest"/>
-            <wsdl:output wsaw:Action="http://tempuri.org/IDMSSalesAppService/AcquisitionSTOItemsResponse" name="AcquisitionSTOItemsResponse" message="tns:AcquisitionSTOItemsResponse"/>
+            <wsdl:input wsaw:Action="http://tempuri.org/IDMSSalesAppService/AcquisitionSTOItems"
+                        name="AcquisitionSTOItemsRequest" message="tns:AcquisitionSTOItemsRequest"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/IDMSSalesAppService/AcquisitionSTOItemsResponse"
+                         name="AcquisitionSTOItemsResponse" message="tns:AcquisitionSTOItemsResponse"/>
         </wsdl:operation>
         <wsdl:operation name="CheckMaterialAvailability">
-            <wsdl:input wsaw:Action="http://tempuri.org/IDMSSalesAppService/CheckMaterialAvailability" name="CheckMaterialAvailabilityRequest" message="tns:CheckMaterialAvailabilityRequest"/>
-            <wsdl:output wsaw:Action="http://tempuri.org/IDMSSalesAppService/CheckMaterialAvailabilityResponse" name="CheckMaterialAvailabilityResponse" message="tns:CheckMaterialAvailabilityResponse"/>
+            <wsdl:input wsaw:Action="http://tempuri.org/IDMSSalesAppService/CheckMaterialAvailability"
+                        name="CheckMaterialAvailabilityRequest" message="tns:CheckMaterialAvailabilityRequest"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/IDMSSalesAppService/CheckMaterialAvailabilityResponse"
+                         name="CheckMaterialAvailabilityResponse" message="tns:CheckMaterialAvailabilityResponse"/>
         </wsdl:operation>
         <wsdl:operation name="DoItemTransfer">
-            <wsdl:input wsaw:Action="http://tempuri.org/IDMSSalesAppService/DoItemTransfer" name="DoItemTransferRequest" message="tns:DoItemTransferRequest"/>
-            <wsdl:output wsaw:Action="http://tempuri.org/IDMSSalesAppService/DoItemTransferResponse" name="DoItemTransferResponse" message="tns:DoItemTransferResponse"/>
+            <wsdl:input wsaw:Action="http://tempuri.org/IDMSSalesAppService/DoItemTransfer" name="DoItemTransferRequest"
+                        message="tns:DoItemTransferRequest"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/IDMSSalesAppService/DoItemTransferResponse"
+                         name="DoItemTransferResponse" message="tns:DoItemTransferResponse"/>
         </wsdl:operation>
         <wsdl:operation name="GetItemTransferInfo">
-            <wsdl:input wsaw:Action="http://tempuri.org/IDMSSalesAppService/GetItemTransferInfo" name="GetItemTransferInfoRequest" message="tns:GetItemTransferInfoRequest"/>
-            <wsdl:output wsaw:Action="http://tempuri.org/IDMSSalesAppService/GetItemTransferInfoResponse" name="GetItemTransferInfoResponse" message="tns:GetItemTransferInfoResponse"/>
+            <wsdl:input wsaw:Action="http://tempuri.org/IDMSSalesAppService/GetItemTransferInfo"
+                        name="GetItemTransferInfoRequest" message="tns:GetItemTransferInfoRequest"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/IDMSSalesAppService/GetItemTransferInfoResponse"
+                         name="GetItemTransferInfoResponse" message="tns:GetItemTransferInfoResponse"/>
         </wsdl:operation>
         <wsdl:operation name="AcceptItemTransfer">
-            <wsdl:input wsaw:Action="http://tempuri.org/IDMSSalesAppService/AcceptItemTransfer" name="AcceptItemTransferRequest" message="tns:AcceptItemTransferRequest"/>
-            <wsdl:output wsaw:Action="http://tempuri.org/IDMSSalesAppService/AcceptItemTransferResponse" name="AcceptItemTransferResponse" message="tns:AcceptItemTransferResponse"/>
+            <wsdl:input wsaw:Action="http://tempuri.org/IDMSSalesAppService/AcceptItemTransfer"
+                        name="AcceptItemTransferRequest" message="tns:AcceptItemTransferRequest"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/IDMSSalesAppService/AcceptItemTransferResponse"
+                         name="AcceptItemTransferResponse" message="tns:AcceptItemTransferResponse"/>
         </wsdl:operation>
         <wsdl:operation name="GetSTOInfo">
-            <wsdl:input wsaw:Action="http://tempuri.org/IDMSSalesAppService/GetSTOInfo" name="GetSTOInfoRequest" message="tns:GetSTOInfoRequest"/>
-            <wsdl:output wsaw:Action="http://tempuri.org/IDMSSalesAppService/GetSTOInfoResponse" name="GetSTOInfoResponse" message="tns:GetSTOInfoResponse"/>
+            <wsdl:input wsaw:Action="http://tempuri.org/IDMSSalesAppService/GetSTOInfo" name="GetSTOInfoRequest"
+                        message="tns:GetSTOInfoRequest"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/IDMSSalesAppService/GetSTOInfoResponse"
+                         name="GetSTOInfoResponse" message="tns:GetSTOInfoResponse"/>
         </wsdl:operation>
         <wsdl:operation name="ValidateMaterialItem">
-            <wsdl:input wsaw:Action="http://tempuri.org/IDMSSalesAppService/ValidateMaterialItem" name="MaterialItemValidationRequest" message="tns:MaterialItemValidationRequest"/>
-            <wsdl:output wsaw:Action="http://tempuri.org/IDMSSalesAppService/ValidateMaterialItemResponse" name="MaterialItemValidationResponse" message="tns:MaterialItemValidationResponse"/>
+            <wsdl:input wsaw:Action="http://tempuri.org/IDMSSalesAppService/ValidateMaterialItem"
+                        name="MaterialItemValidationRequest" message="tns:MaterialItemValidationRequest"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/IDMSSalesAppService/ValidateMaterialItemResponse"
+                         name="MaterialItemValidationResponse" message="tns:MaterialItemValidationResponse"/>
         </wsdl:operation>
         <wsdl:operation name="GetAgentMaterial">
-            <wsdl:input wsaw:Action="http://tempuri.org/IDMSSalesAppService/GetAgentMaterial" name="AgentMaterialRequest" message="tns:AgentMaterialRequest"/>
-            <wsdl:output wsaw:Action="http://tempuri.org/IDMSSalesAppService/GetAgentMaterialResponse" name="AgentMaterialResponse" message="tns:AgentMaterialResponse"/>
+            <wsdl:input wsaw:Action="http://tempuri.org/IDMSSalesAppService/GetAgentMaterial"
+                        name="AgentMaterialRequest" message="tns:AgentMaterialRequest"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/IDMSSalesAppService/GetAgentMaterialResponse"
+                         name="AgentMaterialResponse" message="tns:AgentMaterialResponse"/>
         </wsdl:operation>
         <wsdl:operation name="GetCPLocatorInfo">
-            <wsdl:input wsaw:Action="http://tempuri.org/IDMSSalesAppService/GetCPLocatorInfo" name="CPLocatorInfoRequest" message="tns:CPLocatorInfoRequest"/>
-            <wsdl:output wsaw:Action="http://tempuri.org/IDMSSalesAppService/GetCPLocatorInfoResponse" name="CPLocatorInfoResponse" message="tns:CPLocatorInfoResponse"/>
+            <wsdl:input wsaw:Action="http://tempuri.org/IDMSSalesAppService/GetCPLocatorInfo"
+                        name="CPLocatorInfoRequest" message="tns:CPLocatorInfoRequest"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/IDMSSalesAppService/GetCPLocatorInfoResponse"
+                         name="CPLocatorInfoResponse" message="tns:CPLocatorInfoResponse"/>
         </wsdl:operation>
         <wsdl:operation name="MMSConsumptionUpdate">
-            <wsdl:input wsaw:Action="http://tempuri.org/IDMSSalesAppService/MMSConsumptionUpdate" name="MMSConsumptionUpdateRequest" message="tns:MMSConsumptionUpdateRequest"/>
-            <wsdl:output wsaw:Action="http://tempuri.org/IDMSSalesAppService/MMSConsumptionUpdateResponse" name="MMSConsumptionUpdateResponse" message="tns:MMSConsumptionUpdateResponse"/>
+            <wsdl:input wsaw:Action="http://tempuri.org/IDMSSalesAppService/MMSConsumptionUpdate"
+                        name="MMSConsumptionUpdateRequest" message="tns:MMSConsumptionUpdateRequest"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/IDMSSalesAppService/MMSConsumptionUpdateResponse"
+                         name="MMSConsumptionUpdateResponse" message="tns:MMSConsumptionUpdateResponse"/>
         </wsdl:operation>
         <wsdl:operation name="ValidateLTEMaterial">
-            <wsdl:input wsaw:Action="http://tempuri.org/IDMSSalesAppService/ValidateLTEMaterial" name="ValidateLTEMaterialRequest" message="tns:ValidateLTEMaterialRequest"/>
-            <wsdl:output wsaw:Action="http://tempuri.org/IDMSSalesAppService/ValidateLTEMaterialResponse" name="ValidateLTEMaterialResponse" message="tns:ValidateLTEMaterialResponse"/>
+            <wsdl:input wsaw:Action="http://tempuri.org/IDMSSalesAppService/ValidateLTEMaterial"
+                        name="ValidateLTEMaterialRequest" message="tns:ValidateLTEMaterialRequest"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/IDMSSalesAppService/ValidateLTEMaterialResponse"
+                         name="ValidateLTEMaterialResponse" message="tns:ValidateLTEMaterialResponse"/>
         </wsdl:operation>
         <wsdl:operation name="ValidateLTEMaterialItem">
-            <wsdl:input wsaw:Action="http://tempuri.org/IDMSSalesAppService/ValidateLTEMaterialItem" name="ValidateLTEMaterialItemRequest" message="tns:ValidateLTEMaterialItemRequest"/>
-            <wsdl:output wsaw:Action="http://tempuri.org/IDMSSalesAppService/ValidateLTEMaterialItemResponse" name="ValidateLTEMaterialItemResponse" message="tns:ValidateLTEMaterialItemResponse"/>
+            <wsdl:input wsaw:Action="http://tempuri.org/IDMSSalesAppService/ValidateLTEMaterialItem"
+                        name="ValidateLTEMaterialItemRequest" message="tns:ValidateLTEMaterialItemRequest"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/IDMSSalesAppService/ValidateLTEMaterialItemResponse"
+                         name="ValidateLTEMaterialItemResponse" message="tns:ValidateLTEMaterialItemResponse"/>
         </wsdl:operation>
         <wsdl:operation name="GetStoSerialDetails">
-            <wsdl:input wsaw:Action="http://tempuri.org/IDMSSalesAppService/GetStoSerialDetails" name="SapStoRequest" message="tns:SapStoRequest"/>
-            <wsdl:output wsaw:Action="http://tempuri.org/IDMSSalesAppService/GetStoSerialDetailsResponse" name="SapStoResponse" message="tns:SapStoResponse"/>
+            <wsdl:input wsaw:Action="http://tempuri.org/IDMSSalesAppService/GetStoSerialDetails" name="SapStoRequest"
+                        message="tns:SapStoRequest"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/IDMSSalesAppService/GetStoSerialDetailsResponse"
+                         name="SapStoResponse" message="tns:SapStoResponse"/>
         </wsdl:operation>
         <wsdl:operation name="GetMaterialAvailability">
-            <wsdl:input wsaw:Action="http://tempuri.org/IDMSSalesAppService/GetMaterialAvailability" name="GetMaterialAvailabilityRequest" message="tns:GetMaterialAvailabilityRequest"/>
-            <wsdl:output wsaw:Action="http://tempuri.org/IDMSSalesAppService/GetMaterialAvailabilityResponse" name="GetMaterialAvailabilityResponse" message="tns:GetMaterialAvailabilityResponse"/>
+            <wsdl:input wsaw:Action="http://tempuri.org/IDMSSalesAppService/GetMaterialAvailability"
+                        name="GetMaterialAvailabilityRequest" message="tns:GetMaterialAvailabilityRequest"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/IDMSSalesAppService/GetMaterialAvailabilityResponse"
+                         name="GetMaterialAvailabilityResponse" message="tns:GetMaterialAvailabilityResponse"/>
         </wsdl:operation>
         <wsdl:operation name="PassInvalidSerialDetailsToDMS">
-            <wsdl:input wsaw:Action="http://tempuri.org/IDMSSalesAppService/PassInvalidSerialDetailsToDMS" name="InvalidSerialRequest" message="tns:InvalidSerialRequest"/>
-            <wsdl:output wsaw:Action="http://tempuri.org/IDMSSalesAppService/PassInvalidSerialDetailsToDMSResponse" name="InvalidSerialResponse" message="tns:InvalidSerialResponse"/>
+            <wsdl:input wsaw:Action="http://tempuri.org/IDMSSalesAppService/PassInvalidSerialDetailsToDMS"
+                        name="InvalidSerialRequest" message="tns:InvalidSerialRequest"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/IDMSSalesAppService/PassInvalidSerialDetailsToDMSResponse"
+                         name="InvalidSerialResponse" message="tns:InvalidSerialResponse"/>
         </wsdl:operation>
     </wsdl:portType>
     <wsdl:binding name="BasicHttpBinding_IDMSSalesAppService" type="tns:IDMSSalesAppService">
@@ -297,7 +355,8 @@
             </wsdl:output>
         </wsdl:operation>
         <wsdl:operation name="CancelConsumptionUpdate">
-            <soap:operation soapAction="http://tempuri.org/IDMSSalesAppService/CancelConsumptionUpdate" style="document"/>
+            <soap:operation soapAction="http://tempuri.org/IDMSSalesAppService/CancelConsumptionUpdate"
+                            style="document"/>
             <wsdl:input name="CancelConsumptionUpdateRequest">
                 <soap:body use="literal"/>
             </wsdl:input>
@@ -324,7 +383,8 @@
             </wsdl:output>
         </wsdl:operation>
         <wsdl:operation name="GetPendingApprovalDetail">
-            <soap:operation soapAction="http://tempuri.org/IDMSSalesAppService/GetPendingApprovalDetail" style="document"/>
+            <soap:operation soapAction="http://tempuri.org/IDMSSalesAppService/GetPendingApprovalDetail"
+                            style="document"/>
             <wsdl:input name="GetPendingApprovalDetailRequest">
                 <soap:body use="literal"/>
             </wsdl:input>
@@ -342,7 +402,8 @@
             </wsdl:output>
         </wsdl:operation>
         <wsdl:operation name="GetSTOItemsAcquasitionInfo">
-            <soap:operation soapAction="http://tempuri.org/IDMSSalesAppService/GetSTOItemsAcquasitionInfo" style="document"/>
+            <soap:operation soapAction="http://tempuri.org/IDMSSalesAppService/GetSTOItemsAcquasitionInfo"
+                            style="document"/>
             <wsdl:input name="GetSTOItemsAcquasitionInfoRequest">
                 <soap:body use="literal"/>
             </wsdl:input>
@@ -351,7 +412,8 @@
             </wsdl:output>
         </wsdl:operation>
         <wsdl:operation name="GetSTOItemsAcquasitionDetailInfo">
-            <soap:operation soapAction="http://tempuri.org/IDMSSalesAppService/GetSTOItemsAcquasitionDetailInfo" style="document"/>
+            <soap:operation soapAction="http://tempuri.org/IDMSSalesAppService/GetSTOItemsAcquasitionDetailInfo"
+                            style="document"/>
             <wsdl:input name="GetSTOItemsAcquasitionDetailInfoRequest">
                 <soap:body use="literal"/>
             </wsdl:input>
@@ -387,7 +449,8 @@
             </wsdl:output>
         </wsdl:operation>
         <wsdl:operation name="CheckMaterialAvailability">
-            <soap:operation soapAction="http://tempuri.org/IDMSSalesAppService/CheckMaterialAvailability" style="document"/>
+            <soap:operation soapAction="http://tempuri.org/IDMSSalesAppService/CheckMaterialAvailability"
+                            style="document"/>
             <wsdl:input name="CheckMaterialAvailabilityRequest">
                 <soap:body use="literal"/>
             </wsdl:input>
@@ -477,7 +540,8 @@
             </wsdl:output>
         </wsdl:operation>
         <wsdl:operation name="ValidateLTEMaterialItem">
-            <soap:operation soapAction="http://tempuri.org/IDMSSalesAppService/ValidateLTEMaterialItem" style="document"/>
+            <soap:operation soapAction="http://tempuri.org/IDMSSalesAppService/ValidateLTEMaterialItem"
+                            style="document"/>
             <wsdl:input name="ValidateLTEMaterialItemRequest">
                 <soap:body use="literal"/>
             </wsdl:input>
@@ -495,7 +559,8 @@
             </wsdl:output>
         </wsdl:operation>
         <wsdl:operation name="GetMaterialAvailability">
-            <soap:operation soapAction="http://tempuri.org/IDMSSalesAppService/GetMaterialAvailability" style="document"/>
+            <soap:operation soapAction="http://tempuri.org/IDMSSalesAppService/GetMaterialAvailability"
+                            style="document"/>
             <wsdl:input name="GetMaterialAvailabilityRequest">
                 <soap:body use="literal"/>
             </wsdl:input>
@@ -504,7 +569,8 @@
             </wsdl:output>
         </wsdl:operation>
         <wsdl:operation name="PassInvalidSerialDetailsToDMS">
-            <soap:operation soapAction="http://tempuri.org/IDMSSalesAppService/PassInvalidSerialDetailsToDMS" style="document"/>
+            <soap:operation soapAction="http://tempuri.org/IDMSSalesAppService/PassInvalidSerialDetailsToDMS"
+                            style="document"/>
             <wsdl:input name="InvalidSerialRequest">
                 <soap:body use="literal"/>
             </wsdl:input>

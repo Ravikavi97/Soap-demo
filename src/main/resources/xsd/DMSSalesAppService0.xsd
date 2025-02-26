@@ -1,17 +1,23 @@
-<xs:schema elementFormDefault="qualified"
-           targetNamespace="http://tempuri.org/"
-           xmlns:xs="http://www.w3.org/2001/XMLSchema">
-    <xs:import schemaLocation="../xsd/DMSSalesAppService2.xsd" namespace="http://schemas.datacontract.org/2004/07/DMSSalesAppIntegrationService.Contact"/>
-    <xs:import schemaLocation="../xsd/DMSSalesAppService3.xsd" namespace="http://schemas.datacontract.org/2004/07/DMSSalesAppIntegrationService"/>
-    <xs:import schemaLocation="../xsd/DMSSalesAppService4.xsd" namespace="http://schemas.datacontract.org/2004/07/Dialog.Dms.SalesBusinessObject"/>
-    <xs:import schemaLocation="../xsd/DMSSalesAppService5.xsd" namespace="http://schemas.datacontract.org/2004/07/DmsService.Inventory"/>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           elementFormDefault="qualified"
+           targetNamespace="http://tempuri.org/">
+    <xs:import schemaLocation="../xsd/DMSSalesAppService2.xsd"
+               namespace="http://schemas.datacontract.org/2004/07/DMSSalesAppIntegrationService.Contact"/>
+    <xs:import schemaLocation="../xsd/DMSSalesAppService3.xsd"
+               namespace="http://schemas.datacontract.org/2004/07/DMSSalesAppIntegrationService"/>
+    <xs:import schemaLocation="../xsd/DMSSalesAppService4.xsd"
+               namespace="http://schemas.datacontract.org/2004/07/Dialog.Dms.SalesBusinessObject"/>
+    <xs:import schemaLocation="../xsd/DMSSalesAppService5.xsd"
+               namespace="http://schemas.datacontract.org/2004/07/DmsService.Inventory"/>
     <xs:element name="MaterialValidationRequest">
         <xs:complexType>
             <xs:sequence>
-                <xs:element minOccurs="0" name="IsBundleMaterial" type="q1:BundleMaterial" xmlns:q1="http://schemas.datacontract.org/2004/07/DMSSalesAppIntegrationService.Contact"/>
+                <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/DMSSalesAppIntegrationService.Contact" minOccurs="0" name="IsBundleMaterial"
+                            type="q1:BundleMaterial"/>
                 <xs:element minOccurs="0" name="MSISDN" nillable="true" type="xs:string"/>
                 <xs:element minOccurs="0" name="MaterialSerialNumber" nillable="true" type="xs:string"/>
-                <xs:element minOccurs="0" name="MaterialStatus" type="q2:ItemStatus" xmlns:q2="http://schemas.datacontract.org/2004/07/DMSSalesAppIntegrationService.Contact"/>
+                <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/DMSSalesAppIntegrationService.Contact" minOccurs="0" name="MaterialStatus"
+                            type="q2:ItemStatus"/>
                 <xs:element minOccurs="0" name="ProfileID" type="xs:int"/>
                 <xs:element minOccurs="0" name="RequestId" nillable="true" type="xs:string"/>
             </xs:sequence>
@@ -21,7 +27,8 @@
         <xs:complexType>
             <xs:sequence>
                 <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string"/>
-                <xs:element minOccurs="0" name="Materialres" nillable="true" type="q3:SapMaterialValidationResponse" xmlns:q3="http://schemas.datacontract.org/2004/07/DMSSalesAppIntegrationService"/>
+                <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/DMSSalesAppIntegrationService" minOccurs="0" name="Materialres" nillable="true"
+                            type="q3:SapMaterialValidationResponse"/>
                 <xs:element minOccurs="0" name="RequestId" nillable="true" type="xs:string"/>
                 <xs:element minOccurs="0" name="Success" type="xs:boolean"/>
             </xs:sequence>
@@ -31,9 +38,12 @@
         <xs:complexType>
             <xs:sequence>
                 <xs:element minOccurs="0" name="MSISDN" nillable="true" type="xs:string"/>
-                <xs:element minOccurs="0" name="MaterialItems" nillable="true" type="q4:ArrayOfConsumptionUpdateItems" xmlns:q4="http://schemas.datacontract.org/2004/07/DMSSalesAppIntegrationService"/>
-                <xs:element minOccurs="0" name="MaterialStatus" type="q5:ItemStatus" xmlns:q5="http://schemas.datacontract.org/2004/07/DMSSalesAppIntegrationService.Contact"/>
-                <xs:element minOccurs="0" name="OrderType" type="q6:UpdateOrdType" xmlns:q6="http://schemas.datacontract.org/2004/07/DMSSalesAppIntegrationService.Contact"/>
+                <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/DMSSalesAppIntegrationService" minOccurs="0" name="MaterialItems" nillable="true"
+                            type="q4:ArrayOfConsumptionUpdateItems"/>
+                <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/DMSSalesAppIntegrationService.Contact" minOccurs="0" name="MaterialStatus"
+                            type="q5:ItemStatus"/>
+                <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/DMSSalesAppIntegrationService.Contact" minOccurs="0" name="OrderType"
+                            type="q6:UpdateOrdType"/>
                 <xs:element minOccurs="0" name="ProfileID" type="xs:int"/>
                 <xs:element minOccurs="0" name="RequestId" nillable="true" type="xs:string"/>
             </xs:sequence>
@@ -76,11 +86,13 @@
     <xs:element name="GetPendingApprovalsRequest">
         <xs:complexType>
             <xs:sequence>
-                <xs:element minOccurs="0" name="FunctionalType" type="q7:FunctionalType" xmlns:q7="http://schemas.datacontract.org/2004/07/DMSSalesAppIntegrationService.Contact"/>
+                <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/DMSSalesAppIntegrationService.Contact" minOccurs="0" name="FunctionalType"
+                            type="q7:FunctionalType"/>
                 <xs:element minOccurs="0" name="MSISDN" nillable="true" type="xs:string"/>
                 <xs:element minOccurs="0" name="ProfileID" type="xs:int"/>
                 <xs:element minOccurs="0" name="RequestId" nillable="true" type="xs:string"/>
-                <xs:element minOccurs="0" name="Status" type="q8:ApprovalEntryStatus" xmlns:q8="http://schemas.datacontract.org/2004/07/Dialog.Dms.SalesBusinessObject"/>
+                <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/Dialog.Dms.SalesBusinessObject" minOccurs="0" name="Status"
+                            type="q8:ApprovalEntryStatus"/>
             </xs:sequence>
         </xs:complexType>
     </xs:element>
@@ -89,7 +101,9 @@
             <xs:sequence>
                 <xs:element minOccurs="0" name="AgentName" nillable="true" type="xs:string"/>
                 <xs:element minOccurs="0" name="AgentProfileID" type="xs:int"/>
-                <xs:element minOccurs="0" name="ApprovalDetailRespons" nillable="true" type="q9:ArrayOfApprovalsResponse" xmlns:q9="http://schemas.datacontract.org/2004/07/DMSSalesAppIntegrationService"/>
+                <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/DMSSalesAppIntegrationService" minOccurs="0" name="ApprovalDetailRespons"
+                            nillable="true"
+                            type="q9:ArrayOfApprovalsResponse"/>
                 <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string"/>
                 <xs:element minOccurs="0" name="FailReason" nillable="true" type="xs:string"/>
                 <xs:element minOccurs="0" name="RequestId" nillable="true" type="xs:string"/>
@@ -102,13 +116,17 @@
         <xs:complexType>
             <xs:sequence>
                 <xs:element minOccurs="0" name="ExpectedDate" type="xs:dateTime"/>
-                <xs:element minOccurs="0" name="IsBundle" type="q10:BundleReq" xmlns:q10="http://schemas.datacontract.org/2004/07/DMSSalesAppIntegrationService.Contact"/>
-                <xs:element minOccurs="0" name="ItemStatus" type="q11:ItemStatus" xmlns:q11="http://schemas.datacontract.org/2004/07/DMSSalesAppIntegrationService.Contact"/>
+                <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/DMSSalesAppIntegrationService.Contact" minOccurs="0" name="IsBundle"
+                            type="q10:BundleReq"/>
+                <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/DMSSalesAppIntegrationService.Contact" minOccurs="0" name="ItemStatus"
+                            type="q11:ItemStatus"/>
                 <xs:element minOccurs="0" name="MSISDN" nillable="true" type="xs:string"/>
-                <xs:element minOccurs="0" name="OrderType" type="q12:ReqOrdType" xmlns:q12="http://schemas.datacontract.org/2004/07/DMSSalesAppIntegrationService.Contact"/>
+                <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/DMSSalesAppIntegrationService.Contact" minOccurs="0" name="OrderType"
+                            type="q12:ReqOrdType"/>
                 <xs:element minOccurs="0" name="ProfileID" type="xs:int"/>
                 <xs:element minOccurs="0" name="Remark" nillable="true" type="xs:string"/>
-                <xs:element minOccurs="0" name="RequestDetails" nillable="true" type="q13:ArrayOfRequestDetail" xmlns:q13="http://schemas.datacontract.org/2004/07/DMSSalesAppIntegrationService.Contact"/>
+                <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/DMSSalesAppIntegrationService.Contact" minOccurs="0" name="RequestDetails" nillable="true"
+                            type="q13:ArrayOfRequestDetail"/>
                 <xs:element minOccurs="0" name="RequestId" nillable="true" type="xs:string"/>
                 <xs:element minOccurs="0" name="RequestedDate" type="xs:dateTime"/>
             </xs:sequence>
@@ -130,7 +148,8 @@
     <xs:element name="GetPendingApprovalDetailRequest">
         <xs:complexType>
             <xs:sequence>
-                <xs:element minOccurs="0" name="FunctionalType" type="q14:FunctionalType" xmlns:q14="http://schemas.datacontract.org/2004/07/DMSSalesAppIntegrationService.Contact"/>
+                <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/DMSSalesAppIntegrationService.Contact" minOccurs="0" name="FunctionalType"
+                            type="q14:FunctionalType"/>
                 <xs:element minOccurs="0" name="RequestId" nillable="true" type="xs:string"/>
                 <xs:element minOccurs="0" name="STORequestID" type="xs:int"/>
             </xs:sequence>
@@ -142,23 +161,30 @@
                 <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string"/>
                 <xs:element minOccurs="0" name="ExpectedDate" type="xs:dateTime"/>
                 <xs:element minOccurs="0" name="FailReason" nillable="true" type="xs:string"/>
-                <xs:element minOccurs="0" name="ItemStatus" type="q15:ItemStatus" xmlns:q15="http://schemas.datacontract.org/2004/07/DMSSalesAppIntegrationService.Contact"/>
+                <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/DMSSalesAppIntegrationService.Contact" minOccurs="0" name="ItemStatus"
+                            type="q15:ItemStatus"/>
                 <xs:element minOccurs="0" name="ProfileId" type="xs:int"/>
                 <xs:element minOccurs="0" name="RequestId" nillable="true" type="xs:string"/>
                 <xs:element minOccurs="0" name="RequestRemarks" nillable="true" type="xs:string"/>
-                <xs:element minOccurs="0" name="RequestStatus" type="q16:PendingResponseStatus" xmlns:q16="http://schemas.datacontract.org/2004/07/DMSSalesAppIntegrationService.Contact"/>
+                <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/DMSSalesAppIntegrationService.Contact" minOccurs="0" name="RequestStatus"
+                            type="q16:PendingResponseStatus"/>
                 <xs:element minOccurs="0" name="RequestedDate" type="xs:dateTime"/>
                 <xs:element minOccurs="0" name="STORequestID" type="xs:int"/>
                 <xs:element minOccurs="0" name="Success" type="xs:boolean"/>
-                <xs:element minOccurs="0" name="approvalRequestDetails" nillable="true" type="q17:ArrayOfApprovalResponseDetail" xmlns:q17="http://schemas.datacontract.org/2004/07/DMSSalesAppIntegrationService.Contact"/>
+                <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/DMSSalesAppIntegrationService.Contact" minOccurs="0" name="approvalRequestDetails"
+                            nillable="true"
+                            type="q17:ArrayOfApprovalResponseDetail"/>
             </xs:sequence>
         </xs:complexType>
     </xs:element>
     <xs:element name="StockApprovalsRequest">
         <xs:complexType>
             <xs:sequence>
-                <xs:element minOccurs="0" name="DetailRequest" nillable="true" type="q18:ArrayOfApprovalRequestDetailInfo" xmlns:q18="http://schemas.datacontract.org/2004/07/DMSSalesAppIntegrationService.Contact"/>
-                <xs:element minOccurs="0" name="HeaderRequest" nillable="true" type="q19:ApprovalRequestHeaderInfo" xmlns:q19="http://schemas.datacontract.org/2004/07/DMSSalesAppIntegrationService.Contact"/>
+                <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/DMSSalesAppIntegrationService.Contact" minOccurs="0" name="DetailRequest"
+                            nillable="true"
+                            type="q18:ArrayOfApprovalRequestDetailInfo"/>
+                <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/DMSSalesAppIntegrationService.Contact" minOccurs="0" name="HeaderRequest" nillable="true"
+                            type="q19:ApprovalRequestHeaderInfo"/>
                 <xs:element minOccurs="0" name="RequestId" nillable="true" type="xs:string"/>
             </xs:sequence>
         </xs:complexType>
@@ -190,7 +216,9 @@
             <xs:sequence>
                 <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string"/>
                 <xs:element minOccurs="0" name="RequestId" nillable="true" type="xs:string"/>
-                <xs:element minOccurs="0" name="STOItemsAcquasitionInfo" nillable="true" type="q20:ArrayOfGetSTOItemsAcquasitionInfoResponseItem" xmlns:q20="http://schemas.datacontract.org/2004/07/DMSSalesAppIntegrationService.Contact"/>
+                <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/DMSSalesAppIntegrationService.Contact" minOccurs="0" name="STOItemsAcquasitionInfo"
+                            nillable="true"
+                            type="q20:ArrayOfGetSTOItemsAcquasitionInfoResponseItem"/>
                 <xs:element minOccurs="0" name="Success" type="xs:boolean"/>
             </xs:sequence>
         </xs:complexType>
@@ -210,7 +238,8 @@
             <xs:sequence>
                 <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string"/>
                 <xs:element minOccurs="0" name="RequestId" nillable="true" type="xs:string"/>
-                <xs:element minOccurs="0" name="STOItem" nillable="true" type="q21:ArrayOfSTOAcquasitionDetailInfoItem" xmlns:q21="http://schemas.datacontract.org/2004/07/DMSSalesAppIntegrationService.Contact"/>
+                <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/DMSSalesAppIntegrationService.Contact" minOccurs="0" name="STOItem" nillable="true"
+                            type="q21:ArrayOfSTOAcquasitionDetailInfoItem"/>
                 <xs:element minOccurs="0" name="STORequestID" type="xs:int"/>
                 <xs:element minOccurs="0" name="STORequestStatus" nillable="true" type="xs:string"/>
                 <xs:element minOccurs="0" name="Success" type="xs:boolean"/>
@@ -243,13 +272,17 @@
     <xs:element name="MaterialReturnRequest">
         <xs:complexType>
             <xs:sequence>
-                <xs:element minOccurs="0" name="ItemStatus" type="q22:ItemStatus" xmlns:q22="http://schemas.datacontract.org/2004/07/DMSSalesAppIntegrationService.Contact"/>
+                <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/DMSSalesAppIntegrationService.Contact" minOccurs="0" name="ItemStatus"
+                            type="q22:ItemStatus"/>
                 <xs:element minOccurs="0" name="MSISDN" nillable="true" type="xs:string"/>
                 <xs:element minOccurs="0" name="ProfileID" type="xs:int"/>
                 <xs:element minOccurs="0" name="RequestId" nillable="true" type="xs:string"/>
-                <xs:element minOccurs="0" name="ReturnReasonType" type="q23:MaterialReturnType" xmlns:q23="http://schemas.datacontract.org/2004/07/DMSSalesAppIntegrationService.Contact"/>
+                <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/DMSSalesAppIntegrationService.Contact" minOccurs="0" name="ReturnReasonType"
+                            type="q23:MaterialReturnType"/>
                 <xs:element minOccurs="0" name="ReturnRemarks" nillable="true" type="xs:string"/>
-                <xs:element minOccurs="0" name="ReturnRequestDetail" nillable="true" type="q24:ArrayOfReturnRequestDetail" xmlns:q24="http://schemas.datacontract.org/2004/07/DMSSalesAppIntegrationService.Contact"/>
+                <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/DMSSalesAppIntegrationService.Contact" minOccurs="0" name="ReturnRequestDetail"
+                            nillable="true"
+                            type="q24:ArrayOfReturnRequestDetail"/>
             </xs:sequence>
         </xs:complexType>
     </xs:element>
@@ -272,7 +305,8 @@
                 <xs:element minOccurs="0" name="MSISDN" nillable="true" type="xs:string"/>
                 <xs:element minOccurs="0" name="ProfileID" type="xs:int"/>
                 <xs:element minOccurs="0" name="RequestId" nillable="true" type="xs:string"/>
-                <xs:element minOccurs="0" name="STOItem" nillable="true" type="q25:ArrayOfSTOAcquasitionItem" xmlns:q25="http://schemas.datacontract.org/2004/07/DMSSalesAppIntegrationService.Contact"/>
+                <xs:element xmlns:q25="http://schemas.datacontract.org/2004/07/DMSSalesAppIntegrationService.Contact" minOccurs="0" name="STOItem" nillable="true"
+                            type="q25:ArrayOfSTOAcquasitionItem"/>
                 <xs:element minOccurs="0" name="STORequestID" type="xs:int"/>
                 <xs:element minOccurs="0" name="STORequestStatus" type="xs:int"/>
             </xs:sequence>
@@ -308,7 +342,8 @@
                 <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string"/>
                 <xs:element minOccurs="0" name="FailReason" nillable="true" type="xs:string"/>
                 <xs:element minOccurs="0" name="MaterialCode" nillable="true" type="xs:string"/>
-                <xs:element minOccurs="0" name="Quantity" nillable="true" type="q26:ArrayOfSectionQty" xmlns:q26="http://schemas.datacontract.org/2004/07/DMSSalesAppIntegrationService.Contact"/>
+                <xs:element xmlns:q26="http://schemas.datacontract.org/2004/07/DMSSalesAppIntegrationService.Contact" minOccurs="0" name="Quantity" nillable="true"
+                            type="q26:ArrayOfSectionQty"/>
                 <xs:element minOccurs="0" name="RequestId" nillable="true" type="xs:string"/>
                 <xs:element minOccurs="0" name="StatusDesc" nillable="true" type="xs:string"/>
                 <xs:element minOccurs="0" name="StatusID" type="xs:int"/>
@@ -319,11 +354,13 @@
     <xs:element name="GetSTOInfoRequest">
         <xs:complexType>
             <xs:sequence>
-                <xs:element minOccurs="0" name="FunctionalType" type="q31:FunctionalType" xmlns:q31="http://schemas.datacontract.org/2004/07/DMSSalesAppIntegrationService.Contact"/>
+                <xs:element xmlns:q31="http://schemas.datacontract.org/2004/07/DMSSalesAppIntegrationService.Contact" minOccurs="0" name="FunctionalType"
+                            type="q31:FunctionalType"/>
                 <xs:element minOccurs="0" name="MSISDN" nillable="true" type="xs:string"/>
                 <xs:element minOccurs="0" name="ProfileID" type="xs:int"/>
                 <xs:element minOccurs="0" name="RequestId" nillable="true" type="xs:string"/>
-                <xs:element minOccurs="0" name="Status" type="q32:StockInforRequestStatus" xmlns:q32="http://schemas.datacontract.org/2004/07/DMSSalesAppIntegrationService.Contact"/>
+                <xs:element xmlns:q32="http://schemas.datacontract.org/2004/07/DMSSalesAppIntegrationService.Contact" minOccurs="0" name="Status"
+                            type="q32:StockInforRequestStatus"/>
             </xs:sequence>
         </xs:complexType>
     </xs:element>
@@ -334,7 +371,8 @@
                 <xs:element minOccurs="0" name="FailReason" nillable="true" type="xs:string"/>
                 <xs:element minOccurs="0" name="RequestId" nillable="true" type="xs:string"/>
                 <xs:element minOccurs="0" name="RequestStatusDesc" nillable="true" type="xs:string"/>
-                <xs:element minOccurs="0" name="StoInfoRespons" nillable="true" type="q33:ArrayOfSTOInfoResponse" xmlns:q33="http://schemas.datacontract.org/2004/07/DMSSalesAppIntegrationService"/>
+                <xs:element xmlns:q33="http://schemas.datacontract.org/2004/07/DMSSalesAppIntegrationService" minOccurs="0" name="StoInfoRespons" nillable="true"
+                            type="q33:ArrayOfSTOInfoResponse"/>
                 <xs:element minOccurs="0" name="Success" type="xs:boolean"/>
             </xs:sequence>
         </xs:complexType>
@@ -342,10 +380,12 @@
     <xs:element name="MaterialItemValidationRequest">
         <xs:complexType>
             <xs:sequence>
-                <xs:element minOccurs="0" name="IsBundleMaterial" type="q34:BundleMaterial" xmlns:q34="http://schemas.datacontract.org/2004/07/DMSSalesAppIntegrationService.Contact"/>
+                <xs:element xmlns:q34="http://schemas.datacontract.org/2004/07/DMSSalesAppIntegrationService.Contact" minOccurs="0" name="IsBundleMaterial"
+                            type="q34:BundleMaterial"/>
                 <xs:element minOccurs="0" name="MSISDN" nillable="true" type="xs:string"/>
                 <xs:element minOccurs="0" name="MaterialSerialNumber" nillable="true" type="xs:string"/>
-                <xs:element minOccurs="0" name="MaterialStatus" type="q35:ItemStatus" xmlns:q35="http://schemas.datacontract.org/2004/07/DMSSalesAppIntegrationService.Contact"/>
+                <xs:element xmlns:q35="http://schemas.datacontract.org/2004/07/DMSSalesAppIntegrationService.Contact" minOccurs="0" name="MaterialStatus"
+                            type="q35:ItemStatus"/>
                 <xs:element minOccurs="0" name="ProfileID" type="xs:int"/>
                 <xs:element minOccurs="0" name="RequestId" nillable="true" type="xs:string"/>
                 <xs:element minOccurs="0" name="SAPMaterialCode" nillable="true" type="xs:string"/>
@@ -356,7 +396,9 @@
         <xs:complexType>
             <xs:sequence>
                 <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string"/>
-                <xs:element minOccurs="0" name="Materialres" nillable="true" type="q36:SapMateriaItemlValidationResponse" xmlns:q36="http://schemas.datacontract.org/2004/07/DMSSalesAppIntegrationService"/>
+                <xs:element xmlns:q36="http://schemas.datacontract.org/2004/07/DMSSalesAppIntegrationService" minOccurs="0" name="Materialres"
+                            nillable="true"
+                            type="q36:SapMateriaItemlValidationResponse"/>
                 <xs:element minOccurs="0" name="RequestId" nillable="true" type="xs:string"/>
                 <xs:element minOccurs="0" name="Success" type="xs:boolean"/>
             </xs:sequence>
@@ -375,7 +417,8 @@
         <xs:complexType>
             <xs:sequence>
                 <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string"/>
-                <xs:element minOccurs="0" name="MaterialRes" nillable="true" type="q37:ArrayOfAgentMaterialRes" xmlns:q37="http://schemas.datacontract.org/2004/07/DMSSalesAppIntegrationService"/>
+                <xs:element xmlns:q37="http://schemas.datacontract.org/2004/07/DMSSalesAppIntegrationService" minOccurs="0" name="MaterialRes" nillable="true"
+                            type="q37:ArrayOfAgentMaterialRes"/>
                 <xs:element minOccurs="0" name="RequestId" nillable="true" type="xs:string"/>
                 <xs:element minOccurs="0" name="Success" type="xs:boolean"/>
             </xs:sequence>
@@ -385,7 +428,8 @@
         <xs:complexType>
             <xs:sequence>
                 <xs:element minOccurs="0" name="ItemSerial" nillable="true" type="xs:string"/>
-                <xs:element minOccurs="0" name="MaterialType" type="q38:MaterialType" xmlns:q38="http://schemas.datacontract.org/2004/07/DMSSalesAppIntegrationService.Contact"/>
+                <xs:element xmlns:q38="http://schemas.datacontract.org/2004/07/DMSSalesAppIntegrationService.Contact" minOccurs="0" name="MaterialType"
+                            type="q38:MaterialType"/>
                 <xs:element minOccurs="0" name="RequestId" nillable="true" type="xs:string"/>
             </xs:sequence>
         </xs:complexType>
@@ -398,12 +442,15 @@
                 <xs:element minOccurs="0" name="AgentName" nillable="true" type="xs:string"/>
                 <xs:element minOccurs="0" name="AgentType" nillable="true" type="xs:string"/>
                 <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string"/>
-                <xs:element minOccurs="0" name="IndividualItems" nillable="true" type="q39:ArrayOfIndividualItems" xmlns:q39="http://schemas.datacontract.org/2004/07/DMSSalesAppIntegrationService"/>
-                <xs:element minOccurs="0" name="Logistics" nillable="true" type="q40:Logistics" xmlns:q40="http://schemas.datacontract.org/2004/07/DMSSalesAppIntegrationService"/>
+                <xs:element xmlns:q39="http://schemas.datacontract.org/2004/07/DMSSalesAppIntegrationService" minOccurs="0" name="IndividualItems" nillable="true"
+                            type="q39:ArrayOfIndividualItems"/>
+                <xs:element xmlns:q40="http://schemas.datacontract.org/2004/07/DMSSalesAppIntegrationService" minOccurs="0" name="Logistics" nillable="true"
+                            type="q40:Logistics"/>
                 <xs:element minOccurs="0" name="MaterialAssignedDate" nillable="true" type="xs:dateTime"/>
                 <xs:element minOccurs="0" name="MaterialCurrentStatus" nillable="true" type="xs:string"/>
                 <xs:element minOccurs="0" name="MaterialName" nillable="true" type="xs:string"/>
-                <xs:element minOccurs="0" name="POInfo" nillable="true" type="q41:POInfo" xmlns:q41="http://schemas.datacontract.org/2004/07/DMSSalesAppIntegrationService"/>
+                <xs:element xmlns:q41="http://schemas.datacontract.org/2004/07/DMSSalesAppIntegrationService" minOccurs="0" name="POInfo" nillable="true"
+                            type="q41:POInfo"/>
                 <xs:element minOccurs="0" name="RequestId" nillable="true" type="xs:string"/>
                 <xs:element minOccurs="0" name="Success" type="xs:boolean"/>
             </xs:sequence>
@@ -413,10 +460,13 @@
         <xs:complexType>
             <xs:sequence>
                 <xs:element minOccurs="0" name="MSISDN" nillable="true" type="xs:string"/>
-                <xs:element minOccurs="0" name="NewItemInfo" nillable="true" type="q42:ArrayOfMaterialInfo" xmlns:q42="http://schemas.datacontract.org/2004/07/DMSSalesAppIntegrationService"/>
-                <xs:element minOccurs="0" name="OldItemInfo" nillable="true" type="q43:ArrayOfMaterialInfo" xmlns:q43="http://schemas.datacontract.org/2004/07/DMSSalesAppIntegrationService"/>
+                <xs:element xmlns:q42="http://schemas.datacontract.org/2004/07/DMSSalesAppIntegrationService" minOccurs="0" name="NewItemInfo" nillable="true"
+                            type="q42:ArrayOfMaterialInfo"/>
+                <xs:element xmlns:q43="http://schemas.datacontract.org/2004/07/DMSSalesAppIntegrationService" minOccurs="0" name="OldItemInfo" nillable="true"
+                            type="q43:ArrayOfMaterialInfo"/>
                 <xs:element minOccurs="0" name="OutletProfile" nillable="true" type="xs:string"/>
-                <xs:element minOccurs="0" name="UpdateType" type="q44:TransactionType" xmlns:q44="http://schemas.datacontract.org/2004/07/DMSSalesAppIntegrationService.Contact"/>
+                <xs:element xmlns:q44="http://schemas.datacontract.org/2004/07/DMSSalesAppIntegrationService.Contact" minOccurs="0" name="UpdateType"
+                            type="q44:TransactionType"/>
                 <xs:element minOccurs="0" name="WorkOrderID" nillable="true" type="xs:string"/>
             </xs:sequence>
         </xs:complexType>
@@ -426,7 +476,8 @@
             <xs:sequence>
                 <xs:element minOccurs="0" name="DMSTransactionID" type="xs:int"/>
                 <xs:element minOccurs="0" name="ResponseMessage" nillable="true" type="xs:string"/>
-                <xs:element minOccurs="0" name="ResponseStatus" type="q45:Status" xmlns:q45="http://schemas.datacontract.org/2004/07/DMSSalesAppIntegrationService.Contact"/>
+                <xs:element xmlns:q45="http://schemas.datacontract.org/2004/07/DMSSalesAppIntegrationService.Contact" minOccurs="0" name="ResponseStatus"
+                            type="q45:Status"/>
                 <xs:element minOccurs="0" name="WorkOrderID" nillable="true" type="xs:string"/>
             </xs:sequence>
         </xs:complexType>
@@ -436,7 +487,8 @@
             <xs:sequence>
                 <xs:element minOccurs="0" name="MSISDN" nillable="true" type="xs:string"/>
                 <xs:element minOccurs="0" name="MaterialSerialNumber" nillable="true" type="xs:string"/>
-                <xs:element minOccurs="0" name="MaterialStatus" type="q46:ItemStatus" xmlns:q46="http://schemas.datacontract.org/2004/07/DMSSalesAppIntegrationService.Contact"/>
+                <xs:element xmlns:q46="http://schemas.datacontract.org/2004/07/DMSSalesAppIntegrationService.Contact" minOccurs="0" name="MaterialStatus"
+                            type="q46:ItemStatus"/>
                 <xs:element minOccurs="0" name="ProfileID" type="xs:int"/>
                 <xs:element minOccurs="0" name="RequestId" nillable="true" type="xs:string"/>
             </xs:sequence>
@@ -446,7 +498,8 @@
         <xs:complexType>
             <xs:sequence>
                 <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string"/>
-                <xs:element minOccurs="0" name="Materialres" nillable="true" type="q47:SapMaterialValidationResponse" xmlns:q47="http://schemas.datacontract.org/2004/07/DMSSalesAppIntegrationService"/>
+                <xs:element xmlns:q47="http://schemas.datacontract.org/2004/07/DMSSalesAppIntegrationService" minOccurs="0" name="Materialres" nillable="true"
+                            type="q47:SapMaterialValidationResponse"/>
                 <xs:element minOccurs="0" name="RequestId" nillable="true" type="xs:string"/>
                 <xs:element minOccurs="0" name="Success" type="xs:boolean"/>
             </xs:sequence>
@@ -457,7 +510,8 @@
             <xs:sequence>
                 <xs:element minOccurs="0" name="MSISDN" nillable="true" type="xs:string"/>
                 <xs:element minOccurs="0" name="MaterialSerialNumber" nillable="true" type="xs:string"/>
-                <xs:element minOccurs="0" name="MaterialStatus" type="q48:ItemStatus" xmlns:q48="http://schemas.datacontract.org/2004/07/DMSSalesAppIntegrationService.Contact"/>
+                <xs:element xmlns:q48="http://schemas.datacontract.org/2004/07/DMSSalesAppIntegrationService.Contact" minOccurs="0" name="MaterialStatus"
+                            type="q48:ItemStatus"/>
                 <xs:element minOccurs="0" name="ProfileID" type="xs:int"/>
                 <xs:element minOccurs="0" name="RequestId" nillable="true" type="xs:string"/>
                 <xs:element minOccurs="0" name="SAPMaterialCode" nillable="true" type="xs:string"/>
@@ -468,7 +522,8 @@
         <xs:complexType>
             <xs:sequence>
                 <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string"/>
-                <xs:element minOccurs="0" name="Materialres" nillable="true" type="q49:SapMaterialValidationResponse" xmlns:q49="http://schemas.datacontract.org/2004/07/DMSSalesAppIntegrationService"/>
+                <xs:element xmlns:q49="http://schemas.datacontract.org/2004/07/DMSSalesAppIntegrationService" minOccurs="0" name="Materialres" nillable="true"
+                            type="q49:SapMaterialValidationResponse"/>
                 <xs:element minOccurs="0" name="RequestId" nillable="true" type="xs:string"/>
                 <xs:element minOccurs="0" name="Success" type="xs:boolean"/>
             </xs:sequence>
@@ -489,7 +544,8 @@
                 <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string"/>
                 <xs:element minOccurs="0" name="ErrorCode" type="xs:int"/>
                 <xs:element minOccurs="0" name="RequestId" nillable="true" type="xs:string"/>
-                <xs:element minOccurs="0" name="SerialDetails" nillable="true" type="q50:ArrayOfSerialDetails" xmlns:q50="http://schemas.datacontract.org/2004/07/Dialog.Dms.SalesBusinessObject"/>
+                <xs:element xmlns:q50="http://schemas.datacontract.org/2004/07/Dialog.Dms.SalesBusinessObject" minOccurs="0" name="SerialDetails" nillable="true"
+                            type="q50:ArrayOfSerialDetails"/>
                 <xs:element minOccurs="0" name="Success" type="xs:boolean"/>
             </xs:sequence>
         </xs:complexType>
@@ -514,7 +570,8 @@
             <xs:sequence>
                 <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string"/>
                 <xs:element minOccurs="0" name="ErrorCode" type="xs:int"/>
-                <xs:element minOccurs="0" name="InventoryList" nillable="true" type="q51:ArrayOfAgentInventoryDtl" xmlns:q51="http://schemas.datacontract.org/2004/07/Dialog.Dms.SalesBusinessObject"/>
+                <xs:element xmlns:q51="http://schemas.datacontract.org/2004/07/Dialog.Dms.SalesBusinessObject" minOccurs="0" name="InventoryList" nillable="true"
+                            type="q51:ArrayOfAgentInventoryDtl"/>
                 <xs:element minOccurs="0" name="RequestId" nillable="true" type="xs:string"/>
                 <xs:element minOccurs="0" name="Success" type="xs:boolean"/>
                 <xs:element minOccurs="0" name="TotalPages" type="xs:int"/>
@@ -524,7 +581,8 @@
     <xs:element name="InvalidSerialRequest">
         <xs:complexType>
             <xs:sequence>
-                <xs:element minOccurs="0" name="ItemDetails" nillable="true" type="q52:ArrayOfItemDetails" xmlns:q52="http://schemas.datacontract.org/2004/07/DmsService.Inventory"/>
+                <xs:element xmlns:q52="http://schemas.datacontract.org/2004/07/DmsService.Inventory" minOccurs="0" name="ItemDetails" nillable="true"
+                            type="q52:ArrayOfItemDetails"/>
                 <xs:element minOccurs="0" name="RequestClient" nillable="true" type="xs:string"/>
                 <xs:element minOccurs="0" name="RequestId" nillable="true" type="xs:string"/>
                 <xs:element minOccurs="0" name="StoId" type="xs:int"/>

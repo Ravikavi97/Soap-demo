@@ -1,50 +1,50 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
                   xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
-                  xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="Update_PO_Return_StatusService"
-                  xmlns:tns="http://dms.purchaseorder.return.updatestatus.sap/"
+                  xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://dms.purchaseorder.return.updatestatus.sap/"
+                  name="Update_PO_Return_StatusService"
                   targetNamespace="http://dms.purchaseorder.return.updatestatus.sap/">
 
-  <wsdl:types>
-    <xsd:schema targetNamespace="http://dms.purchaseorder.return.updatestatus.sap/">
-      <xsd:import schemaLocation="../xsd/UpdatePoReturnStatus.xsd"
-                  namespace="http://dms.purchaseorder.return.updatestatus.sap/"/>
-      <xsd:import schemaLocation="../schema/DMSService1.xsd"
-                  namespace="http://schemas.microsoft.com/2003/10/Serialization/"/>
-    </xsd:schema>
-  </wsdl:types>
+    <wsdl:types>
+        <xsd:schema targetNamespace="http://dms.purchaseorder.return.updatestatus.sap/">
+            <xsd:import schemaLocation="../xsd/UpdatePoReturnStatus.xsd"
+                        namespace="http://dms.purchaseorder.return.updatestatus.sap/"/>
+            <xsd:import schemaLocation="../schema/DMSService1.xsd"
+                        namespace="http://schemas.microsoft.com/2003/10/Serialization/"/>
+        </xsd:schema>
+    </wsdl:types>
 
-  <wsdl:message name="UpdatePoReturnStatusResponse">
-    <wsdl:part element="tns:UpdatePoReturnStatusResponse" name="UpdatePoReturnStatusResponse">
-    </wsdl:part>
-  </wsdl:message>
-  <wsdl:message name="UpdatePoReturnStatusRequest">
-    <wsdl:part element="tns:UpdatePoReturnStatusRequest" name="UpdatePoReturnStatusRequest">
-    </wsdl:part>
-  </wsdl:message>
-  <wsdl:portType name="Update_PO_Return_Status">
-    <wsdl:operation name="UpdatePoReturnStatus">
-      <wsdl:input message="tns:UpdatePoReturnStatusRequest" name="UpdatePoReturnStatusRequest">
-    </wsdl:input>
-      <wsdl:output message="tns:UpdatePoReturnStatusResponse" name="UpdatePoReturnStatusResponse">
-    </wsdl:output>
-    </wsdl:operation>
-  </wsdl:portType>
-  <wsdl:binding name="Update_PO_Return_StatusSoap11" type="tns:Update_PO_Return_Status">
-    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
-    <wsdl:operation name="UpdatePoReturnStatus">
-      <soap:operation soapAction=""/>
-      <wsdl:input name="UpdatePoReturnStatusRequest">
-        <soap:body use="literal"/>
-      </wsdl:input>
-      <wsdl:output name="UpdatePoReturnStatusResponse">
-        <soap:body use="literal"/>
-      </wsdl:output>
-    </wsdl:operation>
-  </wsdl:binding>
-  <wsdl:service name="Update_PO_Return_StatusService">
-    <wsdl:port binding="tns:Update_PO_Return_StatusSoap11" name="Update_PO_Return_StatusSoap11">
-      <soap:address location="http://localhost:8787/soap"/>
-    </wsdl:port>
-  </wsdl:service>
+    <wsdl:message name="UpdatePoReturnStatusResponse">
+        <wsdl:part element="tns:UpdatePoReturnStatusResponse" name="UpdatePoReturnStatusResponse">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="UpdatePoReturnStatusRequest">
+        <wsdl:part element="tns:UpdatePoReturnStatusRequest" name="UpdatePoReturnStatusRequest">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:portType name="Update_PO_Return_Status">
+        <wsdl:operation name="UpdatePoReturnStatus">
+            <wsdl:input message="tns:UpdatePoReturnStatusRequest" name="UpdatePoReturnStatusRequest">
+            </wsdl:input>
+            <wsdl:output message="tns:UpdatePoReturnStatusResponse" name="UpdatePoReturnStatusResponse">
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="Update_PO_Return_StatusSoap11" type="tns:Update_PO_Return_Status">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="UpdatePoReturnStatus">
+            <soap:operation soapAction=""/>
+            <wsdl:input name="UpdatePoReturnStatusRequest">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="UpdatePoReturnStatusResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="Update_PO_Return_StatusService">
+        <wsdl:port binding="tns:Update_PO_Return_StatusSoap11" name="Update_PO_Return_StatusSoap11">
+            <soap:address location="http://localhost:8787/soap"/>
+        </wsdl:port>
+    </wsdl:service>
 </wsdl:definitions>

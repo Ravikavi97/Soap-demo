@@ -1,7 +1,7 @@
-<xs:schema elementFormDefault="qualified" 
-           targetNamespace="http://schemas.datacontract.org/2004/07/Dialog.Dms.SalesBusinessObject" 
-           xmlns:xs="http://www.w3.org/2001/XMLSchema" 
-           xmlns:tns="http://schemas.datacontract.org/2004/07/Dialog.Dms.SalesBusinessObject">
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:tns="http://schemas.datacontract.org/2004/07/Dialog.Dms.SalesBusinessObject"
+           elementFormDefault="qualified"
+           targetNamespace="http://schemas.datacontract.org/2004/07/Dialog.Dms.SalesBusinessObject">
     <xs:simpleType name="ApprovalEntryStatus">
         <xs:restriction base="xs:string">
             <xs:enumeration value="Pending"/>
@@ -13,7 +13,8 @@
     <xs:element name="ApprovalEntryStatus" nillable="true" type="tns:ApprovalEntryStatus"/>
     <xs:complexType name="ArrayOfSerialDetails">
         <xs:sequence>
-            <xs:element minOccurs="0" maxOccurs="unbounded" name="SerialDetails" nillable="true" type="tns:SerialDetails"/>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="SerialDetails" nillable="true"
+                        type="tns:SerialDetails"/>
         </xs:sequence>
     </xs:complexType>
     <xs:element name="ArrayOfSerialDetails" nillable="true" type="tns:ArrayOfSerialDetails"/>
@@ -28,7 +29,8 @@
     <xs:element name="SerialDetails" nillable="true" type="tns:SerialDetails"/>
     <xs:complexType name="ArrayOfAgentInventoryDtl">
         <xs:sequence>
-            <xs:element minOccurs="0" maxOccurs="unbounded" name="AgentInventoryDtl" nillable="true" type="tns:AgentInventoryDtl"/>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="AgentInventoryDtl" nillable="true"
+                        type="tns:AgentInventoryDtl"/>
         </xs:sequence>
     </xs:complexType>
     <xs:element name="ArrayOfAgentInventoryDtl" nillable="true" type="tns:ArrayOfAgentInventoryDtl"/>
