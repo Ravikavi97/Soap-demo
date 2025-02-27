@@ -18,6 +18,12 @@ configurations {
         extendsFrom annotationProcessor
     }
     provided
+    // ✅ Define a custom resolvable configuration for XJC dependencies
+    xjc {
+        canBeResolved = true
+        canBeConsumed = false
+        extendsFrom implementation
+    }
 }
 
 repositories {
@@ -47,15 +53,19 @@ dependencyManagement {
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web-services'
     implementation 'org.springframework.ws:spring-ws-core:4.0.3'
-    implementation 'org.springframework:spring-webflux:6.0.11'
+    implementation 'org.springframework:spring-webflux:6.1.14'
     implementation 'com.fasterxml.jackson.dataformat:jackson-dataformat-xml:2.15.3'
 
-    // XJC and WSDL dependencies
-    provided 'com.sun.xml.bind:jaxb-impl'
-    provided 'com.sun.xml.bind:jaxb-xjc'
-    provided 'wsdl4j:wsdl4j'
+    // XJC and WSDL dependencies (FIXED)
+//    implementation 'com.sun.xml.bind:jaxb-impl'
+//    implementation 'com.sun.xml.bind:jaxb-xjc'
+
+    // ✅ Assign XJC dependencies to the `xjc` configuration
+    xjc 'com.sun.xml.bind:jaxb-impl'
+    xjc 'com.sun.xml.bind:jaxb-xjc'
 
     // Jakarta EE stack
+    implementation 'wsdl4j:wsdl4j:1.6.2'
     implementation 'jakarta.xml.bind:jakarta.xml.bind-api:4.0.0'
     implementation 'org.glassfish.jaxb:jaxb-runtime:4.0.3'
     implementation 'jakarta.xml.ws:jakarta.xml.ws-api:4.0.1'
@@ -70,15 +80,16 @@ dependencies {
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 }
 
+
 def generatedSrcDir = file("${buildDir}/generated-sources")
 
 task jaxb {
     doLast {
         generatedSrcDir.mkdirs()
         ant.taskdef(
-            name: 'xjc',
-            classname: 'com.sun.tools.xjc.XJCTask',
-            classpath: configurations.provided.asPath
+                name: 'xjc',
+                classname: 'com.sun.tools.xjc.XJCTask',
+                classpath: configurations.xjc.asPath // ✅ Use `xjc` configuration instead
         )
 
         ant.xjc(destdir: generatedSrcDir) {
@@ -91,6 +102,7 @@ task jaxb {
         }
     }
 }
+
 
 task generateSources {
     dependsOn jaxb
